@@ -33,17 +33,13 @@ build:ubuntu:
         libcjson-dev
         git
     
-    # Note: DOCA SDK installation requires NVIDIA DPU hardware and specific setup
-    # This pipeline assumes DOCA SDK is pre-installed on the runner or needs to be set up
-    # For actual DOCA development, you would need:
-    # 1. A runner with NVIDIA BlueField DPU
-    # 2. DOCA SDK installed (from NVIDIA NGC or official repositories)
-    # 
-    # Example installation steps (commented out - requires proper NVIDIA credentials and setup):
-    # - wget https://linux.mellanox.com/public/repo/doca/<version>/ubuntu22.04/x86_64/doca-repo.deb
-    # - dpkg -i doca-repo.deb
-    # - apt-get update
-    # - apt-get install -y doca-all doca-tools
+    # Install DOCA SDK from apt repository
+    # Note: This requires the NVIDIA DOCA repository to be accessible
+    # For actual DOCA development, you would need a runner with NVIDIA BlueField DPU
+    - wget https://linux.mellanox.com/public/repo/doca/2.9.1/ubuntu22.04/x86_64/doca-repo.deb
+    - dpkg -i doca-repo.deb
+    - apt-get update
+    - apt-get install -y doca-all doca-tools
     
     # Display environment information
     - echo "Build environment:"
@@ -52,14 +48,14 @@ build:ubuntu:
     - gcc --version
     
   script:
-    # Check if DOCA is available
+    # Verify DOCA installation
     - |
       if [ -d "$DOCA_PATH" ]; then
-        echo "DOCA SDK found at $DOCA_PATH"
+        echo "DOCA SDK successfully installed at $DOCA_PATH"
       else
-        echo "WARNING: DOCA SDK not found at $DOCA_PATH"
-        echo "This build requires DOCA SDK to be installed on the runner."
-        echo "Please ensure the GitLab runner has DOCA SDK installed."
+        echo "WARNING: DOCA SDK not found at $DOCA_PATH after installation"
+        echo "Installation may have failed. Checking package status..."
+        dpkg -l | grep doca || true
         exit 1
       fi
     
@@ -82,9 +78,8 @@ build:ubuntu:
     when: on_success
   
   tags:
-    # This job requires a runner with DOCA SDK installed
+    # This job installs DOCA SDK from apt repository during build
     # Adjust the tag based on your GitLab runner configuration
-    - doca
     - ubuntu
   
   rules:
@@ -104,5 +99,4 @@ build:ubuntu:
 #   script:
 #     - ./builddir/xeno_flow --help
 #   tags:
-#     - doca
 #     - ubuntu

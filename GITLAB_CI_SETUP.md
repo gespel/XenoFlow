@@ -16,20 +16,27 @@ The `.gitlab-ci.yml` configuration file defines a CI/CD pipeline that:
 
 The GitLab runner executing this pipeline must have:
 
-1. **NVIDIA BlueField DPU Hardware**: DOCA SDK requires NVIDIA Data Processing Unit hardware
-2. **DOCA SDK Installed**: The DOCA libraries and headers must be available at `/opt/mellanox/doca`
-3. **Ubuntu 22.04**: The pipeline is configured for Ubuntu 22.04 (can be adjusted for other versions)
+1. **Ubuntu 22.04**: The pipeline is configured for Ubuntu 22.04 (can be adjusted for other versions)
+2. **Internet Access**: Required to download the DOCA repository package and install DOCA SDK
+3. **NVIDIA BlueField DPU Hardware** (for runtime): DOCA SDK requires NVIDIA Data Processing Unit hardware for actual execution
 
-### Installing DOCA SDK on the Runner
+### DOCA SDK Installation
 
-To set up a GitLab runner with DOCA SDK:
+The pipeline now automatically installs DOCA SDK from the apt repository during the build process. No manual DOCA installation is required on the runner.
+
+The pipeline performs the following steps to install DOCA:
+1. Downloads the DOCA repository package from NVIDIA's repository
+2. Configures the apt repository
+3. Installs `doca-all` and `doca-tools` packages
+
+If you need to manually install DOCA SDK on a runner for other purposes:
 
 1. **Install Ubuntu 22.04** on a system with NVIDIA BlueField DPU
 
 2. **Add NVIDIA DOCA Repository**:
    ```bash
-   # Download the DOCA repository package (adjust version as needed)
-   wget https://linux.mellanox.com/public/repo/doca/<version>/ubuntu22.04/x86_64/doca-repo.deb
+   # Download the DOCA repository package
+   wget https://linux.mellanox.com/public/repo/doca/2.9.1/ubuntu22.04/x86_64/doca-repo.deb
    sudo dpkg -i doca-repo.deb
    sudo apt-get update
    ```
@@ -48,7 +55,7 @@ To set up a GitLab runner with DOCA SDK:
 5. **Register the Runner** with appropriate tags:
    ```bash
    sudo gitlab-runner register
-   # When prompted for tags, include: doca,ubuntu
+   # When prompted for tags, include: ubuntu
    ```
 
 ## Pipeline Configuration
@@ -79,9 +86,10 @@ The build job performs the following steps:
 
 ### Runner Tags
 
-The pipeline uses the following tags to select appropriate runners:
-- `doca`: Indicates the runner has DOCA SDK installed
+The pipeline uses the following tag to select appropriate runners:
 - `ubuntu`: Indicates the runner uses Ubuntu OS
+
+Note: The `doca` tag is no longer required since DOCA SDK is installed automatically during the pipeline execution.
 
 ## Using the Pipeline
 
@@ -144,29 +152,29 @@ To change Meson build options, modify the setup command:
 
 ### DOCA SDK Not Found
 
-**Error**: `WARNING: DOCA SDK not found at /opt/mellanox/doca`
+**Error**: `WARNING: DOCA SDK not found at /opt/mellanox/doca after installation`
 
-**Solution**: Ensure DOCA SDK is installed on the GitLab runner. Verify by checking:
-```bash
-ls -la /opt/mellanox/doca
-pkg-config --list-all | grep doca
-```
+**Solution**: This indicates that the DOCA installation from the apt repository failed. Check:
+- The DOCA repository URL is accessible
+- Network connectivity from the runner
+- The apt installation logs for specific errors
+- Whether the DOCA version (2.9.1) is available for your Ubuntu version
 
 ### Missing Dependencies
 
 **Error**: `dependency 'doca-flow' not found`
 
-**Solution**: Install the complete DOCA SDK package:
-```bash
-sudo apt-get install doca-all doca-tools
-```
+**Solution**: This indicates the DOCA SDK installation failed. The pipeline automatically installs DOCA from the apt repository. Check:
+- Internet connectivity from the runner
+- Whether the DOCA repository is accessible
+- Build logs for apt installation errors
 
 ### Runner Not Picking Up Job
 
 **Issue**: Pipeline stays in "pending" state
 
 **Solution**: 
-- Verify runner tags match the job requirements (`doca`, `ubuntu`)
+- Verify runner tags match the job requirements (`ubuntu`)
 - Check runner status in Settings → CI/CD → Runners
 - Ensure the runner is not paused
 
