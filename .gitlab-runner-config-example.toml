@@ -1,0 +1,41 @@
+# Example GitLab Runner Configuration for XenoFlow
+# This is a sample configuration file showing how to configure a GitLab runner
+# for building XenoFlow with DOCA SDK support.
+#
+# Location: /etc/gitlab-runner/config.toml (on the runner host)
+#
+# IMPORTANT: This is an EXAMPLE ONLY. Adjust values for your environment.
+# DO NOT commit this file with actual credentials or tokens.
+
+concurrent = 1
+check_interval = 0
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "doca-ubuntu-runner"
+  url = "https://gitlab.com/"  # Replace with your GitLab instance URL
+  token = "YOUR_RUNNER_TOKEN_HERE"  # Replace with actual runner token
+  executor = "shell"  # or "docker" if using Docker executor
+  
+  # Tags that match the pipeline requirements
+  [runners.custom_build_dir]
+  [runners.cache]
+    [runners.cache.s3]
+    [runners.cache.gcs]
+    [runners.cache.azure]
+  
+  # Environment variables available to all jobs
+  environment = [
+    "DOCA_PATH=/opt/mellanox/doca",
+    "PKG_CONFIG_PATH=/opt/mellanox/doca/lib/pkgconfig:$PKG_CONFIG_PATH"
+  ]
+
+# Notes:
+# 1. Ensure DOCA SDK is installed at /opt/mellanox/doca on the runner host
+# 2. The runner must have shell access to the system with DOCA installed
+# 3. Install required build tools: meson, ninja, gcc, pkg-config, libcjson-dev
+# 4. The runner user should have permissions to access DOCA libraries
+# 5. For shell executor, the runner runs commands directly on the host
+# 6. For Docker executor, you would need a custom image with DOCA SDK pre-installed
