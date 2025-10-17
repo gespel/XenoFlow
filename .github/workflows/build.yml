@@ -1,0 +1,102 @@
+#
+# Copyright (c) 2023-2024 NVIDIA CORPORATION AND AFFILIATES.  All rights reserved.
+#
+# GitHub Actions workflow for building XenoFlow with DOCA Flow on Ubuntu
+#
+
+name: Build XenoFlow with DOCA
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "*" ]
+  workflow_dispatch:
+
+env:
+  BUILD_DIR: "builddir"
+  DOCA_PATH: "/opt/mellanox/doca"
+  DOCA_VERSION: "2.9.1"
+  DOCA_OS_VERSION: "ubuntu22.04"
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Install basic build tools
+      run: |
+        sudo apt-get update -y
+        sudo apt-get install -y wget gnupg software-properties-common ca-certificates
+        
+    - name: Install build dependencies
+      run: |
+        sudo apt-get install -y \
+          build-essential \
+          pkg-config \
+          python3 \
+          python3-pip \
+          ninja-build \
+          meson \
+          libcjson-dev \
+          git
+    
+    - name: Add NVIDIA DOCA repository
+      run: |
+        # Download and install DOCA repository package
+        wget -q https://linux.mellanox.com/public/repo/doca/${DOCA_VERSION}/${DOCA_OS_VERSION}/x86_64/doca-repo.deb
+        sudo dpkg -i doca-repo.deb || true
+        sudo apt-get update
+    
+    - name: Install DOCA packages
+      run: |
+        # Install DOCA SDK packages
+        sudo apt-get install -y doca-all doca-tools || echo "DOCA installation completed with warnings"
+    
+    - name: Display environment information
+      run: |
+        echo "Build environment:"
+        meson --version
+        python3 --version
+        gcc --version
+        echo ""
+        echo "DOCA installation check:"
+        if [ -d "$DOCA_PATH" ]; then
+          echo "DOCA SDK found at $DOCA_PATH"
+          ls -la $DOCA_PATH/ || true
+        else
+          echo "WARNING: DOCA SDK directory not found at $DOCA_PATH"
+        fi
+        echo ""
+        echo "DOCA packages installed:"
+        pkg-config --list-all | grep doca || echo "No DOCA packages found via pkg-config"
+    
+    - name: Configure build with Meson
+      run: |
+        if [ ! -d "$DOCA_PATH" ]; then
+          echo "ERROR: DOCA SDK not found at $DOCA_PATH"
+          echo "Build cannot proceed without DOCA SDK."
+          exit 1
+        fi
+        meson setup $BUILD_DIR
+    
+    - name: Compile project
+      run: |
+        meson compile -C $BUILD_DIR
+    
+    - name: Display build results
+      run: |
+        ls -lh $BUILD_DIR/
+        echo "Build completed successfully!"
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: xeno_flow-${{ github.ref_name }}-${{ github.sha }}
+        path: |
+          builddir/xeno_flow
+          builddir/compile_commands.json
+        retention-days: 7
