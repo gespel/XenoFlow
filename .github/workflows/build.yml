@@ -1,0 +1,96 @@
+#
+# Copyright (c) 2023-2024 NVIDIA CORPORATION AND AFFILIATES.  All rights reserved.
+#
+# GitHub Actions workflow for building XenoFlow with DOCA Flow on Ubuntu
+#
+
+name: Build XenoFlow
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+  workflow_dispatch:
+
+env:
+  # Meson build directory
+  BUILD_DIR: builddir
+  # DOCA installation path
+  DOCA_PATH: /opt/mellanox/doca
+
+jobs:
+  build-ubuntu:
+    runs-on: ubuntu-22.04
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Install build dependencies
+      run: |
+        sudo apt-get update -y
+        sudo apt-get install -y \
+          build-essential \
+          pkg-config \
+          python3 \
+          python3-pip \
+          ninja-build \
+          meson \
+          libcjson-dev \
+          git
+    
+    - name: Display environment information
+      run: |
+        echo "Build environment:"
+        meson --version
+        python3 --version
+        gcc --version
+    
+    - name: Check DOCA SDK availability
+      run: |
+        if [ -d "$DOCA_PATH" ]; then
+          echo "DOCA SDK found at $DOCA_PATH"
+        else
+          echo "WARNING: DOCA SDK not found at $DOCA_PATH"
+          echo "This build requires DOCA SDK to be installed on the runner."
+          echo "Please ensure the GitHub runner has DOCA SDK installed."
+          exit 1
+        fi
+    
+    - name: Configure build with Meson
+      run: meson setup $BUILD_DIR
+    
+    - name: Compile project
+      run: meson compile -C $BUILD_DIR
+    
+    - name: Display build results
+      run: |
+        ls -lh $BUILD_DIR/
+        echo "Build completed successfully!"
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: xeno_flow-${{ github.ref_name }}-${{ github.sha }}
+        path: |
+          builddir/xeno_flow
+          builddir/compile_commands.json
+        retention-days: 7
+
+# Optional: Add a test job if you have tests
+# test-ubuntu:
+#   runs-on: ubuntu-22.04
+#   needs: build-ubuntu
+#   
+#   steps:
+#   - name: Download build artifacts
+#     uses: actions/download-artifact@v4
+#     with:
+#       name: xeno_flow-${{ github.ref_name }}-${{ github.sha }}
+#   
+#   - name: Run tests
+#     run: |
+#       chmod +x xeno_flow
+#       ./xeno_flow --help
