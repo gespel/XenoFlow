@@ -325,12 +325,16 @@ struct doca_dev *open_doca_dev_by_pci(const char *pci_bdf)
 
     for (uint32_t i = 0; i < nb; i++) {
         char pci[DOCA_DEVINFO_PCI_ADDR_SIZE] = {0};
+		uint8_t ipv4[4];
 
         if (doca_devinfo_get_pci_addr_str(list[i], pci) != DOCA_SUCCESS)
             continue;
 
         if (strcmp(pci, pci_bdf) == 0) {
-            err = doca_dev_open(list[i], &dev);
+			doca_devinfo_get_ipv4_addr(list[i], ipv4, DOCA_DEVINFO_IPV4_ADDR_SIZE);
+			char ipout[100]; 
+			DOCA_LOG_INFO("IPv4: %u.%u.%u.%u", ipv4[0], ipv4[1], ipv4[2], ipv4[3]);
+			err = doca_dev_open(list[i], &dev);
             break;
         }
     }
@@ -372,18 +376,23 @@ doca_error_t xeno_flow(int nb_queues)
 	struct doca_dev *dev2 = open_doca_dev_by_pci("0000:0d:00.1");
 
 	if (!dev1 || !dev2) {
-		printf("Device not found\n");
+		DOCA_LOG_INFO("Device not found");
 		return;
 	}
 	else {
-		printf("Devices found!\n");
+		DOCA_LOG_INFO("Devices found!");
 	}
 	dev_arr[0] = dev1;
 	dev_arr[1] = dev2;
-	// Dann init_doca_flow_ports aufrufen
-	result = init_doca_flow_ports(nb_ports, ports, true, dev_arr, action_mem);
-    DOCA_LOG_INFO("DOCA ports initialized successfully");
-	exit(-1);
+
+	
+	ARRAY_INIT(action_mem, ACTIONS_MEM_SIZE(2));
+	result = init_doca_flow_vnf_ports(nb_ports, ports, action_mem);
+	if(result != DOCA_SUCCESS) {
+		DOCA_LOG_INFO("DOCA ports error");
+	}
+    
+	
 	//doca_try(init_doca_flow(nb_queues, "vnf,hws", &resource, nr_shared_resources), "Failed to init DOCA Flow", nb_ports, ports);
 
 	//memset(dev_arr, 0, sizeof(struct doca_dev *) * 1);
