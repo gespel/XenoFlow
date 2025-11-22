@@ -387,7 +387,7 @@ doca_error_t xeno_flow(int nb_queues)
 
 	
 	ARRAY_INIT(action_mem, ACTIONS_MEM_SIZE(2));
-	result = init_doca_flow_vnf_ports(nb_ports, ports, action_mem);
+	//result = init_doca_flow_vnf_ports(nb_ports, ports, action_mem);
 	if(result != DOCA_SUCCESS) {
 		DOCA_LOG_INFO("DOCA ports error");
 	}
@@ -400,7 +400,7 @@ doca_error_t xeno_flow(int nb_queues)
 	//ARRAY_INIT(actions_mem_size, ACTIONS_MEM_SIZE(num_of_entries));
 	
 
-	//doca_try(init_doca_flow_ports(2, ports, true, dev_arr, action_mem), "Failed to init DOCA ports", nb_ports, ports);
+	doca_try(init_doca_flow_ports(2, ports, true, dev_arr, action_mem), "Failed to init DOCA ports", nb_ports, ports);
 	//doca_try(init_doca_flow_vnf_ports(2, ports, action_mem), "Failed to init DOCA ports", nb_ports, ports);
 	/*memset(&status, 0, sizeof(status));
 
