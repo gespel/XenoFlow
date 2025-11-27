@@ -1,5 +1,6 @@
 #include <string.h>
 #include <unistd.h>
+#include <time.h>
 #include <sys/time.h> 
 
 #include <rte_byteorder.h>
@@ -54,7 +55,7 @@ static doca_error_t create_egress_pipe(struct doca_flow_port *port,
 	memset(&actions2, 0, sizeof(actions2));
 	memset(&fwd, 0, sizeof(fwd));
 	memset(&fwd_miss, 0, sizeof(fwd_miss));
-
+#include <time.h>
 	/* 5 tuple match */
   	match.outer.l3_type = DOCA_FLOW_L3_TYPE_IP4;
 	match.outer.ip4.src_ip = BE_IPV4_ADDR(255, 255, 255, 255);
@@ -170,56 +171,33 @@ destroy_pipe_cfg:
 	return result;
 }
 
-static doca_error_t add_shared_counter_pipe_entry(struct doca_flow_pipe *pipe,
+static doca_error_t init_mac_change_entry(struct doca_flow_pipe *pipe,
 						  enum doca_flow_l4_type_ext out_l4_type,
 						  uint32_t shared_counter_id,
-						  struct entries_status *status)
+						  struct entries_status *status,
+						  struct doca_flow_match *match,
+						  struct doca_flow_actions *actions,
+						  struct doca_flow_monitor *monitor,
+						  struct doca_flow_pipe_entry *entry)
 {
-	struct doca_flow_match match;
-	struct doca_flow_actions actions;
-	struct doca_flow_monitor monitor;
-	struct doca_flow_pipe_entry *entry_mac;
-	struct doca_flow_fwd fwd;
 
 	doca_error_t result;
 
-	memset(&match, 0, sizeof(match));
-	memset(&actions, 0, sizeof(actions));
-	memset(&monitor, 0, sizeof(monitor));
-	memset(&fwd, 0, sizeof(fwd));
 
-	monitor.shared_counter.shared_counter_id = shared_counter_id;
+	monitor->shared_counter.shared_counter_id = shared_counter_id;
 
-	match.outer.ip4.src_ip = BE_IPV4_ADDR(0, 0, 0, 1);	
+	match->outer.ip4.src_ip = BE_IPV4_ADDR(0, 0, 0, 1);	
 
-	actions.action_idx = 0;
+	actions->action_idx = 0;
 
-	SET_MAC_ADDR(actions.outer.eth.dst_mac, 0xe8, 0xeb, 0xd3, 0x9c, 0x71, 0xac);
-	SET_MAC_ADDR(actions.outer.eth.src_mac, 0xc4, 0x70, 0xbd, 0xa0, 0x56, 0xbd);
+	SET_MAC_ADDR(actions->outer.eth.dst_mac, 0xe8, 0xeb, 0xd3, 0x9c, 0x71, 0xac);
+	SET_MAC_ADDR(actions->outer.eth.src_mac, 0xc4, 0x70, 0xbd, 0xa0, 0x56, 0xbd);
 
-	result = doca_flow_pipe_add_entry(0, pipe, &match, &actions, &monitor, NULL, 0, status, &entry_mac);
+	/*result = doca_flow_pipe_add_entry(0, pipe, &match, &actions, &monitor, NULL, 0, status, &entry_mac);
 	if (result != DOCA_SUCCESS) {
 		DOCA_LOG_ERR("Failed to add entry: %s", doca_error_get_descr(result));
 		return result;
-	}
-
-	memset(&match, 0, sizeof(match));
-	memset(&actions, 0, sizeof(actions));
-	memset(&monitor, 0, sizeof(monitor));
-	memset(&fwd, 0, sizeof(fwd));
-
-	match.outer.ip4.src_ip = BE_IPV4_ADDR(0, 0, 0, 0);
-
-	actions.action_idx = 0;
-
-	SET_MAC_ADDR(actions.outer.eth.dst_mac, 0xa0, 0x88, 0xc2, 0xb5, 0xf4, 0x5a);	
-	SET_MAC_ADDR(actions.outer.eth.src_mac, 0xc4, 0x70, 0xbd, 0xa0, 0x56, 0xbd);
-
-	result = doca_flow_pipe_add_entry(0, pipe, &match, &actions, &monitor, DOCA_FLOW_NO_WAIT, 0, status, &entry_mac);
-	if (result != DOCA_SUCCESS) {
-		DOCA_LOG_ERR("Failed to add entry 2: %s", doca_error_get_descr(result));
-		return result;
-	}
+	}*/
 	return DOCA_SUCCESS;
 }
 
@@ -345,7 +323,7 @@ struct doca_dev *open_doca_dev_by_pci(const char *pci_bdf)
 
 doca_error_t xeno_flow(int nb_queues)
 {
-	int nb_ports = 2;
+	int nb_ports = 1;
 	struct flow_resources resource = {1};
 	uint32_t nr_shared_resources[SHARED_RESOURCE_NUM_VALUES] = {0};
 	struct doca_flow_port *ports[2];
@@ -354,14 +332,13 @@ doca_error_t xeno_flow(int nb_queues)
 	int port_id = 0;
 	uint32_t shared_counter_ids[] = {0, 1};
 	struct doca_flow_resource_query query_results_array[nb_ports];
-	//struct doca_flow_shared_resource_cfg cfg = {.domain = DOCA_FLOW_PIPE_DOMAIN_DEFAULT};
-	struct doca_flow_shared_resource_cfg cfg = {};
+	struct doca_flow_shared_resource_cfg cfg = {.domain = DOCA_FLOW_PIPE_DOMAIN_DEFAULT};
 	struct entries_status status;
 	int num_of_entries = 4;
   	doca_error_t result;
 	uint32_t action_mem[2];
 	uint32_t actions_mem_size[nb_ports];
-	ARRAY_INIT(action_mem, ACTIONS_MEM_SIZE(4));
+	//ARRAY_INIT(action_mem, ACTIONS_MEM_SIZE(4));
 
 	nr_shared_resources[DOCA_FLOW_SHARED_RESOURCE_COUNTER] = 2;
 
@@ -386,7 +363,7 @@ doca_error_t xeno_flow(int nb_queues)
 	dev_arr[1] = dev2;
 
 	
-	ARRAY_INIT(action_mem, ACTIONS_MEM_SIZE(2));
+	//ARRAY_INIT(action_mem, ACTIONS_MEM_SIZE(2));
 	//result = init_doca_flow_vnf_ports(nb_ports, ports, action_mem);
 	if(result != DOCA_SUCCESS) {
 		DOCA_LOG_INFO("DOCA ports error");
@@ -400,9 +377,9 @@ doca_error_t xeno_flow(int nb_queues)
 	//ARRAY_INIT(actions_mem_size, ACTIONS_MEM_SIZE(num_of_entries));
 	
 
-	doca_try(init_doca_flow_ports(2, ports, true, dev_arr, action_mem), "Failed to init DOCA ports", nb_ports, ports);
+	doca_try(init_doca_flow_ports(2, ports, true, dev_arr), "Failed to init DOCA ports", nb_ports, ports);
 	//doca_try(init_doca_flow_vnf_ports(2, ports, action_mem), "Failed to init DOCA ports", nb_ports, ports);
-	/*memset(&status, 0, sizeof(status));
+	memset(&status, 0, sizeof(status));
 
 	doca_try(doca_flow_shared_resource_set_cfg(DOCA_FLOW_SHARED_RESOURCE_COUNTER, 0, &cfg), "Failed to configure shared counter to port", nb_ports, ports);
 
@@ -410,57 +387,80 @@ doca_error_t xeno_flow(int nb_queues)
 
 	doca_try(create_root_pipe(ports[0], 0, DOCA_FLOW_L4_TYPE_EXT_UDP, &udp_pipe), "Failed to create pipe", nb_ports, ports);
 	
-	doca_try(add_shared_counter_pipe_entry(udp_pipe, DOCA_FLOW_L4_TYPE_EXT_UDP, shared_counter_ids[0], &status), "Failed to add entry", nb_ports, ports);
-
-	doca_try(doca_flow_entries_process(ports[0], 0, DEFAULT_TIMEOUT_US, num_of_entries), "Failed to process entries", nb_ports, ports);
-
-	DOCA_LOG_INFO("Starting the load balancer loop");
 
 	int numPacketsOld = 0;
 	int numPacketsNew = 0;
 	int numBytesOld = 0;
 	int numBytesNew = 0;
-	struct timeval t1, t2;
     double elapsedTime;
 	int statRefreshIntervall = 500000;
-	gettimeofday(&t1, NULL);
-	gettimeofday(&t2, NULL);
+
+	struct doca_flow_match match;
+	struct doca_flow_actions actions;
+	struct doca_flow_monitor monitor;
+	struct doca_flow_pipe_entry *entry;
+	//struct doca_flow_fwd fwd;
+
+	memset(&match, 0, sizeof(match));
+	memset(&actions, 0, sizeof(actions));
+	memset(&monitor, 0, sizeof(monitor));
+
+	init_mac_change_entry(udp_pipe, DOCA_FLOW_L4_TYPE_EXT_UDP, shared_counter_ids[0], &status, &match, &actions, &monitor, entry);
+
+	DOCA_LOG_INFO("Starting the load balancer loop");
+
+
   	while(1) {
-		result = doca_flow_shared_resources_query(DOCA_FLOW_SHARED_RESOURCE_COUNTER,
-							shared_counter_ids,
-							query_results_array,
-							nb_ports);
+
+
+		struct timespec ts;
+		clock_gettime(CLOCK_REALTIME, &ts);
+
+		struct tm tm;
+		localtime_r(&ts.tv_sec, &tm);
+
+		DOCA_LOG_INFO("Adding entry at: %02d:%02d:%02d.%09ld",
+              tm.tm_hour,
+              tm.tm_min,
+              tm.tm_sec,
+              ts.tv_nsec);
+
+
+		result = doca_flow_pipe_add_entry(0, udp_pipe, &match, &actions, &monitor, DOCA_FLOW_NO_WAIT, 0, &status, &entry);
 		if (result != DOCA_SUCCESS) {
-			DOCA_LOG_ERR("Failed to query entry: %s", doca_error_get_descr(result));
-			stop_doca_flow_ports(nb_ports, ports);
-			doca_flow_destroy();
+			DOCA_LOG_ERR("Failed to add entry: %s", doca_error_get_descr(result));
+			return result;
+		}
+		result = doca_flow_entries_process(ports[0], 0, DEFAULT_TIMEOUT_US, num_of_entries);
+		if (result != DOCA_SUCCESS) {
+			DOCA_LOG_ERR("Failed to process entries: %s", doca_error_get_descr(result));
+			return result;
+		}
+		usleep(statRefreshIntervall);
+		clock_gettime(CLOCK_REALTIME, &ts);
+		localtime_r(&ts.tv_sec, &tm);
+
+		DOCA_LOG_INFO("Removing entry at: %02d:%02d:%02d.%09ld",
+              tm.tm_hour,
+              tm.tm_min,
+              tm.tm_sec,
+              ts.tv_nsec);
+		result = doca_flow_pipe_remove_entry(0, 0, entry);
+		if (result != DOCA_SUCCESS) {
+			DOCA_LOG_ERR("Failed to remove entry: %s", doca_error_get_descr(result));
+			return result;
+		}
+		result = doca_flow_entries_process(ports[0], 0, DEFAULT_TIMEOUT_US, num_of_entries);
+		if (result != DOCA_SUCCESS) {
+			DOCA_LOG_ERR("Failed to process entries: %s", doca_error_get_descr(result));
 			return result;
 		}
 
-
-		gettimeofday(&t2, NULL);
-		numPacketsNew = query_results_array[port_id].counter.total_pkts;
-		numBytesNew = query_results_array[port_id].counter.total_bytes;
-
-		int diff = numPacketsNew - numPacketsOld;
-		int diffBytes = numBytesNew - numBytesOld;;
-		elapsedTime = (t2.tv_sec - t1.tv_sec) + (t2.tv_usec - t1.tv_usec) / 1000000.0;
-
-		t1 = t2;
-		numPacketsOld = numPacketsNew;
-		numBytesOld = numBytesNew;
-
-		DOCA_LOG_INFO("Loadbalancer stats:");
-		DOCA_LOG_INFO("\tpacket_count: \t%ld", query_results_array[port_id].counter.total_pkts);
-		DOCA_LOG_INFO("\toverall_bytes: \t%ld", query_results_array[port_id].counter.total_bytes);
-		DOCA_LOG_INFO("\tpackets/s: \t%.0f", ((double)diff/elapsedTime));
-		DOCA_LOG_INFO("\tBytes/s: \t%.3f", ((double)(diffBytes)/elapsedTime));
-		DOCA_LOG_INFO("============================================");
 		usleep(statRefreshIntervall);
 		#ifdef CLEAR
 		system("clear");
 		#endif
-	}*/
+	}
 
 	result = stop_doca_flow_ports(nb_ports, ports);
 	//doca_flow_destroy();

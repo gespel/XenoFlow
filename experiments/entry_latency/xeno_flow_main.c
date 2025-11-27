@@ -70,8 +70,9 @@ int main(int argc, char **argv)
 	struct application_dpdk_config dpdk_config = {
 		.port_config.nb_ports = 2,
 		.port_config.nb_queues = 4,
+		.port_config.nb_hairpin_q = 2,
 	};
-	struct flow_dev_ctx ctx = {};
+	//struct flow_dev_ctx ctx = {};
 
 	result = doca_log_backend_create_standard();
 	if (result != DOCA_SUCCESS)
@@ -85,27 +86,19 @@ int main(int argc, char **argv)
 
 	DOCA_LOG_INFO("Starting the load balancer");
 
-	result = doca_argp_init("doca_flow_lb", &ctx);
+	result = doca_argp_init("doca_flow_lb", NULL);
 	if (result != DOCA_SUCCESS) {
 		DOCA_LOG_ERR("Failed to init ARGP resources: %s", doca_error_get_descr(result));
 		goto sample_exit;
 	}
-	result = register_flow_device_params(NULL);
-	if (result != DOCA_SUCCESS) {
-		DOCA_LOG_ERR("Failed to register flow device params: %s", doca_error_get_descr(result));
-		goto argp_cleanup;
-	}
+	
 	doca_argp_set_dpdk_program(dpdk_init);
 	result = doca_argp_start(argc, argv);
 	if (result != DOCA_SUCCESS) {
 		DOCA_LOG_ERR("Failed to parse sample input: %s", doca_error_get_descr(result));
 		goto argp_cleanup;
 	}
-	result = init_doca_flow_devs(&ctx);
-	if (result != DOCA_SUCCESS) {
-		DOCA_LOG_ERR("Failed to init flow devices: %s", doca_error_get_descr(result));
-		goto argp_cleanup;
-	}
+
 	/* update queues and ports */
 	result = dpdk_queues_and_ports_init(&dpdk_config);
 	if (result != DOCA_SUCCESS) {
