@@ -12,11 +12,9 @@
 #include "flow_common.h"
 #include <cjson/cJSON.h>
 
-//#define CLEAR
 
 DOCA_LOG_REGISTER(FLOW_SHARED_COUNTER);
 
-/* Set match l4 port */
 #define SET_L4_PORT(layer, port, value) \
 	do { \
 		if (match.layer.l4_type_ext == DOCA_FLOW_L4_TYPE_EXT_TCP) \
@@ -130,8 +128,6 @@ static doca_error_t create_root_pipe(struct doca_flow_port *port,
 
 	actions_arr[0] = &actions0;
 
-	monitor.counter_type = DOCA_FLOW_RESOURCE_TYPE_SHARED;
-	monitor.shared_counter.shared_counter_id = 0xffffffff;
 
 	result = doca_flow_pipe_cfg_create(&pipe_cfg, port);
 	if (result != DOCA_SUCCESS) {
@@ -181,9 +177,6 @@ static doca_error_t init_mac_change_entry(struct doca_flow_pipe *pipe,
 						  struct doca_flow_pipe_entry *entry)
 {
 
-	doca_error_t result;
-
-
 	monitor->shared_counter.shared_counter_id = shared_counter_id;
 
 	match->outer.ip4.src_ip = BE_IPV4_ADDR(0, 0, 0, 1);	
@@ -200,92 +193,6 @@ static doca_error_t init_mac_change_entry(struct doca_flow_pipe *pipe,
 	}*/
 	return DOCA_SUCCESS;
 }
-
-typedef struct xfb
-{
-	char* name;
-	char* mac;
-
-} XenoFlowBackend;
-
-typedef struct xfc {
-	int numBackends;
-	XenoFlowBackend** backends;
-} XenoFlowConfig;
-
-XenoFlowBackend* createBackend(char* name, char* mac) {
-	XenoFlowBackend* out = malloc(sizeof(XenoFlowBackend));
-	
-	out->name = name;
-	out->mac = mac;
-	
-	return out; 
-}
-
-XenoFlowConfig* createConfig() {
-	XenoFlowConfig* config = malloc(sizeof(XenoFlowConfig));
-	
-	config->numBackends = 0;
-	config->backends = malloc(sizeof(XenoFlowBackend) * 128);
-	
-	return config;
-}
-
-void configAddBackend(XenoFlowConfig* config, XenoFlowBackend* backend) {
-	config->backends[config->numBackends] = backend;
-	config->numBackends += 1;
-}
-
-
-XenoFlowConfig* load_config() {
-	FILE *file = fopen("backends.json", "rb");
-    if (!file) {
-        perror("Fehler beim Öffnen der Datei");
-        return NULL;
-    }
-
-    fseek(file, 0, SEEK_END);
-    long length = ftell(file);
-    fseek(file, 0, SEEK_SET);
-
-    char *content = malloc(length + 1);
-    if (!content) {
-        perror("Speicherzuweisung fehlgeschlagen");
-        fclose(file);
-        return NULL;
-    }
-
-    fread(content, 1, length, file);
-    content[length] = '\0';
-    fclose(file);
-
-	cJSON *json = cJSON_Parse(content);
-    if (!json) {
-        printf("Fehler beim Parsen: %s\n", cJSON_GetErrorPtr());
-        return 0;
-    }
-	printf("%s\n", cJSON_Print(json));
-
-    cJSON *server = cJSON_GetObjectItem(json, "backends");
-	if(cJSON_GetArraySize(server) == 0) {
-		DOCA_LOG_ERR("No backends found in backends.json!");
-		exit(-1);
-	}
-	cJSON* name = NULL;
-  	cJSON* backend_mac = NULL;
-	XenoFlowConfig* c = createConfig();
-	for (int i = 0 ; i < cJSON_GetArraySize(server) ; i++) {
-     	cJSON * subitem = cJSON_GetArrayItem(server, i);
-     	name = cJSON_GetObjectItem(subitem, "name");
-     	backend_mac = cJSON_GetObjectItem(subitem, "mac_address");
-		DOCA_LOG_INFO("%s -> %s", name->valuestring, backend_mac->valuestring);
-		XenoFlowBackend* b = createBackend(name->valuestring, backend_mac->valuestring);
-		configAddBackend(c, b);
-  	}
-	//usleep(3000000);
-	return c;
-}
-
 
 struct doca_dev *open_doca_dev_by_pci(const char *pci_bdf)
 {
@@ -342,11 +249,6 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
 
 	nr_shared_resources[DOCA_FLOW_SHARED_RESOURCE_COUNTER] = 2;
 
-	//XenoFlowConfig *config = load_config();
-	//DOCA_LOG_INFO("Number of backends: %d", config->numBackends);
-
-	
-
 	doca_try(init_doca_flow(nb_queues, "vnf,hws", &resource, nr_shared_resources),
 			"Failed to init DOCA Flow", nb_ports, ports);
 	struct doca_dev *dev1 = open_doca_dev_by_pci("0000:0d:00.0");
@@ -362,44 +264,23 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
 	dev_arr[0] = dev1;
 	dev_arr[1] = dev2;
 
-	
-	//ARRAY_INIT(action_mem, ACTIONS_MEM_SIZE(2));
-	//result = init_doca_flow_vnf_ports(nb_ports, ports, action_mem);
 	if(result != DOCA_SUCCESS) {
 		DOCA_LOG_INFO("DOCA ports error");
 	}
     
 	
-	//doca_try(init_doca_flow(nb_queues, "vnf,hws", &resource, nr_shared_resources), "Failed to init DOCA Flow", nb_ports, ports);
-
-	//memset(dev_arr, 0, sizeof(struct doca_dev *) * 1);
-	
-	//ARRAY_INIT(actions_mem_size, ACTIONS_MEM_SIZE(num_of_entries));
-	
 
 	doca_try(init_doca_flow_ports(2, ports, true, dev_arr), "Failed to init DOCA ports", nb_ports, ports);
-	//doca_try(init_doca_flow_vnf_ports(2, ports, action_mem), "Failed to init DOCA ports", nb_ports, ports);
 	memset(&status, 0, sizeof(status));
-
-	doca_try(doca_flow_shared_resource_set_cfg(DOCA_FLOW_SHARED_RESOURCE_COUNTER, 0, &cfg), "Failed to configure shared counter to port", nb_ports, ports);
-
-	doca_try(doca_flow_shared_resources_bind(DOCA_FLOW_SHARED_RESOURCE_COUNTER, &shared_counter_ids[0], 1, ports[0]), "Failed to bind shared counter to pipe", nb_ports, ports);
 
 	doca_try(create_root_pipe(ports[0], 0, DOCA_FLOW_L4_TYPE_EXT_UDP, &udp_pipe), "Failed to create pipe", nb_ports, ports);
 	
-
-	int numPacketsOld = 0;
-	int numPacketsNew = 0;
-	int numBytesOld = 0;
-	int numBytesNew = 0;
-    double elapsedTime;
 	int statRefreshIntervall = 500000;
 
 	struct doca_flow_match match;
 	struct doca_flow_actions actions;
 	struct doca_flow_monitor monitor;
 	struct doca_flow_pipe_entry *entry;
-	//struct doca_flow_fwd fwd;
 
 	memset(&match, 0, sizeof(match));
 	memset(&actions, 0, sizeof(actions));
