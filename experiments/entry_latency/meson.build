@@ -58,9 +58,9 @@ sample_dependencies += cjson_dep
 
 sample_srcs = [
 	# The sample itself
-	'xeno_flow_core.c',
+	'xeno_flow_entry_latency_core.c',
 	# Main function for the sample's executable
-	'xeno_flow_main.c',
+	'xeno_flow_entry_latency_main.c',
 	# Common code for the DOCA library samples
 	'/opt/mellanox/doca/samples/doca_flow/flow_common.c',
 	# Flow switch common code for the DOCA library samples
@@ -79,7 +79,7 @@ sample_inc_dirs += include_directories('/opt/mellanox/doca/samples')
 # Common DOCA logic (applications)
 sample_inc_dirs += include_directories('/opt/mellanox/doca/applications/common/')
 
-executable('xeno_flow', sample_srcs,
+executable('xeno_flow_entry_latency', sample_srcs,
 	c_args : '-Wno-missing-braces',
 	dependencies : sample_dependencies,
 	include_directories: sample_inc_dirs,

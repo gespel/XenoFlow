@@ -321,7 +321,7 @@ struct doca_dev *open_doca_dev_by_pci(const char *pci_bdf)
     return dev;
 }
 
-doca_error_t xeno_flow(int nb_queues)
+doca_error_t xeno_flow_entry_latency(int nb_queues)
 {
 	int nb_ports = 1;
 	struct flow_resources resource = {1};

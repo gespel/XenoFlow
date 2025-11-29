@@ -55,7 +55,7 @@ doca_error_t flow_lb(int nb_queues);
 
  void *xeno_flow_wrapper(void *arg) {
     int nb_queues = *(int *)arg;
-    doca_error_t result = xeno_flow(nb_queues);
+    doca_error_t result = xeno_flow_entry_latency(nb_queues);
     if (result != DOCA_SUCCESS) {
         DOCA_LOG_ERR("xeno_flow encountered an error: %s", doca_error_get_descr(result));
     }
@@ -86,7 +86,7 @@ int main(int argc, char **argv)
 
 	DOCA_LOG_INFO("Starting the load balancer");
 
-	result = doca_argp_init("doca_flow_lb", NULL);
+	result = doca_argp_init("doca_flow_entry_latency", NULL);
 	if (result != DOCA_SUCCESS) {
 		DOCA_LOG_ERR("Failed to init ARGP resources: %s", doca_error_get_descr(result));
 		goto sample_exit;
@@ -107,7 +107,7 @@ int main(int argc, char **argv)
 	}
 
 	/* run sample */
-	result = xeno_flow(dpdk_config.port_config.nb_queues);
+	result = xeno_flow_entry_latency(dpdk_config.port_config.nb_queues);
 	if (result != DOCA_SUCCESS) {
 		DOCA_LOG_ERR("flow_lb() encountered an error: %s", doca_error_get_descr(result));
 		goto dpdk_ports_queues_cleanup;
