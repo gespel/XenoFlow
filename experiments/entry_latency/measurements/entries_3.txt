@@ -1,0 +1,71 @@
+[12:46:33:295508][551863][DOCA][INF][xeno_flow_entry_latency_main.c:87][main] Starting the load balancer
+[12:46:34:204215][551863][DOCA][DBG][dpdk_utils.c:417][port_init] Port 0 MAC: c4 70 bd a0 56 ac
+[12:46:35:265662][551863][DOCA][DBG][dpdk_utils.c:417][port_init] Port 1 MAC: c4 70 bd a0 56 ad
+[12:46:35:336433][551863][DOCA][INF][xeno_flow_entry_latency_core.c:221][open_doca_dev_by_pci] IPv4: 10.3.10.50
+[12:46:35:345417][551863][DOCA][INF][xeno_flow_entry_latency_core.c:221][open_doca_dev_by_pci] IPv4: 10.3.10.50
+[12:46:35:353016][551863][DOCA][INF][xeno_flow_entry_latency_core.c:262][xeno_flow_entry_latency] Devices found!
+[12:46:35:353029][551863][DOCA][INF][xeno_flow_entry_latency_core.c:268][xeno_flow_entry_latency] DOCA ports error
+[12:46:37:572589][551863][DOCA][INF][xeno_flow_entry_latency_core.c:124][create_root_pipe] 16777216
+[12:46:37:596927][551863][DOCA][INF][xeno_flow_entry_latency_core.c:291][xeno_flow_entry_latency] Starting the load balancer loop
+[12:46:37:596962][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:46:37.596962494
+[12:46:38:597122][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:46:38.597116465
+[12:46:39:597318][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:46:39.597313142
+[12:46:40:597521][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:46:40.597515460
+[12:46:41:597708][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:46:41.597702324
+[12:46:42:597909][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:46:42.597903836
+[12:46:43:598108][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:46:43.598103050
+[12:46:44:598311][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:46:44.598305587
+[12:46:45:598508][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:46:45.598502714
+[12:46:46:598710][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:46:46.598704307
+[12:46:47:598899][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:46:47.598893896
+[12:46:48:599102][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:46:48.599096838
+[12:46:49:599293][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:46:49.599288155
+[12:46:50:599496][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:46:50.599490284
+[12:46:51:599696][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:46:51.599690301
+[12:46:52:599897][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:46:52.599892119
+[12:46:53:600073][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:46:53.600068731
+[12:46:54:600295][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:46:54.600290044
+[12:46:55:600473][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:46:55.600468981
+[12:46:56:600664][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:46:56.600658379
+[12:46:57:600861][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:46:57.600855371
+[12:46:58:601066][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:46:58.601060378
+[12:46:59:601288][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:46:59.601247929
+[12:47:00:601489][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:00.601483396
+[12:47:01:601719][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:01.601713458
+[12:47:02:601922][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:02.601916401
+[12:47:03:602124][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:03.602118903
+[12:47:04:602327][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:04.602321435
+[12:47:05:602516][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:05.602510381
+[12:47:06:602718][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:06.602712879
+[12:47:07:602908][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:07.602902701
+[12:47:08:603113][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:08.603107782
+[12:47:09:603309][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:09.603303994
+[12:47:10:603512][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:10.603507160
+[12:47:11:603702][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:11.603696303
+[12:47:12:603928][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:12.603922174
+[12:47:13:604120][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:13.604114426
+[12:47:14:604321][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:14.604316073
+[12:47:15:604517][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:15.604511464
+[12:47:16:604724][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:16.604716221
+[12:47:17:604927][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:17.604921933
+[12:47:18:605144][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:18.605138978
+[12:47:19:605334][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:19.605328579
+[12:47:20:605537][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:20.605531791
+[12:47:21:605735][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:21.605728603
+[12:47:22:605950][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:22.605944988
+[12:47:23:606144][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:23.606139025
+[12:47:24:606348][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:24.606342271
+[12:47:25:606537][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:25.606531523
+[12:47:26:606743][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:26.606736189
+[12:47:27:606950][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:27.606944360
+[12:47:28:607167][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:28.607162036
+[12:47:29:607353][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:29.607347867
+[12:47:30:607555][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:30.607549787
+[12:47:31:607775][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:31.607770143
+[12:47:32:607977][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:32.607972105
+[12:47:33:608174][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:33.608168636
+[12:47:34:608413][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:34.608407455
+[12:47:35:608601][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:35.608596161
+[12:47:36:608804][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:36.608798823
+[12:47:37:608993][551863][DOCA][INF][xeno_flow_entry_latency_core.c:303][xeno_flow_entry_latency] Adding entry at: 12:47:37.608988253
+[12:47:38:609199][551863][DOCA][INF][xeno_flow_entry_latency_core.c:324][xeno_flow_entry_latency] Removing entry at: 12:47:38.609193499
