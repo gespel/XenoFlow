@@ -43,3 +43,5 @@
 # Meson build directory
 builddir/
 build/
+
+*.venv
