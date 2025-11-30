@@ -275,7 +275,7 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
 
 	doca_try(create_root_pipe(ports[0], 0, DOCA_FLOW_L4_TYPE_EXT_UDP, &udp_pipe), "Failed to create pipe", nb_ports, ports);
 	
-	int statRefreshIntervall = 1000000;
+	int statRefreshIntervall = 100000;
 
 	struct doca_flow_match match;
 	struct doca_flow_actions actions;
@@ -294,7 +294,7 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
 
   	while(1) {
 		struct timespec ts;
-		int random_delay = (rand() % 100000) + 1;
+		int random_delay = (rand() % 10000) + 1;
 		clock_gettime(CLOCK_REALTIME, &ts);
 
 		struct tm tm;
