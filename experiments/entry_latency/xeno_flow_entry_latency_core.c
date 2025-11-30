@@ -183,7 +183,7 @@ static doca_error_t init_mac_change_entry(struct doca_flow_pipe *pipe,
 
 	actions->action_idx = 0;
 
-	SET_MAC_ADDR(actions->outer.eth.dst_mac, 0xe8, 0xeb, 0xd3, 0x9c, 0x71, 0xac);
+	SET_MAC_ADDR(actions->outer.eth.dst_mac, 0xa0, 0x88, 0xc2, 0xb5, 0xf4, 0x5a);
 	SET_MAC_ADDR(actions->outer.eth.src_mac, 0xc4, 0x70, 0xbd, 0xa0, 0x56, 0xbd);
 
 	/*result = doca_flow_pipe_add_entry(0, pipe, &match, &actions, &monitor, NULL, 0, status, &entry_mac);
@@ -275,7 +275,7 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
 
 	doca_try(create_root_pipe(ports[0], 0, DOCA_FLOW_L4_TYPE_EXT_UDP, &udp_pipe), "Failed to create pipe", nb_ports, ports);
 	
-	int statRefreshIntervall = 500000;
+	int statRefreshIntervall = 1000000;
 
 	struct doca_flow_match match;
 	struct doca_flow_actions actions;
