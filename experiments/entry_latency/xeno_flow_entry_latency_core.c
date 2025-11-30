@@ -290,22 +290,17 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
 
 	DOCA_LOG_INFO("Starting the load balancer loop");
 
+	srand(time(NULL));
 
   	while(1) {
-
-
 		struct timespec ts;
+		int random_delay = (rand() % 100000) + 1;
 		clock_gettime(CLOCK_REALTIME, &ts);
 
 		struct tm tm;
 		localtime_r(&ts.tv_sec, &tm);
 
-		DOCA_LOG_INFO("Adding entry at: %02d:%02d:%02d.%09ld",
-              tm.tm_hour,
-              tm.tm_min,
-              tm.tm_sec,
-              ts.tv_nsec);
-
+		DOCA_LOG_INFO("Adding entry at: %02d:%02d:%02d.%09ld", tm.tm_hour, tm.tm_min, tm.tm_sec, ts.tv_nsec);
 
 		result = doca_flow_pipe_add_entry(0, udp_pipe, &match, &actions, &monitor, DOCA_FLOW_NO_WAIT, 0, &status, &entry);
 		if (result != DOCA_SUCCESS) {
@@ -317,15 +312,11 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
 			DOCA_LOG_ERR("Failed to process entries: %s", doca_error_get_descr(result));
 			return result;
 		}
-		usleep(statRefreshIntervall);
+		usleep(statRefreshIntervall + random_delay);
 		clock_gettime(CLOCK_REALTIME, &ts);
 		localtime_r(&ts.tv_sec, &tm);
 
-		DOCA_LOG_INFO("Removing entry at: %02d:%02d:%02d.%09ld",
-              tm.tm_hour,
-              tm.tm_min,
-              tm.tm_sec,
-              ts.tv_nsec);
+		DOCA_LOG_INFO("Removing entry at: %02d:%02d:%02d.%09ld", tm.tm_hour, tm.tm_min, tm.tm_sec, ts.tv_nsec);
 		result = doca_flow_pipe_remove_entry(0, 0, entry);
 		if (result != DOCA_SUCCESS) {
 			DOCA_LOG_ERR("Failed to remove entry: %s", doca_error_get_descr(result));
