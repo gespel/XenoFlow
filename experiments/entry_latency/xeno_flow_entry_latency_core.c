@@ -10,7 +10,6 @@
 #include <doca_dev.h>
 
 #include "flow_common.h"
-#include <cjson/cJSON.h>
 
 
 DOCA_LOG_REGISTER(FLOW_SHARED_COUNTER);
