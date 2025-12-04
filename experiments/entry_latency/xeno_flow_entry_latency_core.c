@@ -117,9 +117,9 @@ static doca_error_t create_root_pipe(struct doca_flow_port *port,
 	memset(&fwd, 0, sizeof(fwd));
 	memset(&fwd_miss, 0, sizeof(fwd_miss));
 
-  	match.outer.l3_type = DOCA_FLOW_L3_TYPE_IP4;
-	match.outer.ip4.src_ip = BE_IPV4_ADDR(255, 255, 255, 255);
-	match_mask.outer.ip4.src_ip = BE_IPV4_ADDR(0, 0, 0, 1);
+  	//match.outer.l3_type = DOCA_FLOW_L3_TYPE_IP4;
+	//match.outer.ip4.src_ip = BE_IPV4_ADDR(255, 255, 255, 255);
+	//match_mask.outer.ip4.src_ip = BE_IPV4_ADDR(0, 0, 0, 1);
 	DOCA_LOG_INFO("%d", match_mask.outer.ip4.src_ip);
 
 	SET_MAC_ADDR(actions0.outer.eth.dst_mac, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff);
@@ -250,8 +250,8 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
 
 	doca_try(init_doca_flow(nb_queues, "vnf,hws", &resource, nr_shared_resources),
 			"Failed to init DOCA Flow", nb_ports, ports);
-	struct doca_dev *dev1 = open_doca_dev_by_pci("0000:0d:00.0");
-	struct doca_dev *dev2 = open_doca_dev_by_pci("0000:0d:00.1");
+	struct doca_dev *dev1 = open_doca_dev_by_pci("0000:03:00.0");
+	struct doca_dev *dev2 = open_doca_dev_by_pci("0000:03:00.1");
 
 	if (!dev1 || !dev2) {
 		DOCA_LOG_INFO("Device not found");
