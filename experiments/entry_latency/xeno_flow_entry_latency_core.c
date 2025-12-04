@@ -120,7 +120,8 @@ static doca_error_t create_root_pipe(struct doca_flow_port *port,
   	//match.outer.l3_type = DOCA_FLOW_L3_TYPE_IP4;
 	//match.outer.ip4.src_ip = BE_IPV4_ADDR(255, 255, 255, 255);
 	//match_mask.outer.ip4.src_ip = BE_IPV4_ADDR(0, 0, 0, 1);
-	DOCA_LOG_INFO("%d", match_mask.outer.ip4.src_ip);
+	//DOCA_LOG_INFO("%d", match_mask.outer.ip4.src_ip);
+
 
 	SET_MAC_ADDR(actions0.outer.eth.dst_mac, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff);
 	SET_MAC_ADDR(actions0.outer.eth.src_mac, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff);
