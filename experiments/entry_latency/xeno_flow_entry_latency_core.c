@@ -251,8 +251,8 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
 
 	doca_try(init_doca_flow(nb_queues, "vnf,hws", &resource, nr_shared_resources),
 			"Failed to init DOCA Flow", nb_ports, ports);
-	struct doca_dev *dev1 = open_doca_dev_by_pci("0000:03:00.0");
-	struct doca_dev *dev2 = open_doca_dev_by_pci("0000:03:00.1");
+	struct doca_dev *dev1 = open_doca_dev_by_pci("0000:0d:00.0");
+	struct doca_dev *dev2 = open_doca_dev_by_pci("0000:0d:00.1");
 
 	if (!dev1 || !dev2) {
 		DOCA_LOG_INFO("Device not found");
