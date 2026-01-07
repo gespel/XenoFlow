@@ -214,7 +214,7 @@ static doca_error_t add_shared_counter_pipe_entry(struct doca_flow_pipe *pipe,
 	SET_MAC_ADDR(actions.outer.eth.dst_mac, 0xa0, 0x88, 0xc2, 0xb5, 0xf4, 0x5a);	
 	SET_MAC_ADDR(actions.outer.eth.src_mac, 0xc4, 0x70, 0xbd, 0xa0, 0x56, 0xbd);
 
-	result = doca_flow_pipe_add_entry(0, pipe, &match, &actions, &monitor, DOCA_FLOW_NO_WAIT, 0, status, &entry_mac);
+	result = doca_flow_pipe_add_entry(0, pipe, &match, &actions, &monitor, NULL, 0, status, &entry_mac);
 	if (result != DOCA_SUCCESS) {
 		DOCA_LOG_ERR("Failed to add entry 2: %s", doca_error_get_descr(result));
 		return result;
