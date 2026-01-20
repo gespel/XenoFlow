@@ -1,0 +1,38 @@
+[
+  {
+    "directory": "/home/heimbrodt/Bachelorarbeit/flow_lb/build",
+    "command": "cc -Idoca_flow_lb.p -I. -I.. -I/opt/mellanox/doca/samples/doca_flow -I/opt/mellanox/doca/samples -I/opt/mellanox/doca/applications/common -I/opt/mellanox/doca/include -I/usr/include/libnl3 -I/opt/mellanox/dpdk/include/dpdk -I/opt/mellanox/dpdk/include/dpdk/../x86_64-linux-gnu/dpdk -I/usr/include/x86_64-linux-gnu -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -O0 -g '-D DOCA_ALLOW_EXPERIMENTAL_API' -include rte_config.h -march=corei7 -include rte_config.h -march=corei7 -include rte_config.h -march=corei7 -DALLOW_EXPERIMENTAL_API -Wno-missing-braces -MD -MQ doca_flow_lb.p/flow_lb_sample.c.o -MF doca_flow_lb.p/flow_lb_sample.c.o.d -o doca_flow_lb.p/flow_lb_sample.c.o -c ../flow_lb_sample.c",
+    "file": "../flow_lb_sample.c",
+    "output": "doca_flow_lb.p/flow_lb_sample.c.o"
+  },
+  {
+    "directory": "/home/heimbrodt/Bachelorarbeit/flow_lb/build",
+    "command": "cc -Idoca_flow_lb.p -I. -I.. -I/opt/mellanox/doca/samples/doca_flow -I/opt/mellanox/doca/samples -I/opt/mellanox/doca/applications/common -I/opt/mellanox/doca/include -I/usr/include/libnl3 -I/opt/mellanox/dpdk/include/dpdk -I/opt/mellanox/dpdk/include/dpdk/../x86_64-linux-gnu/dpdk -I/usr/include/x86_64-linux-gnu -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -O0 -g '-D DOCA_ALLOW_EXPERIMENTAL_API' -include rte_config.h -march=corei7 -include rte_config.h -march=corei7 -include rte_config.h -march=corei7 -DALLOW_EXPERIMENTAL_API -Wno-missing-braces -MD -MQ doca_flow_lb.p/flow_lb_main.c.o -MF doca_flow_lb.p/flow_lb_main.c.o.d -o doca_flow_lb.p/flow_lb_main.c.o -c ../flow_lb_main.c",
+    "file": "../flow_lb_main.c",
+    "output": "doca_flow_lb.p/flow_lb_main.c.o"
+  },
+  {
+    "directory": "/home/heimbrodt/Bachelorarbeit/flow_lb/build",
+    "command": "cc -Idoca_flow_lb.p -I. -I.. -I/opt/mellanox/doca/samples/doca_flow -I/opt/mellanox/doca/samples -I/opt/mellanox/doca/applications/common -I/opt/mellanox/doca/include -I/usr/include/libnl3 -I/opt/mellanox/dpdk/include/dpdk -I/opt/mellanox/dpdk/include/dpdk/../x86_64-linux-gnu/dpdk -I/usr/include/x86_64-linux-gnu -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -O0 -g '-D DOCA_ALLOW_EXPERIMENTAL_API' -include rte_config.h -march=corei7 -include rte_config.h -march=corei7 -include rte_config.h -march=corei7 -DALLOW_EXPERIMENTAL_API -Wno-missing-braces -MD -MQ doca_flow_lb.p/_opt_mellanox_doca_samples_doca_flow_flow_common.c.o -MF doca_flow_lb.p/_opt_mellanox_doca_samples_doca_flow_flow_common.c.o.d -o doca_flow_lb.p/_opt_mellanox_doca_samples_doca_flow_flow_common.c.o -c /opt/mellanox/doca/samples/doca_flow/flow_common.c",
+    "file": "/opt/mellanox/doca/samples/doca_flow/flow_common.c",
+    "output": "doca_flow_lb.p/_opt_mellanox_doca_samples_doca_flow_flow_common.c.o"
+  },
+  {
+    "directory": "/home/heimbrodt/Bachelorarbeit/flow_lb/build",
+    "command": "cc -Idoca_flow_lb.p -I. -I.. -I/opt/mellanox/doca/samples/doca_flow -I/opt/mellanox/doca/samples -I/opt/mellanox/doca/applications/common -I/opt/mellanox/doca/include -I/usr/include/libnl3 -I/opt/mellanox/dpdk/include/dpdk -I/opt/mellanox/dpdk/include/dpdk/../x86_64-linux-gnu/dpdk -I/usr/include/x86_64-linux-gnu -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -O0 -g '-D DOCA_ALLOW_EXPERIMENTAL_API' -include rte_config.h -march=corei7 -include rte_config.h -march=corei7 -include rte_config.h -march=corei7 -DALLOW_EXPERIMENTAL_API -Wno-missing-braces -MD -MQ doca_flow_lb.p/_opt_mellanox_doca_samples_doca_flow_flow_switch_common.c.o -MF doca_flow_lb.p/_opt_mellanox_doca_samples_doca_flow_flow_switch_common.c.o.d -o doca_flow_lb.p/_opt_mellanox_doca_samples_doca_flow_flow_switch_common.c.o -c /opt/mellanox/doca/samples/doca_flow/flow_switch_common.c",
+    "file": "/opt/mellanox/doca/samples/doca_flow/flow_switch_common.c",
+    "output": "doca_flow_lb.p/_opt_mellanox_doca_samples_doca_flow_flow_switch_common.c.o"
+  },
+  {
+    "directory": "/home/heimbrodt/Bachelorarbeit/flow_lb/build",
+    "command": "cc -Idoca_flow_lb.p -I. -I.. -I/opt/mellanox/doca/samples/doca_flow -I/opt/mellanox/doca/samples -I/opt/mellanox/doca/applications/common -I/opt/mellanox/doca/include -I/usr/include/libnl3 -I/opt/mellanox/dpdk/include/dpdk -I/opt/mellanox/dpdk/include/dpdk/../x86_64-linux-gnu/dpdk -I/usr/include/x86_64-linux-gnu -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -O0 -g '-D DOCA_ALLOW_EXPERIMENTAL_API' -include rte_config.h -march=corei7 -include rte_config.h -march=corei7 -include rte_config.h -march=corei7 -DALLOW_EXPERIMENTAL_API -Wno-missing-braces -MD -MQ doca_flow_lb.p/_opt_mellanox_doca_samples_common.c.o -MF doca_flow_lb.p/_opt_mellanox_doca_samples_common.c.o.d -o doca_flow_lb.p/_opt_mellanox_doca_samples_common.c.o -c /opt/mellanox/doca/samples/common.c",
+    "file": "/opt/mellanox/doca/samples/common.c",
+    "output": "doca_flow_lb.p/_opt_mellanox_doca_samples_common.c.o"
+  },
+  {
+    "directory": "/home/heimbrodt/Bachelorarbeit/flow_lb/build",
+    "command": "cc -Idoca_flow_lb.p -I. -I.. -I/opt/mellanox/doca/samples/doca_flow -I/opt/mellanox/doca/samples -I/opt/mellanox/doca/applications/common -I/opt/mellanox/doca/include -I/usr/include/libnl3 -I/opt/mellanox/dpdk/include/dpdk -I/opt/mellanox/dpdk/include/dpdk/../x86_64-linux-gnu/dpdk -I/usr/include/x86_64-linux-gnu -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -O0 -g '-D DOCA_ALLOW_EXPERIMENTAL_API' -include rte_config.h -march=corei7 -include rte_config.h -march=corei7 -include rte_config.h -march=corei7 -DALLOW_EXPERIMENTAL_API -Wno-missing-braces -MD -MQ doca_flow_lb.p/_opt_mellanox_doca_applications_common_dpdk_utils.c.o -MF doca_flow_lb.p/_opt_mellanox_doca_applications_common_dpdk_utils.c.o.d -o doca_flow_lb.p/_opt_mellanox_doca_applications_common_dpdk_utils.c.o -c /opt/mellanox/doca/applications/common/dpdk_utils.c",
+    "file": "/opt/mellanox/doca/applications/common/dpdk_utils.c",
+    "output": "doca_flow_lb.p/_opt_mellanox_doca_applications_common_dpdk_utils.c.o"
+  }
+]

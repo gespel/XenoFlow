@@ -1,0 +1,1018 @@
+[13:02:32:397725][3441229][DOCA][INF][xeno_flow_entry_latency_main.c:87][main] Starting the load balancer
+[13:02:33:638537][3441229][DOCA][DBG][dpdk_utils.c:417][port_init] Port 0 MAC: c4 70 bd a0 56 ac
+[13:02:34:723980][3441229][DOCA][DBG][dpdk_utils.c:417][port_init] Port 1 MAC: c4 70 bd a0 56 ad
+[13:02:34:796077][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:221][open_doca_dev_by_pci] IPv4: 10.3.10.50
+[13:02:34:804816][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:221][open_doca_dev_by_pci] IPv4: 10.3.10.50
+[13:02:34:813066][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:262][xeno_flow_entry_latency] Devices found!
+[13:02:37:640338][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.640336857
+[13:02:37:640374][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 0
+[13:02:37:665119][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.665118435
+[13:02:37:665152][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 1
+[13:02:37:684071][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.684070458
+[13:02:37:684104][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 2
+[13:02:37:702624][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.702623357
+[13:02:37:702656][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 3
+[13:02:37:721900][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.721899394
+[13:02:37:721932][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 4
+[13:02:37:739978][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.739977316
+[13:02:37:740031][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 5
+[13:02:37:758732][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.758732066
+[13:02:37:758765][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 6
+[13:02:37:776312][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.776311390
+[13:02:37:776349][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 7
+[13:02:37:794461][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.794460490
+[13:02:37:794484][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 8
+[13:02:37:811756][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.811755478
+[13:02:37:811802][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 9
+[13:02:37:828196][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.828195540
+[13:02:37:828221][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 10
+[13:02:37:844955][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.844955487
+[13:02:37:844977][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 11
+[13:02:37:862701][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.862700990
+[13:02:37:862722][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 12
+[13:02:37:881750][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.881749637
+[13:02:37:881781][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 13
+[13:02:37:900296][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.900295755
+[13:02:37:900344][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 14
+[13:02:37:919322][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.919321975
+[13:02:37:919353][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 15
+[13:02:37:938663][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.938662704
+[13:02:37:938698][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 16
+[13:02:37:957628][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.957627496
+[13:02:37:957657][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 17
+[13:02:37:975952][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.975950876
+[13:02:37:976000][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 18
+[13:02:37:995115][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:37.995114801
+[13:02:37:995145][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 19
+[13:02:38:014202][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.014201433
+[13:02:38:014232][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 20
+[13:02:38:033040][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.033039362
+[13:02:38:033073][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 21
+[13:02:38:051836][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.051835785
+[13:02:38:051869][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 22
+[13:02:38:071116][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.071115781
+[13:02:38:071146][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 23
+[13:02:38:089913][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.089913088
+[13:02:38:089944][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 24
+[13:02:38:109188][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.109188219
+[13:02:38:109219][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 25
+[13:02:38:127925][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.127925093
+[13:02:38:127957][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 26
+[13:02:38:146685][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.146684542
+[13:02:38:146714][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 27
+[13:02:38:165540][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.165539300
+[13:02:38:165572][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 28
+[13:02:38:184330][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.184329579
+[13:02:38:184366][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 29
+[13:02:38:203486][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.203486144
+[13:02:38:203518][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 30
+[13:02:38:221504][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.221503656
+[13:02:38:221556][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 31
+[13:02:38:240851][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.240850411
+[13:02:38:240891][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 32
+[13:02:38:259263][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.259262795
+[13:02:38:259298][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 33
+[13:02:38:278117][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.278117022
+[13:02:38:278149][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 34
+[13:02:38:296588][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.296588216
+[13:02:38:296620][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 35
+[13:02:38:314757][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.314756336
+[13:02:38:314789][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 36
+[13:02:38:332106][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.332105444
+[13:02:38:332146][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 37
+[13:02:38:350956][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.350955486
+[13:02:38:350991][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 38
+[13:02:38:369354][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.369353440
+[13:02:38:369388][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 39
+[13:02:38:388805][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.388805045
+[13:02:38:388841][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 40
+[13:02:38:407873][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.407872409
+[13:02:38:407903][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 41
+[13:02:38:427299][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.427298539
+[13:02:38:427329][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 42
+[13:02:38:446458][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.446458079
+[13:02:38:446489][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 43
+[13:02:38:466254][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.466253976
+[13:02:38:466289][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 44
+[13:02:38:485023][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.485022980
+[13:02:38:485055][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 45
+[13:02:38:503927][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.503926079
+[13:02:38:503958][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 46
+[13:02:38:522798][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.522797831
+[13:02:38:522831][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 47
+[13:02:38:542335][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.542334756
+[13:02:38:542366][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 48
+[13:02:38:561289][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.561288367
+[13:02:38:561320][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 49
+[13:02:38:579006][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.579005433
+[13:02:38:579070][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 50
+[13:02:38:597574][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.597573546
+[13:02:38:597600][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 51
+[13:02:38:617167][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.617167291
+[13:02:38:617197][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 52
+[13:02:38:636185][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.636184955
+[13:02:38:636227][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 53
+[13:02:38:655433][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.655432488
+[13:02:38:655462][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 54
+[13:02:38:674086][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.674085482
+[13:02:38:674117][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 55
+[13:02:38:693717][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.693716285
+[13:02:38:693748][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 56
+[13:02:38:712488][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.712488101
+[13:02:38:712519][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 57
+[13:02:38:731310][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.731309366
+[13:02:38:731343][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 58
+[13:02:38:750037][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.750036728
+[13:02:38:750069][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 59
+[13:02:38:769906][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.769905543
+[13:02:38:769937][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 60
+[13:02:38:788816][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.788815332
+[13:02:38:788847][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 61
+[13:02:38:807892][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.807891771
+[13:02:38:807922][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 62
+[13:02:38:826980][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.826979975
+[13:02:38:827025][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 63
+[13:02:38:844066][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.844066519
+[13:02:38:844106][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 64
+[13:02:38:861332][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.861331773
+[13:02:38:861354][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 65
+[13:02:38:879946][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.879946146
+[13:02:38:879969][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 66
+[13:02:38:898356][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.898355653
+[13:02:38:898377][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 67
+[13:02:38:917325][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.917324902
+[13:02:38:917357][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 68
+[13:02:38:936435][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.936434748
+[13:02:38:936469][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 69
+[13:02:38:955034][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.955034329
+[13:02:38:955068][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 70
+[13:02:38:973737][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.973736175
+[13:02:38:973767][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 71
+[13:02:38:993143][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:38.993142552
+[13:02:38:993174][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 72
+[13:02:39:012343][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.012342894
+[13:02:39:012376][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 73
+[13:02:39:031513][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.031513010
+[13:02:39:031544][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 74
+[13:02:39:050476][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.050475611
+[13:02:39:050508][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 75
+[13:02:39:069936][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.069936030
+[13:02:39:069968][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 76
+[13:02:39:088835][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.088834336
+[13:02:39:088868][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 77
+[13:02:39:108225][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.108225055
+[13:02:39:108257][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 78
+[13:02:39:127094][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.127093780
+[13:02:39:127126][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 79
+[13:02:39:146957][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.146956601
+[13:02:39:146989][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 80
+[13:02:39:166003][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.166002707
+[13:02:39:166057][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 81
+[13:02:39:184826][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.184825615
+[13:02:39:184861][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 82
+[13:02:39:204248][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.204247454
+[13:02:39:204277][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 83
+[13:02:39:223593][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.223592649
+[13:02:39:223628][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 84
+[13:02:39:242430][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.242429511
+[13:02:39:242462][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 85
+[13:02:39:261171][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.261170638
+[13:02:39:261202][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 86
+[13:02:39:279584][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.279584115
+[13:02:39:279616][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 87
+[13:02:39:298904][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.298903552
+[13:02:39:298934][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 88
+[13:02:39:317883][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.317882910
+[13:02:39:317919][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 89
+[13:02:39:337192][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.337191818
+[13:02:39:337222][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 90
+[13:02:39:356636][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.356636159
+[13:02:39:356668][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 91
+[13:02:39:376136][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.376135928
+[13:02:39:376168][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 92
+[13:02:39:395364][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.395363993
+[13:02:39:395398][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 93
+[13:02:39:414882][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.414881747
+[13:02:39:414913][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 94
+[13:02:39:434483][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.434482316
+[13:02:39:434512][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 95
+[13:02:39:454460][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.454459486
+[13:02:39:454491][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 96
+[13:02:39:473709][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.473708427
+[13:02:39:473739][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 97
+[13:02:39:492782][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.492782038
+[13:02:39:492812][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 98
+[13:02:39:512095][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.512095104
+[13:02:39:512127][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 99
+[13:02:39:531275][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.531275052
+[13:02:39:531307][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 100
+[13:02:39:549788][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.549787334
+[13:02:39:549817][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 101
+[13:02:39:569257][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.569257129
+[13:02:39:569289][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 102
+[13:02:39:587871][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.587870859
+[13:02:39:587901][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 103
+[13:02:39:607646][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.607645250
+[13:02:39:607674][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 104
+[13:02:39:626639][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.626638560
+[13:02:39:626669][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 105
+[13:02:39:645897][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.645896641
+[13:02:39:645933][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 106
+[13:02:39:664885][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.664884856
+[13:02:39:664917][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 107
+[13:02:39:684435][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.684434398
+[13:02:39:684464][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 108
+[13:02:39:702927][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.702926874
+[13:02:39:702957][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 109
+[13:02:39:720956][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.720955949
+[13:02:39:720993][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 110
+[13:02:39:740160][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.740159777
+[13:02:39:740192][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 111
+[13:02:39:758874][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.758873393
+[13:02:39:758920][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 112
+[13:02:39:777945][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.777945099
+[13:02:39:777994][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 113
+[13:02:39:796564][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.796563793
+[13:02:39:796612][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 114
+[13:02:39:815352][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.815351666
+[13:02:39:815386][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 115
+[13:02:39:834252][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.834251892
+[13:02:39:834283][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 116
+[13:02:39:852964][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.852963571
+[13:02:39:852996][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 117
+[13:02:39:871742][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.871740879
+[13:02:39:871789][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 118
+[13:02:39:890155][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.890154175
+[13:02:39:890187][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 119
+[13:02:39:909621][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.909620619
+[13:02:39:909651][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 120
+[13:02:39:928081][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.928081016
+[13:02:39:928120][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 121
+[13:02:39:946964][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.946963731
+[13:02:39:946995][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 122
+[13:02:39:965582][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.965582058
+[13:02:39:965615][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 123
+[13:02:39:984762][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:39.984761571
+[13:02:39:984797][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 124
+[13:02:40:003560][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.003560028
+[13:02:40:003592][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 125
+[13:02:40:023071][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.023070774
+[13:02:40:023101][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 126
+[13:02:40:042279][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.042279170
+[13:02:40:042316][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 127
+[13:02:40:061811][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.061810830
+[13:02:40:061842][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 128
+[13:02:40:086325][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.086324580
+[13:02:40:086356][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 129
+[13:02:40:104924][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.104923988
+[13:02:40:104957][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 130
+[13:02:40:123701][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.123700672
+[13:02:40:123747][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 131
+[13:02:40:143140][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.143139495
+[13:02:40:143170][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 132
+[13:02:40:161733][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.161732514
+[13:02:40:161783][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 133
+[13:02:40:180384][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.180383276
+[13:02:40:180419][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 134
+[13:02:40:199323][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.199322957
+[13:02:40:199357][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 135
+[13:02:40:218911][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.218911158
+[13:02:40:218942][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 136
+[13:02:40:237866][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.237866078
+[13:02:40:237899][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 137
+[13:02:40:256103][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.256102853
+[13:02:40:256138][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 138
+[13:02:40:275570][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.275570093
+[13:02:40:275601][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 139
+[13:02:40:293979][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.293977724
+[13:02:40:294044][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 140
+[13:02:40:312802][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.312802053
+[13:02:40:312836][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 141
+[13:02:40:332421][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.332420327
+[13:02:40:332451][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 142
+[13:02:40:351501][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.351500600
+[13:02:40:351533][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 143
+[13:02:40:370684][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.370683385
+[13:02:40:370720][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 144
+[13:02:40:389120][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.389119604
+[13:02:40:389152][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 145
+[13:02:40:408402][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.408402234
+[13:02:40:408436][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 146
+[13:02:40:427110][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.427109688
+[13:02:40:427144][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 147
+[13:02:40:446146][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.446146033
+[13:02:40:446179][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 148
+[13:02:40:464915][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.464914332
+[13:02:40:464945][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 149
+[13:02:40:483821][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.483820416
+[13:02:40:483853][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 150
+[13:02:40:503002][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.503001298
+[13:02:40:503057][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 151
+[13:02:40:522039][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.522039138
+[13:02:40:522071][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 152
+[13:02:40:540795][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.540794423
+[13:02:40:540826][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 153
+[13:02:40:559545][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.559544688
+[13:02:40:559577][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 154
+[13:02:40:577982][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.577981972
+[13:02:40:578036][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 155
+[13:02:40:597360][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.597360166
+[13:02:40:597392][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 156
+[13:02:40:616463][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.616463103
+[13:02:40:616495][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 157
+[13:02:40:635449][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.635448737
+[13:02:40:635483][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 158
+[13:02:40:654711][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.654710606
+[13:02:40:654744][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 159
+[13:02:40:674557][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.674556527
+[13:02:40:674589][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 160
+[13:02:40:693370][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.693369749
+[13:02:40:693411][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 161
+[13:02:40:712210][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.712210131
+[13:02:40:712242][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 162
+[13:02:40:730546][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.730545978
+[13:02:40:730579][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 163
+[13:02:40:749911][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.749910197
+[13:02:40:749956][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 164
+[13:02:40:768452][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.768451757
+[13:02:40:768491][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 165
+[13:02:40:787941][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.787941029
+[13:02:40:787975][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 166
+[13:02:40:806477][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.806476627
+[13:02:40:806509][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 167
+[13:02:40:825904][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.825903819
+[13:02:40:825938][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 168
+[13:02:40:845489][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.845488236
+[13:02:40:845519][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 169
+[13:02:40:864916][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.864916260
+[13:02:40:864951][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 170
+[13:02:40:883144][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.883143810
+[13:02:40:883176][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 171
+[13:02:40:902280][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.902279654
+[13:02:40:902313][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 172
+[13:02:40:921307][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.921306532
+[13:02:40:921337][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 173
+[13:02:40:940126][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.940125704
+[13:02:40:940160][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 174
+[13:02:40:959244][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.959243618
+[13:02:40:959277][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 175
+[13:02:40:978317][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.978316639
+[13:02:40:978353][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 176
+[13:02:40:997502][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:40.997501377
+[13:02:40:997533][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 177
+[13:02:41:016222][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.016221096
+[13:02:41:016272][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 178
+[13:02:41:035462][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.035461313
+[13:02:41:035495][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 179
+[13:02:41:054791][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.054791095
+[13:02:41:054826][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 180
+[13:02:41:074175][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.074174737
+[13:02:41:074222][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 181
+[13:02:41:093334][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.093334163
+[13:02:41:093367][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 182
+[13:02:41:112311][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.112310803
+[13:02:41:112345][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 183
+[13:02:41:131674][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.131674085
+[13:02:41:131707][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 184
+[13:02:41:150801][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.150800993
+[13:02:41:150831][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 185
+[13:02:41:170133][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.170132528
+[13:02:41:170163][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 186
+[13:02:41:189548][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.189547596
+[13:02:41:189581][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 187
+[13:02:41:208441][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.208440412
+[13:02:41:208473][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 188
+[13:02:41:227234][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.227233645
+[13:02:41:227269][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 189
+[13:02:41:246215][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.246214626
+[13:02:41:246247][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 190
+[13:02:41:265030][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.265029482
+[13:02:41:265063][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 191
+[13:02:41:283671][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.283670446
+[13:02:41:283703][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 192
+[13:02:41:302728][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.302728253
+[13:02:41:302763][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 193
+[13:02:41:321983][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.321982850
+[13:02:41:322029][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 194
+[13:02:41:341346][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.341345898
+[13:02:41:341381][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 195
+[13:02:41:360637][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.360636435
+[13:02:41:360672][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 196
+[13:02:41:380036][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.380035509
+[13:02:41:380066][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 197
+[13:02:41:398677][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.398676520
+[13:02:41:398708][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 198
+[13:02:41:416911][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.416910293
+[13:02:41:416959][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 199
+[13:02:41:436418][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.436417153
+[13:02:41:436448][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 200
+[13:02:41:455424][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.455423905
+[13:02:41:455458][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 201
+[13:02:41:474687][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.474686441
+[13:02:41:474719][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 202
+[13:02:41:493487][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.493487020
+[13:02:41:493520][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 203
+[13:02:41:513158][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.513157877
+[13:02:41:513191][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 204
+[13:02:41:532265][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.532265132
+[13:02:41:532297][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 205
+[13:02:41:551590][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.551590197
+[13:02:41:551623][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 206
+[13:02:41:570479][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.570478733
+[13:02:41:570511][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 207
+[13:02:41:589980][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.589980033
+[13:02:41:590028][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 208
+[13:02:41:609094][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.609093805
+[13:02:41:609131][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 209
+[13:02:41:627885][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.627885165
+[13:02:41:627920][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 210
+[13:02:41:647463][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.647462301
+[13:02:41:647493][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 211
+[13:02:41:666809][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.666808824
+[13:02:41:666841][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 212
+[13:02:41:685427][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.685426941
+[13:02:41:685465][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 213
+[13:02:41:704562][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.704561757
+[13:02:41:704608][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 214
+[13:02:41:723783][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.723782276
+[13:02:41:723814][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 215
+[13:02:41:743885][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.743884408
+[13:02:41:743917][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 216
+[13:02:41:762984][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.762983675
+[13:02:41:763033][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 217
+[13:02:41:781689][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.781688933
+[13:02:41:781723][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 218
+[13:02:41:800716][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.800716145
+[13:02:41:800750][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 219
+[13:02:41:819755][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.819754362
+[13:02:41:819790][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 220
+[13:02:41:838828][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.838827668
+[13:02:41:838860][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 221
+[13:02:41:857348][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.857348269
+[13:02:41:857380][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 222
+[13:02:41:876091][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.876090220
+[13:02:41:876134][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 223
+[13:02:41:896025][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.896025091
+[13:02:41:896058][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 224
+[13:02:41:914662][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.914661995
+[13:02:41:914695][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 225
+[13:02:41:933790][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.933789287
+[13:02:41:933820][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 226
+[13:02:41:953027][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.953026804
+[13:02:41:953062][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 227
+[13:02:41:971824][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.971823225
+[13:02:41:971859][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 228
+[13:02:41:990375][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:41.990374199
+[13:02:41:990423][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 229
+[13:02:42:009791][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.009790554
+[13:02:42:009820][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 230
+[13:02:42:029432][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.029431981
+[13:02:42:029465][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 231
+[13:02:42:048806][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.048805623
+[13:02:42:048839][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 232
+[13:02:42:068455][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.068454270
+[13:02:42:068485][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 233
+[13:02:42:087462][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.087462201
+[13:02:42:087494][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 234
+[13:02:42:106006][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.106006187
+[13:02:42:106053][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 235
+[13:02:42:125669][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.125668492
+[13:02:42:125704][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 236
+[13:02:42:144837][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.144836854
+[13:02:42:144870][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 237
+[13:02:42:163572][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.163572082
+[13:02:42:163605][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 238
+[13:02:42:182414][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.182413804
+[13:02:42:182446][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 239
+[13:02:42:202020][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.202019481
+[13:02:42:202049][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 240
+[13:02:42:221007][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.221006340
+[13:02:42:221050][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 241
+[13:02:42:239851][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.239850614
+[13:02:42:239884][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 242
+[13:02:42:258692][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.258691343
+[13:02:42:258726][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 243
+[13:02:42:278108][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.278107937
+[13:02:42:278141][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 244
+[13:02:42:296671][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.296670700
+[13:02:42:296721][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 245
+[13:02:42:315907][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.315906747
+[13:02:42:315939][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 246
+[13:02:42:333402][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.333401095
+[13:02:42:333438][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 247
+[13:02:42:352917][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.352917084
+[13:02:42:352950][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 248
+[13:02:42:372200][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.372199414
+[13:02:42:372232][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 249
+[13:02:42:391083][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.391082456
+[13:02:42:391116][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 250
+[13:02:42:409931][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.409929984
+[13:02:42:409980][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 251
+[13:02:42:429563][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.429563139
+[13:02:42:429595][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 252
+[13:02:42:448541][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.448540495
+[13:02:42:448572][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 253
+[13:02:42:468292][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.468291693
+[13:02:42:468326][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 254
+[13:02:42:487174][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.487173783
+[13:02:42:487206][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 255
+[13:02:42:506455][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.506454978
+[13:02:42:506487][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 256
+[13:02:42:525242][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.525241724
+[13:02:42:525274][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 257
+[13:02:42:544556][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.544555679
+[13:02:42:544586][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 258
+[13:02:42:563074][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.563074099
+[13:02:42:563107][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 259
+[13:02:42:582667][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.582666942
+[13:02:42:582701][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 260
+[13:02:42:601386][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.601385822
+[13:02:42:601417][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 261
+[13:02:42:620074][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.620072857
+[13:02:42:620123][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 262
+[13:02:42:639482][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.639481253
+[13:02:42:639516][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 263
+[13:02:42:659326][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.659325983
+[13:02:42:659373][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 264
+[13:02:42:678154][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.678153632
+[13:02:42:678184][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 265
+[13:02:42:697058][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.697057536
+[13:02:42:697091][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 266
+[13:02:42:716135][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.716134482
+[13:02:42:716165][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 267
+[13:02:42:735599][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.735598847
+[13:02:42:735630][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 268
+[13:02:42:754529][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.754528651
+[13:02:42:754565][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 269
+[13:02:42:773930][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.773929531
+[13:02:42:773963][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 270
+[13:02:42:793230][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.793229865
+[13:02:42:793261][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 271
+[13:02:42:812915][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.812914697
+[13:02:42:812950][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 272
+[13:02:42:831497][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.831497052
+[13:02:42:831532][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 273
+[13:02:42:850584][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.850583628
+[13:02:42:850614][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 274
+[13:02:42:868964][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.868963913
+[13:02:42:869004][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 275
+[13:02:42:888264][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.888263547
+[13:02:42:888316][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 276
+[13:02:42:907462][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.907461934
+[13:02:42:907492][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 277
+[13:02:42:926460][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.926460178
+[13:02:42:926491][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 278
+[13:02:42:944532][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.944532164
+[13:02:42:944562][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 279
+[13:02:42:963906][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.963906226
+[13:02:42:963936][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 280
+[13:02:42:982741][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:42.982740375
+[13:02:42:982774][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 281
+[13:02:43:002053][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.002052977
+[13:02:43:002085][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 282
+[13:02:43:021254][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.021254068
+[13:02:43:021290][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 283
+[13:02:43:040391][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.040390799
+[13:02:43:040424][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 284
+[13:02:43:059773][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.059773214
+[13:02:43:059806][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 285
+[13:02:43:079567][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.079566193
+[13:02:43:079599][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 286
+[13:02:43:098643][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.098642912
+[13:02:43:098673][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 287
+[13:02:43:118427][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.118426847
+[13:02:43:118459][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 288
+[13:02:43:137258][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.137257479
+[13:02:43:137287][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 289
+[13:02:43:156199][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.156198888
+[13:02:43:156231][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 290
+[13:02:43:175084][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.175083501
+[13:02:43:175117][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 291
+[13:02:43:194941][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.194940358
+[13:02:43:194976][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 292
+[13:02:43:213353][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.213353027
+[13:02:43:213387][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 293
+[13:02:43:232561][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.232560361
+[13:02:43:232591][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 294
+[13:02:43:252036][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.252035895
+[13:02:43:252068][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 295
+[13:02:43:271593][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.271592862
+[13:02:43:271623][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 296
+[13:02:43:290711][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.290710860
+[13:02:43:290743][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 297
+[13:02:43:309565][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.309565160
+[13:02:43:309600][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 298
+[13:02:43:329031][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.329030953
+[13:02:43:329061][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 299
+[13:02:43:348478][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.348477144
+[13:02:43:348511][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 300
+[13:02:43:367595][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.367595105
+[13:02:43:367629][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 301
+[13:02:43:385956][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.385955605
+[13:02:43:385991][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 302
+[13:02:43:404251][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.404251074
+[13:02:43:404282][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 303
+[13:02:43:423621][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.423620295
+[13:02:43:423652][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 304
+[13:02:43:442889][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.442889036
+[13:02:43:442923][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 305
+[13:02:43:461797][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.461797273
+[13:02:43:461829][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 306
+[13:02:43:480881][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.480880515
+[13:02:43:480914][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 307
+[13:02:43:500264][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.500264096
+[13:02:43:500298][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 308
+[13:02:43:518912][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.518912001
+[13:02:43:518947][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 309
+[13:02:43:538055][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.538054450
+[13:02:43:538085][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 310
+[13:02:43:556918][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.556917840
+[13:02:43:556951][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 311
+[13:02:43:576560][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.576560090
+[13:02:43:576593][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 312
+[13:02:43:595899][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.595898849
+[13:02:43:595931][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 313
+[13:02:43:615006][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.615005458
+[13:02:43:615065][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 314
+[13:02:43:633733][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.633732530
+[13:02:43:633770][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 315
+[13:02:43:653396][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.653395628
+[13:02:43:653426][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 316
+[13:02:43:672813][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.672812983
+[13:02:43:672847][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 317
+[13:02:43:692321][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.692321073
+[13:02:43:692354][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 318
+[13:02:43:710943][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.710941788
+[13:02:43:710991][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 319
+[13:02:43:730714][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.730713278
+[13:02:43:730749][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 320
+[13:02:43:750164][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.750164072
+[13:02:43:750196][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 321
+[13:02:43:769558][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.769557948
+[13:02:43:769590][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 322
+[13:02:43:788243][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.788242583
+[13:02:43:788288][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 323
+[13:02:43:807895][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.807894791
+[13:02:43:807929][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 324
+[13:02:43:826595][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.826594399
+[13:02:43:826627][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 325
+[13:02:43:845599][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.845598614
+[13:02:43:845638][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 326
+[13:02:43:865098][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.865098114
+[13:02:43:865131][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 327
+[13:02:43:884313][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.884312827
+[13:02:43:884344][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 328
+[13:02:43:903526][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.903525193
+[13:02:43:903558][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 329
+[13:02:43:922652][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.922652187
+[13:02:43:922682][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 330
+[13:02:43:941640][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.941640076
+[13:02:43:941672][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 331
+[13:02:43:960085][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.960084272
+[13:02:43:960123][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 332
+[13:02:43:978761][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.978760446
+[13:02:43:978794][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 333
+[13:02:43:997815][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:43.997814952
+[13:02:43:997847][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 334
+[13:02:44:016983][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.016983092
+[13:02:44:017035][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 335
+[13:02:44:036533][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.036532283
+[13:02:44:036566][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 336
+[13:02:44:055710][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.055709946
+[13:02:44:055742][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 337
+[13:02:44:074400][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.074399216
+[13:02:44:074432][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 338
+[13:02:44:093827][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.093826660
+[13:02:44:093860][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 339
+[13:02:44:113432][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.113431716
+[13:02:44:113462][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 340
+[13:02:44:131906][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.131905932
+[13:02:44:131938][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 341
+[13:02:44:151370][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.151369845
+[13:02:44:151400][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 342
+[13:02:44:170510][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.170509378
+[13:02:44:170543][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 343
+[13:02:44:189639][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.189638599
+[13:02:44:189668][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 344
+[13:02:44:208304][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.208303857
+[13:02:44:208337][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 345
+[13:02:44:227606][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.227605949
+[13:02:44:227636][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 346
+[13:02:44:246796][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.246796033
+[13:02:44:246845][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 347
+[13:02:44:265229][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.265228852
+[13:02:44:265264][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 348
+[13:02:44:284854][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.284853777
+[13:02:44:284897][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 349
+[13:02:44:304313][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.304312810
+[13:02:44:304347][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 350
+[13:02:44:323501][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.323501238
+[13:02:44:323535][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 351
+[13:02:44:343972][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.343972098
+[13:02:44:344003][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 352
+[13:02:44:362819][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.362818687
+[13:02:44:362856][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 353
+[13:02:44:382197][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.382196221
+[13:02:44:382231][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 354
+[13:02:44:401728][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.401727538
+[13:02:44:401760][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 355
+[13:02:44:420824][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.420823581
+[13:02:44:420857][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 356
+[13:02:44:439859][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.439858900
+[13:02:44:439891][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 357
+[13:02:44:458669][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.458667768
+[13:02:44:458717][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 358
+[13:02:44:477338][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.477337938
+[13:02:44:477373][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 359
+[13:02:44:496852][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.496851473
+[13:02:44:496882][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 360
+[13:02:44:516285][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.516284754
+[13:02:44:516317][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 361
+[13:02:44:534962][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.534961095
+[13:02:44:535007][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 362
+[13:02:44:554077][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.554076344
+[13:02:44:554107][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 363
+[13:02:44:573131][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.573130463
+[13:02:44:573177][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 364
+[13:02:44:591930][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.591930166
+[13:02:44:591965][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 365
+[13:02:44:610833][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.610832961
+[13:02:44:610863][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 366
+[13:02:44:629886][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.629884894
+[13:02:44:629937][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 367
+[13:02:44:649746][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.649745873
+[13:02:44:649778][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 368
+[13:02:44:668841][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.668840927
+[13:02:44:668871][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 369
+[13:02:44:687877][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.687877061
+[13:02:44:687909][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 370
+[13:02:44:706996][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.706995258
+[13:02:44:707065][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 371
+[13:02:44:726283][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.726281732
+[13:02:44:726335][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 372
+[13:02:44:745722][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.745721672
+[13:02:44:745753][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 373
+[13:02:44:765452][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.765452251
+[13:02:44:765485][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 374
+[13:02:44:783874][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.783873479
+[13:02:44:783920][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 375
+[13:02:44:803692][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.803691951
+[13:02:44:803725][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 376
+[13:02:44:823340][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.823339789
+[13:02:44:823371][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 377
+[13:02:44:842806][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.842806111
+[13:02:44:842840][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 378
+[13:02:44:861844][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.861843631
+[13:02:44:861876][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 379
+[13:02:44:880778][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.880778198
+[13:02:44:880813][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 380
+[13:02:44:899883][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.899883004
+[13:02:44:899914][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 381
+[13:02:44:919187][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.919187106
+[13:02:44:919217][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 382
+[13:02:44:938008][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.938007107
+[13:02:44:938067][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 383
+[13:02:44:957760][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.957759312
+[13:02:44:957792][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 384
+[13:02:44:987140][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:44.987139364
+[13:02:44:987174][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 385
+[13:02:45:005871][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.005870472
+[13:02:45:005916][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 386
+[13:02:45:025555][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.025554234
+[13:02:45:025585][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 387
+[13:02:45:044920][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.044920179
+[13:02:45:044955][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 388
+[13:02:45:064355][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.064354883
+[13:02:45:064385][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 389
+[13:02:45:083453][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.083452247
+[13:02:45:083485][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 390
+[13:02:45:102212][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.102212141
+[13:02:45:102246][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 391
+[13:02:45:121917][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.121916691
+[13:02:45:121948][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 392
+[13:02:45:140929][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.140928617
+[13:02:45:140959][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 393
+[13:02:45:160243][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.160242504
+[13:02:45:160277][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 394
+[13:02:45:179330][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.179329879
+[13:02:45:179366][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 395
+[13:02:45:198742][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.198741508
+[13:02:45:198772][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 396
+[13:02:45:217463][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.217462917
+[13:02:45:217510][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 397
+[13:02:45:236838][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.236837619
+[13:02:45:236873][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 398
+[13:02:45:255695][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.255694725
+[13:02:45:255729][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 399
+[13:02:45:276118][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.276117788
+[13:02:45:276151][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 400
+[13:02:45:294917][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.294916475
+[13:02:45:294949][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 401
+[13:02:45:313982][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.313981607
+[13:02:45:314034][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 402
+[13:02:45:333858][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.333858144
+[13:02:45:333888][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 403
+[13:02:45:353685][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.353685227
+[13:02:45:353717][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 404
+[13:02:45:373835][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.373835235
+[13:02:45:373867][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 405
+[13:02:45:393425][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.393424371
+[13:02:45:393455][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 406
+[13:02:45:412114][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.412113355
+[13:02:45:412146][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 407
+[13:02:45:432073][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.432073091
+[13:02:45:432105][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 408
+[13:02:45:451433][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.451433028
+[13:02:45:451468][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 409
+[13:02:45:470755][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.470754786
+[13:02:45:470786][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 410
+[13:02:45:489244][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.489244090
+[13:02:45:489277][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 411
+[13:02:45:507713][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.507712492
+[13:02:45:507746][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 412
+[13:02:45:527545][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.527544657
+[13:02:45:527577][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 413
+[13:02:45:546785][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.546784377
+[13:02:45:546834][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 414
+[13:02:45:565783][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.565782379
+[13:02:45:565815][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 415
+[13:02:45:585542][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.585541995
+[13:02:45:585573][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 416
+[13:02:45:604722][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.604721831
+[13:02:45:604753][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 417
+[13:02:45:623904][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.623903613
+[13:02:45:623938][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 418
+[13:02:45:645090][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.645089504
+[13:02:45:645120][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 419
+[13:02:45:666742][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.666741288
+[13:02:45:666773][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 420
+[13:02:45:687871][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.687870471
+[13:02:45:687911][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 421
+[13:02:45:708594][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.708593870
+[13:02:45:708625][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 422
+[13:02:45:729275][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.729275029
+[13:02:45:729308][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 423
+[13:02:45:750837][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.750836546
+[13:02:45:750869][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 424
+[13:02:45:771633][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.771632314
+[13:02:45:771663][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 425
+[13:02:45:792705][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.792704914
+[13:02:45:792739][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 426
+[13:02:45:814181][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.814180636
+[13:02:45:814212][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 427
+[13:02:45:835077][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.835076266
+[13:02:45:835107][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 428
+[13:02:45:856154][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.856153375
+[13:02:45:856185][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 429
+[13:02:45:877204][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.877203467
+[13:02:45:877238][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 430
+[13:02:45:897418][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.897417990
+[13:02:45:897452][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 431
+[13:02:45:918665][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.918664662
+[13:02:45:918694][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 432
+[13:02:45:938963][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.938962363
+[13:02:45:939002][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 433
+[13:02:45:960208][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.960208151
+[13:02:45:960241][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 434
+[13:02:45:981090][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:45.981089495
+[13:02:45:981120][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 435
+[13:02:46:002482][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.002481462
+[13:02:46:002514][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 436
+[13:02:46:023246][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.023245603
+[13:02:46:023278][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 437
+[13:02:46:044941][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.044940338
+[13:02:46:044973][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 438
+[13:02:46:065984][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.065983967
+[13:02:46:066028][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 439
+[13:02:46:087323][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.087323177
+[13:02:46:087355][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 440
+[13:02:46:108370][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.108370242
+[13:02:46:108403][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 441
+[13:02:46:129159][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.129158576
+[13:02:46:129192][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 442
+[13:02:46:150515][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.150515273
+[13:02:46:150547][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 443
+[13:02:46:171118][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.171117478
+[13:02:46:171149][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 444
+[13:02:46:192305][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.192305014
+[13:02:46:192338][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 445
+[13:02:46:213038][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.213037893
+[13:02:46:213068][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 446
+[13:02:46:233553][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.233552367
+[13:02:46:233601][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 447
+[13:02:46:254705][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.254704589
+[13:02:46:254734][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 448
+[13:02:46:275793][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.275792244
+[13:02:46:275824][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 449
+[13:02:46:296294][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.296293778
+[13:02:46:296326][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 450
+[13:02:46:317293][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.317292547
+[13:02:46:317325][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 451
+[13:02:46:338155][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.338154538
+[13:02:46:338188][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 452
+[13:02:46:359163][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.359163077
+[13:02:46:359196][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 453
+[13:02:46:380748][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.380747378
+[13:02:46:380778][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 454
+[13:02:46:401882][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.401881889
+[13:02:46:401912][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 455
+[13:02:46:422974][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.422973659
+[13:02:46:423004][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 456
+[13:02:46:444380][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.444379571
+[13:02:46:444412][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 457
+[13:02:46:464727][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.464726874
+[13:02:46:464757][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 458
+[13:02:46:485535][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.485534571
+[13:02:46:485569][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 459
+[13:02:46:506615][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.506614547
+[13:02:46:506646][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 460
+[13:02:46:525963][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.525962802
+[13:02:46:525995][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 461
+[13:02:46:546811][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.546810085
+[13:02:46:546843][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 462
+[13:02:46:568181][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.568180349
+[13:02:46:568213][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 463
+[13:02:46:589623][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.589622404
+[13:02:46:589672][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 464
+[13:02:46:610162][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.610161506
+[13:02:46:610192][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 465
+[13:02:46:631083][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.631082895
+[13:02:46:631114][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 466
+[13:02:46:652291][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.652290555
+[13:02:46:652325][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 467
+[13:02:46:673681][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.673680778
+[13:02:46:673711][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 468
+[13:02:46:694088][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.694087539
+[13:02:46:694121][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 469
+[13:02:46:714917][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.714917015
+[13:02:46:714949][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 470
+[13:02:46:735311][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.735310810
+[13:02:46:735342][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 471
+[13:02:46:756889][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.756888610
+[13:02:46:756919][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 472
+[13:02:46:777642][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.777642203
+[13:02:46:777672][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 473
+[13:02:46:798133][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.798133197
+[13:02:46:798165][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 474
+[13:02:46:819393][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.819393300
+[13:02:46:819423][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 475
+[13:02:46:839944][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.839943470
+[13:02:46:839973][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 476
+[13:02:46:860696][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.860695852
+[13:02:46:860728][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 477
+[13:02:46:880946][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.880945438
+[13:02:46:880977][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 478
+[13:02:46:901825][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.901824357
+[13:02:46:901856][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 479
+[13:02:46:924086][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.924086099
+[13:02:46:924117][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 480
+[13:02:46:944997][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.944996640
+[13:02:46:945043][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 481
+[13:02:46:965750][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.965749691
+[13:02:46:965784][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 482
+[13:02:46:986361][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:46.986361189
+[13:02:46:986396][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 483
+[13:02:47:006578][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.006577328
+[13:02:47:006607][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 484
+[13:02:47:025930][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.025929977
+[13:02:47:025964][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 485
+[13:02:47:046117][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.046116147
+[13:02:47:046150][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 486
+[13:02:47:067174][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.067173480
+[13:02:47:067206][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 487
+[13:02:47:088590][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.088589699
+[13:02:47:088623][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 488
+[13:02:47:108877][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.108876516
+[13:02:47:108908][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 489
+[13:02:47:129377][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.129376385
+[13:02:47:129409][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 490
+[13:02:47:149953][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.149953055
+[13:02:47:149985][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 491
+[13:02:47:171104][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.171103310
+[13:02:47:171135][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 492
+[13:02:47:191858][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.191858170
+[13:02:47:191890][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 493
+[13:02:47:212826][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.212826179
+[13:02:47:212857][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 494
+[13:02:47:232849][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.232848332
+[13:02:47:232884][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 495
+[13:02:47:254137][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.254136358
+[13:02:47:254168][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 496
+[13:02:47:274935][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.274934394
+[13:02:47:274980][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 497
+[13:02:47:295790][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.295790074
+[13:02:47:295820][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 498
+[13:02:47:316469][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.316468929
+[13:02:47:316502][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 499
+[13:02:47:336485][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.336483853
+[13:02:47:336534][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 500
+[13:02:47:357775][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.357774861
+[13:02:47:357809][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 501
+[13:02:47:378922][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.378921491
+[13:02:47:378957][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 502
+[13:02:47:403505][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.403505188
+[13:02:47:403540][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 503
+[13:02:47:427810][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.427809623
+[13:02:47:427839][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 504
+[13:02:47:452850][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:306][xeno_flow_entry_latency] Adding pipe at: 13:02:47.452849900
+[13:02:47:452880][3441229][DOCA][INF][xeno_flow_entry_latency_core.c:308][xeno_flow_entry_latency] Added nr 505
