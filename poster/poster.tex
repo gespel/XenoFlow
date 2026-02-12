@@ -1,0 +1,196 @@
+%%% LaTeX template file for UP poster.
+%%% ------------------------------------------------------------------------------------------------
+
+\documentclass[pageborders=False, colorscheme1, a0paper, 35pt]{upposter}
+% Drawing page borders is useful when the poster will be printed
+% on a larger paper size, and needs to be cut afterwards.
+% In other cases it is best to omit option pageborders.
+
+% \usepackage[ngerman]{babel} % german (hyphenation... )
+\usepackage[english]{babel} % english (hyphenation... )
+\usepackage[utf8]{inputenc}
+\pdfcompresslevel=0
+
+% TODO
+\title{Hardware-Accelerated Load Balancing on Bluefield-3 DPUs - XenoFlow Implementation and Performance Evaluation}
+%%% List the authors here.
+% TODO
+%\author{M. Itarbeiter}
+%%% List the cooperations and funding partners here.
+% TODO
+\institute{\begin{tabular}{ll}
+\huge Max Schrötter, Sten Heimbrodt, Bettina Schnor
+\end{tabular}}
+
+% Block Style without borders
+\defineblockstyle{Plain}{
+	titlewidthscale=1,
+	bodywidthscale=1
+}{
+	\setlength{\blocklinewidth}{0pt}
+}
+
+
+\begin{document}
+	%%% Uncomment this to add the mathpluslogo
+	% TODO 
+	
+	%%% This command creates your title.
+	\maketitle % Create title
+
+	
+	
+	
+	%%% Here you can put your poster content.
+	%%%
+	%%% A box with a title is created by the following command:
+	%%% \block{Title}{Content}
+	%%% For a box without a titlebar just leave the title empty:
+	%%% \block{}{Content}
+	%%%
+	%%% The content of a block allows regular latex code (with some exceptions).
+	%%%
+	%%% Blocks can span the width of the poster or can be placed inside columns.
+	%%% Columns are defined like this:
+	%%%
+	%%% \begin{columns}
+	%%% \column{.3} % this is a column spanning 30 percent of the width of the poster.
+	%%% \block{Title1}{Content1}
+	%%% \block{Title2}{Content2}
+	%%% \column{.7} % this is a column spanning 70 percent of the width of the poster.
+	%%% \block{Title3}{Content3}
+	%%% \end{columns}
+	%%%
+	%%% At the very end of the poster creating process you should make sure that your
+	%%% blocks at the end of the poster align. You can for example play around with
+	%%% \vspace{2cm}
+	%%%
+	%%% Assuming your file is named 'poster.tex' you can compile it by opening a commandline,
+	%%% navigating to the folder containing the file and typing
+	%%%    pdflatex poster.tex
+	%%%
+	%%% A word to the papersize:
+	%%% The frames at ZIB have b1paper format. Since the fontsizes and measurements should be uniform,
+	%%% please use the following doumentclass and don't change neither the colorscheme nor
+	%%% the fontsizes or fontfamilies:
+	%%% \documentclass[grey,b1paper,fontserif]{zibposter}
+	%%%
+	%%% If you or your conference prefer a0paper or you like a different colorscheme
+	%%% you can change these parameters in the documentclass.
+	
+	%%% --- begin content ------------------------------------------------------------------------------
+%	\begin{columns}
+%		
+%		\column{0.55}
+%		
+\useblockstyle{Plain}
+\block{}{
+	\begin{tikzfigure}
+		\includegraphics[width=0.7\linewidth]{graphics/demo/Datacenter_3.png}
+	\end{tikzfigure}
+}
+
+	
+%		
+%	\end{columns}
+%	
+
+\useblockstyle{upposter}
+\block{Motivation}{
+	Some short explanation of the goals or findings\\
+	
+	\begin{minipage}[t]{.3\linewidth}
+		\begin{itemize}
+			\item Point 1
+			\item Point 2
+			\item Point 3
+			\item ...
+			\item Point 41
+			\item Point 42
+			\item Point 43
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}[t]{.7\linewidth}
+		\begin{itemize}
+			\item Goal 1
+			\item Goal 2
+			\item Goal 3
+			\item ...
+			\item Goal 41
+			\item Goal 42
+			\item Goal 43
+		\end{itemize}
+	\end{minipage}
+}
+
+	
+	\begin{columns}
+		
+		\column{.55}
+		
+		\block{A picture}{
+			\begin{tikzfigure}[Ligand Excluded Surfance \cite{ref1}]
+				\includegraphics[width=0.7\linewidth]{graphics/demo/ligandExcludedSurface}
+			\end{tikzfigure}
+		}
+		
+		\block{Box Title}{
+			Some text ...
+
+			\vspace*{160mm}
+		}
+		
+		\column{.45}
+		
+		\block{Box Title}{
+			A box with some latex math. First Euler's equation
+			\[ e^{i\pi} + 1 =0 \]
+			Second the geometric series
+			\[ \sum_{k=0}^{n-1} q^k = \frac{1-q^n}{1-q} \]
+		}
+		
+		\block{}{
+			A box without a title.  A box without a title.
+
+			\vspace*{207mm}
+		}
+		
+		\block{Font awesome}{
+			Note that you can use fontawesome symbols:
+			\begin{itemize}
+				\item[\faUniversity] a university
+				\item[\faBook] a book
+				\item[\faGlobe] a globe
+				\item[\faUsers] users
+			\end{itemize}
+			and much more, for references search the internet
+		}
+		
+	\end{columns}
+	
+	\begin{columns}
+		
+		\column{.55}
+		
+		\block{Publications}{
+			\begin{thebibliography}{9}
+				\bibitem{ref1} N. Lindow, D. Baum, H.-C. Hege. Ligand Excluded Surface: A New Type of Molecular Surface.
+				\textit{IEEE Transactions on Visualization and Computer Graphics,} Vol. 20, No. 12, pp. 2486--2495, 2014.    
+			\end{thebibliography}
+
+			\vspace{20mm}
+		}
+		
+		\column{.45}
+		
+		\block{Funded by}{			
+			Our awesome partner and ...
+			\hfill
+			%\includegraphics[height=2.4cm]{graphics/logos/ZIB-logo}
+			\vspace{33mm}
+		}
+		
+	\end{columns}
+	
+	%%% --- end content --------------------------------------------------------------------------------
+\end{document}

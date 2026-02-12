@@ -1,0 +1,912 @@
+% \iffalse meta-comment
+%% Copyright (C) 2021 by Zuse Institute Berlin
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3c of this license or (at your option) any later
+%% version. This version of this license is in
+%%    http://www.latex-project.org/lppl/lppl-1-3c.txt
+%% and the latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+%
+% Unpacking:
+%    (a) If upposter.ins is present:
+%           tex upposter.ins
+%    (b) Without upposter.ins:
+%           tex upposter.dtx
+%
+% Documentation:
+%    (a) If upposter.drv is present:
+%           latex upposter.drv; ... (similar to (b))
+%    (b) Without upposter.drv:
+%           latex upposter.dtx
+%           makeindex -s gind.ist upposter.idx
+%           makeindex -s gglo.ist -o upposter.gls upposter.glo
+%           latex upposter.dtx
+%           latex upposter.dtx
+% \fi
+% \iffalse
+%<*ignore>
+\begingroup
+  \catcode`\{=1 %
+  \catcode`\}=2 %
+  \def\x{LaTeX2e}%
+\expandafter\endgroup
+\ifcase 0\expandafter
+  \ifx\csname processbatchFile\endcsname\relax
+     \ifx\fmtname\x \else 1\fi
+  \else1\fi
+\else\csname fi\endcsname
+%</ignore>
+%<*install>
+\input docstrip
+\keepsilent
+\askonceonly
+
+\usedir{tex/latex/upposter}
+
+\preamble
+\endpreamble
+
+\generate{
+  \file{upposter.drv}{\from{upposter.dtx}{driver}}
+  \file{upposter.ins}{\from{upposter.dtx}{install}}
+  \file{upposter.cls}{\from{upposter.dtx}{class}}
+}
+
+\obeyspaces
+\Msg{*************************************************************}
+\Msg{*                                                           *}
+\Msg{* To finish the installation you have to move the following *}
+\Msg{* file into a directory searched by LaTeX:                  *}
+\Msg{*                                                           *}
+\Msg{*     upposter.cls, upcolors.sty, graphics/               *}
+\Msg{*                                                           *}
+\Msg{* To produce the documentation run the file upposter.dtx   *}
+\Msg{* through LaTeX.                                            *}
+\Msg{*                                                           *}
+\Msg{* Happy TeXing!                                             *}
+\Msg{*                                                           *}
+\Msg{*************************************************************}
+
+\endbatchfile
+%</install>
+%<*ignore>
+\fi
+%</ignore>
+%<class>\NeedsTeXFormat{LaTeX2e}[2018/04/01]
+%<class>\ProvidesClass{upposter}
+%<*driver>
+\ProvidesFile{upposter.dtx}
+%</driver>
+%<*class|driver>
+  [2021/12/07 v0.1a poster in up's style]
+%</class|driver>
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{upcolors}
+\usepackage{hypdoc}
+
+\providecommand{\cls}{\textsf}
+\providecommand{\pkg}{\textsf}
+\providecommand{\env}{\texttt}
+
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+
+\begin{document}
+  \DocInput{upposter.dtx}
+\end{document}
+%</driver>
+% \fi
+% ^^A No |, !, =, > in \changes, confuses makeindex.
+% \changes{v0.1a}{2021/12/07}{Support dashed page borders meant as cut
+% lines for posters printed on large papers.}
+% \changes{v0.1}{2021/04/01}{Adapt to new up style, backward
+% incompatible changes.  Maintained by new team:
+% Gábor Braun, Ariane Ernst, Philipp Harth.}
+%
+% \changes{v0.0}{2019/06/12}{Template created by Franziska Schlösser}
+%
+% \GetFileInfo{upposter.dtx}
+%
+% \DoNotIndex{%
+%   ^^A definition
+%   \renewcommand,\newcommand,\newenvironment,\def,\edef,\let,\global,
+%   ^^A box, spacing, rule, length
+%   \newsavebox,\sbox,\savebox,\setbox,\hbox,\mbox,\parbox,\lastbox,
+%   \usebox,\unvbox,\unhbox,
+%   \wd,\ht,\dp,\prevdepth,\penalty,
+%   \linewidth,\paperheight,\paperwidth,\textheight,\textwidth,
+%   \hspace,\vspace,\hrule,
+%   \p@,\dimexpr,\setlength,\newlength,
+%   ^^A LaTeX commands (class and author)
+%   \DeclareOption,\CurrentOption,\ExecuteOption,\ProcessOptions,
+%   \RequirePackage,\PassOptionsToClass,\LoadClass,
+%   \AtBeginDocument,\AtEndDocument,\AtEndOfClass,\AtEndOfPackage,
+%   \begin,\end,\section,\geometry,
+%   ^^A LaTeX primitives
+%   \@gobble,\@ifundefined,\aftergroup,\space,
+%   \newif,\ifnum,\ifdim,\fi,\else,\relax,
+%   \unepxanded,
+%   ^^A font
+%   \normalsize,\small,\Large,\fontsize,\sffamily,
+%   \baselineskip,\bfseries,\f@baselineskip,\f@size,\selectfont}
+%
+% \title{\LaTeX{} class for up posters}
+%
+% \maketitle{}
+%
+% \begin{abstract}
+%   The \cls{upposter} class is intended for creating
+%   scientific posters
+%   using the functionality of class \cls{tikzposter}
+%   but configured to use
+%   Zuse Institute Berlin's house style
+%   as default.
+% \end{abstract}
+%
+% \section{Introduction}
+%
+%
+% The goal of class \cls{upposter} is easy creation for scientific
+% posters in up style.  It is based on class \cls{tikzposter}, and
+% uses mostly the same syntax, however a self-contained quick start
+% guide is provided below.
+%
+% The current version is an adaptation to the new up style of the
+% pre-2021 version of Franziska Schösser, for which we are thankful to
+% her.  While the syntax is mostly the same, the current version is
+% incompatble to the old version, and is not suitable for reproducible
+% compilation of old posters, even if they explicitly request the old
+% \cls{upposter}.
+%
+% A skeleton scientific poster looks like:
+%
+% \begin{verbatim}
+% \documentclass{upposter}
+%
+% \title{Template Title of the Template Poster \\
+%   using two Lines}
+%
+% \author{R. easarcher}
+%
+% \institute{\begin{tabular}{ll}
+%     Cooperation: & P. Artner (Institute)\\
+%     Funding: & Tresor
+%   \end{tabular}}
+%
+% \begin{document}
+%
+% \maketitle
+%
+% \block{Motivation}{Some short explanation of the goals or findings}
+%
+% \begin{columns}
+% \column{.55} % argument is column width / poster width
+%   \block{TITLE}{CONTENT}
+%   \block{...}{...}
+%
+% \column{.45}
+%   \block{...}{...}}
+%
+% \end{columns}
+%
+% \end{document}
+% \end{verbatim}
+%
+% The default style is the recommended one for posters
+% displayed at up.  Class options are provided to change some aspects
+% of the common style, see Section~\ref{sec:class-options}.
+%
+% For posters displayed outside up, e.g., at a conference, specify
+% the option |a0paper| or |b1paper| for the correct papersize, e.g.,
+% together with |portrait| or |landscape| for the orientation.
+% \begin{verbatim}
+% \documentclass[a0paper,portrait]{upposter}
+% \end{verbatim}
+% A paper size other than A0 or B1 should be specified via
+% \cs{geometry} from package \pkg{geometry}, but this has limited
+% support, e.g., there is no supported way to adjust margins.
+% \begin{verbatim}
+% \doumentclass[landscape]{upposter}
+% \geometry{a1paper}
+% \end{verbatim}
+%
+% The option |pageborders| adds a dashed border line to the poster.
+% The intended use case is when the poster will be printed on a larger
+% paper, and needs to be cut at the borders.
+%
+% \subsection{Title matter}
+%
+% \DescribeMacro{\title}
+% \DescribeMacro{\author}
+% \DescribeMacro{\institute}
+% Use the one-argument commands \cs{author},
+% \cs{title}, \cs{institute} to declare elements of the title area.
+% Specify cooperating partners and funders with \cs{institute}.
+% Note that \cs{titlegraphic} is ignored.
+%
+% \DescribeMacro{\titlelogos}
+% Use \cs{titlelogos} with an argument of a comma separated list of
+% graphics files you wish to include in the title area.  It is
+% intended for logos of supporting organizations beyond Zuse Insitute
+% (whose logo is included elsewhere anyway).
+%
+% \DescribeMacro{\mathpluslogo}
+% To add mathplus logo to the title area,
+% use \cs{mathpluslogo} \emph{before} \cs{maketitle},
+% ideally in the preamble.
+% This is obsolete, use \cs{titlelogos} instead.
+%
+%
+% \subsection{Poster content}
+% \label{sec:poster-content}
+%
+%
+% Poster contents should be divided into boxes and specified from top to
+% bottom.
+% \DescribeMacro{\block}
+% For a single box spanning the whole width of poster,
+% use command \cs{block}:
+% \begin{verbatim}
+% \block{Title}{Content}
+% \end{verbatim}
+% For a box without a titlebar just leave the title empty:
+% \begin{verbatim}
+% \block{}{Content}
+% \end{verbatim}
+% Use regular \LaTeX{} code inside block content, but avoid floats.
+%
+% \DescribeEnv{columns}
+% \DescribeMacro{\column}
+% To organize boxes into columns, use environment \env{columns}.
+% Inside the environment use \cs{column}\marg{width}\marg{content}
+% to start a new column,
+% and follow it with commands \cs{block}
+% specifying boxes from top to bottom.
+% Example:
+% \begin{verbatim}
+% \begin{columns}
+% \column{.3} % 30% of poster width
+% \block{Title1}{Content1}
+% \block{Title2}{Content2}
+% \column{.7} % 70% of poster width to fill whole poster width
+% \block{Title3}{Content3}
+% \end{columns}
+% \end{verbatim}
+%
+% Ideally, the last boxes should touch the bottom of the content area.
+% To draw a red help line there, add the standard option |draft| to
+% \cs{documentclass}, but don't forget to remove it for the final
+% version.
+% (Alternatively, you can place \cs{guideline} just before
+% |\end{document}|, but this is obsolete.)
+%
+%
+% \section{Class options}
+% \label{sec:class-options}
+%
+% Options are mainly for willfully deviating from the up
+% style, e.g., for a conference requiring a specific poster size.
+% The exceptions are the options |draft| anf |final|, which have their
+% usual meaning.  in addition, |draft| marks the bottom of
+% content area to help you fill the whole poster,
+% while |final| disables the marking.
+% \begin{table}
+%   \caption{Options to class \cls{upposter}}
+%   \begin{tabular}{lp{.7\columnwidth}}
+%     coloscheme1,colorscheme2 & color schemes \\
+%     b1paper, a0paper & paper size, default is
+%     the size for up frames (currently b1paper) \\
+%     pageborders & add dashed borders to poster boundary \\
+%     portrait, landscape & page orientation \\
+%     fontserif, fontsans & font family, default is
+%     the main up family (currently fontsans) \\
+%     draft, final & standard options
+%   \end{tabular}
+% \end{table}
+%
+%
+% \section{Recommended colors}
+% \label{sec:colors}
+%
+% For convenience, the colors in Zuse Institute's style guide are
+% available under the following names.  To use these outside the class
+% \cls{upposter} please load the package \pkg{upcolors}
+% (via |\usepackage{upcolors}|).
+%
+% \begin{table}
+%   \caption{Recommended colors}
+%   \begin{tabular}{lll}
+%     Color & Sample & Description \\
+%     upblue & \colorbox{upblue}{\hspace*{2cm}} &
+%     Pantone Reflex Blue \\
+%     uplightblue & \colorbox{uplightblue}{\hspace*{2cm}} &
+%     {Pantone 314} \\
+%     upviolet & \colorbox{upviolet}{\hspace*{2cm}} &
+%     violet \\
+%     uppink & \colorbox{uppink}{\hspace*{2cm}} &
+%     pink \\
+%     upgreen & \colorbox{upgreen}{\hspace*{2cm}} &
+%     green \\
+%     upyellow & \colorbox{upyellow}{\hspace*{2cm}} &
+%     yellow \\
+%     uporange & \colorbox{uporange}{\hspace*{2cm}} &
+%     orange \\
+%     upred & \colorbox{upred}{\hspace*{2cm}} &
+%     red \\
+%     Logical color names \\
+%     upprimary & \colorbox{upprimary}{\hspace*{2cm}} &
+%     primary color (at least 70 \%) \\
+%     upsecondary & \colorbox{upsecondary}{\hspace*{2cm}} &
+%     secondary, old main color \\
+%     \hline
+%     Text colors \\
+%     uptextBlack & \textcolor{uptextBlack}{sample} & black text \\
+%     uptextGray & \textcolor{uptextGray}{sample} & gray text \\
+%     Logical text colors \\
+%     uptextprimary & \textcolor{uptextprimary}{sample} %
+%     & primary text color\\
+%     uptextsecondary & \textcolor{uptextsecondary}{sample} %
+%     & secondary text color
+%   \end{tabular}
+% \end{table}
+%
+% \StopEventually{\PrintChanges\PrintIndex}
+%
+% \section{Implementation}
+% \label{sec:implementation}
+%
+%
+% Transparent colors and opacity are deliberately avoided,
+% due to lack of printer, Postscript support and because embedded
+% images often have a white non-transparent backgrounds.
+% Nonetheless transparency could improve visual appearance.
+%
+%    \begin{macrocode}
+\RequirePackage{xcolor,graphicx}
+\RequirePackage{calc}
+
+
+\RequirePackage{upcolors}
+%    \end{macrocode}
+% Unfortunately,  \cls{tikzposter} ignores global options, so we have
+% to pass on every single option relevant to it.
+%    \begin{macrocode}
+\DeclareOption{25pt}{
+  \PassOptionsToClass{\CurrentOption}{tikzposter}
+}
+\DeclareOption{20pt}{
+  \PassOptionsToClass{\CurrentOption}{tikzposter}
+}
+\DeclareOption{17pt}{
+  \PassOptionsToClass{\CurrentOption}{tikzposter}
+}
+\DeclareOption{14pt}{
+  \PassOptionsToClass{\CurrentOption}{tikzposter}
+}
+\DeclareOption{12pt}{
+  \PassOptionsToClass{\CurrentOption}{tikzposter}
+}
+%    \end{macrocode}
+% Paper size support is limited in \cls{tikzposter}, e.g., B1 paper is
+% not supported.  We thus save the paper size from supported options
+% to \cs{upposter@papersize} for later handling.
+%    \begin{macrocode}
+\DeclareOption{b1paper}{
+  \PassOptionsToClass{\CurrentOption}{tikzposter}
+  \PassOptionsToClass{innermargin=20mm}{tikzposter}
+  \def\upposter@papersize{b1paper}
+}
+\DeclareOption{a0paper}{
+  \PassOptionsToClass{\CurrentOption}{tikzposter}
+  \PassOptionsToClass{innermargin=28mm}{tikzposter}
+    \def\upposter@papersize{a0paper}
+}
+%    \end{macrocode}
+% More options to pass on.
+%    \begin{macrocode}
+\DeclareOption{portrait}{
+  \PassOptionsToClass{\CurrentOption}{tikzposter}
+}
+\DeclareOption{landscape}{
+  \PassOptionsToClass{\CurrentOption}{tikzposter}
+}
+%    \end{macrocode}
+% Options |final| and |draft|, which affects \cs{guideline}.
+%    \begin{macrocode}
+\DeclareOption{draft}{
+  \AtEndDocument{\guideline}
+}
+
+\DeclareOption{final}{
+  \AtEndOfClass{\renewcommand{\guideline}{}}
+}
+%    \end{macrocode}
+% Option |pageborders| as a simplistic Boolean option, without the
+% ability to disable once enabled.
+%    \begin{macrocode}
+\newif\ifupposter@pageborders\upposter@pagebordersfalse
+\DeclareOption{pageborders}{\upposter@pageborderstrue}
+%    \end{macrocode}
+% Now we define options for color schemes.  For now, the color
+% |upbgfg| (foreground color of the background graphic) have legacy
+% values extracted from temporary background files.  In color names,
+% |bg| and |fg| are short for |background| and |foreground|.
+%    \begin{macrocode}
+\DeclareOption{colorscheme1}{
+  \definecolor{upbg}{named}{white}
+  \definecolor{upbgfg}{HTML}{d5d7d4}
+  \definecolor{upfg}{named}{uptextGray}
+  \definecolor{uptitlefg}{named}{uptextGray}
+  \definecolor{upboxtitlebg}{named}{upprimary}
+  \definecolor{upboxtitle}{named}{white}
+  \upposter@logodistantbackgroundtrue
+}
+
+\DeclareOption{colorscheme2}{
+  \definecolor{upbg}{HTML}{cdcfcc}
+  \definecolor{upbgfg}{HTML}{b0b1b0}
+  \definecolor{upfg}{named}{uptextGray}
+  \definecolor{uptitlefg}{named}{uptextGray}
+  \definecolor{upboxtitlebg}{named}{upprimary}
+  \definecolor{upboxtitle}{named}{white}
+  \upposter@logodistantbackgroundtrue
+}
+%    \end{macrocode}
+% \begin{macro}{\uplogo}
+% The up logo to be used.  Default is the version in primary colors:
+%    \begin{macrocode}
+\newcommand{\uplogo}{graphics/logos/up-logo}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\ifupposter@logodistantbackground}
+% The boolean \cs{ifupposter@logodistantbackground} is true if
+% the background is sufficiently different from logo colors,
+% so no extra white background should be added.  As of now, it is
+% always true, and hence superfluous.
+%    \begin{macrocode}
+\newif\ifupposter@logodistantbackground
+\upposter@logodistantbackgroundtrue
+%    \end{macrocode}
+% \end{macro}
+% Options for choosing font family.
+%    \begin{macrocode}
+
+\DeclareOption{fontsans}{
+  \renewcommand{\familydefault}{\sfdefault}
+}
+
+\DeclareOption{fontserif}{
+  \renewcommand{\familydefault}{\rmdefault}
+}
+
+\DeclareOption{sansmath}{
+  \AtEndOfPackage{\sansmath}
+}
+%    \end{macrocode}
+% Process options with up style defaults.
+%    \begin{macrocode}
+\ExecuteOptions{colorscheme1}
+\ExecuteOptions{25pt,b1paper,portrait}
+
+\ProcessOptions\relax
+%    \end{macrocode}
+%  Load base
+%    \begin{macrocode}
+\LoadClass[margin=0mm, blockverticalspace=10mm, colspace=10mm, subcolspace=10mm]{tikzposter}
+%    \end{macrocode}
+% Setup font families.  TODO: The up style guide only specifies main
+% font as Calibri, which is a sans serif font.  What should be the
+% serif, monospace and math font families?
+% As Calibri is non-free, we
+% specify the metric-equivalent free replacement Carlito insread,
+% commonly used in the open-source world.
+% Also use of font Awesome is probably overkill,
+% as it is only used for a custom item marker.
+%    \begin{macrocode}
+\RequirePackage{fontawesome}
+
+\RequirePackage[sfdefault]{carlito}
+
+\RequirePackage{mathptmx}
+
+\RequirePackage{sansmath}
+%    \end{macrocode}
+% \begin{macro}{\upposter@papersize}
+% \begin{macro}{\upposter@doublemargin}
+% As \cls{tikzposter} v2.0 doesn't support paper sizes it doesn't know
+% like b1paper.  Allow at least setting an arbitrary paper size via
+% |\geometry{...}| \emph{after} the class has been loaded.
+% Recompute documented internal variables
+% \cs{TP@visibletextheight}, \cs{TP@visibletextwidth}
+% without relying on undocumented ones (like \cs{TP@innermargin}).
+% We store the double margin value in \cs{upposter@doublemargin} for
+% this purpose.
+%    \begin{macrocode}
+\newlength\upposter@doublemargin
+\setlength{\upposter@doublemargin}{%
+  \textheight -\TP@visibletextheight}
+\AtBeginDocument{%
+  \setlength{\TP@visibletextheight}{%
+    \textheight -\upposter@doublemargin}%
+  \setlength{\TP@visibletextwidth}{%
+    \textwidth -\upposter@doublemargin}}
+
+\RequirePackage{geometry}
+\geometry{\upposter@papersize}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% Further libraries needed.
+%    \begin{macrocode}
+\usetikzlibrary{intersections}
+
+\RequirePackage{etoolbox}
+%    \end{macrocode}
+% \begin{macro}{\block}
+% Add a strut to ensure uniform block title height.
+%    \begin{macrocode}
+\let\upposter@orig@block\block
+\newcommand{\upposter@block}[3][]{%
+  \ifstrempty{#2}{\upposter@orig@block[{#1}]{}{#3}}%
+  {\upposter@orig@block[{#1}]{{\normalsize\strut}#2}{#3}}}
+\let\block\upposter@block
+%    \end{macrocode}
+% \end{macro}
+% Remove heading for bibliography, just wastes space in a poster.
+% Use small font in bibliography, because the old poster template
+% recommended it.  (This is a bad reason for small font size.)
+%    \begin{macrocode}
+\let\upposter@orig@thebibliography\thebibliography
+\newcommand{\upposter@thebibliography}{\def\section##1##{\@gobble}%
+  \small\upposter@orig@thebibliography}
+\let\thebibliography\upposter@thebibliography
+%    \end{macrocode}
+% \begin{macro}{\title}
+% Do not scale title.
+% Handle (unlikely) \# in argument properly.
+%    \begin{macrocode}
+\renewcommand{\title}[1]{\edef\@title{\unexpanded{#1}}}
+%    \end{macrocode}
+% \end{macro}
+% Additional packages and commands.
+%    \begin{macrocode}
+\RequirePackage{enumitem}
+%    \end{macrocode}
+% Draw page borders if requested.
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \ifupposter@pageborders
+    \draw[black, line width=1pt, dashed]
+    (bottomleft) rectangle (topright);
+  \fi
+}
+%    \end{macrocode}
+% \begin{macro}{upposter@textbottomleft}
+% The coordinate |upposter@textbottomleft| is the left side of page
+% and at the bottom of content area, used for \cs{guideline}
+% and placing the logo.
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \path (bottomleft |- {(0, -\TP@visibletextheight/2)})
+    coordinate (upposter@textbottomleft);}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\guideline}
+% Drawing a red line at the bottom of content areas is now easy.
+%    \begin{macrocode}
+\newcommand{\guideline}{%
+    \draw[red, line width=1mm] (upposter@textbottomleft)
+    -- (topright |- upposter@textbottomleft);%
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\titlelogos}
+% We collect logos into the list variable \cs{upposter@logos}.
+%    \begin{macrocode}
+\newcommand{\upposter@titlelogos}{}
+\newcommand{\titlelogos}{\forcsvlist{\listadd\upposter@titlelogos}}
+\newcommand{\upposter@logos}{\ignorespaces\forlistloop{\space%
+    \includegraphics[height=3.17cm]}{\upposter@titlelogos}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\mathpluslogo}
+% For backward compatibility, a convenience macro to add the MATH+
+% logo.
+%    \begin{macrocode}
+\newcommand{\mathpluslogo}{\titlelogos{graphics/logos/mathplus}}
+%    \end{macrocode}
+% \end{macro}
+% The itemize style from the old poster template.
+%    \begin{macrocode}
+\setlist[itemize]{leftmargin=1.5em,itemsep=0pt,topsep=0pt,partopsep=0pt, parsep=0pt}
+\renewcommand\labelitemi{\faCaretRight\hspace{.8em}}
+%    \end{macrocode}
+% The last line ought to be
+% \begin{verbatim}
+% \setlist[itemize,1]{label=\faCaretRight, labelsep*=.8em}
+% \end{verbatim}
+% up color style for \cls{tikzposter}.
+%    \begin{macrocode}
+\definecolorstyle{upstyle}{
+}{
+  % Background Colors
+  \colorlet{backgroundcolor}{upbg}
+  \colorlet{framecolor}{upfg}
+  % Title Colors
+  \colorlet{titlefgcolor}{uptitlefg}
+  % Title background color is currently ignored.
+  \colorlet{titlebgcolor}{-uptitlefg}
+  % Block Colors
+  \colorlet{blocktitlebgcolor}{upboxtitlebg}
+  \colorlet{blocktitlefgcolor}{upboxtitle}
+  \colorlet{blockbodybgcolor}{white}
+  \colorlet{blockbodyfgcolor}{black}
+  % Innerblock Colors
+  \colorlet{innerblocktitlebgcolor}{white}
+  \colorlet{innerblocktitlefgcolor}{black}
+  \colorlet{innerblockbodybgcolor}{white}
+  \colorlet{innerblockbodyfgcolor}{black}
+  % Note colors
+  \colorlet{notefgcolor}{black}
+  \colorlet{notebgcolor}{white}
+  \colorlet{noteframecolor}{upboxtitlebg}
+}
+%    \end{macrocode}
+% Suppress credit to \cls{tikzposter}, as unasked content.
+%    \begin{macrocode}
+\tikzposterlatexaffectionproofoff
+%    \end{macrocode}
+% Two temporary registers for holding measured width and height.
+%    \begin{macrocode}
+\newlength{\upposter@tmpwidth}
+\newlength{\upposter@tmpheight}
+%    \end{macrocode}
+%
+% \subsection{Title style}
+% \label{sec:title-style}
+%
+%
+% For landscape posters, vertical space is much more limited, and
+% hence compressed vertical spacing is desirable.  However, this might
+% be better addressed with the use of stretchable spacing to adjust to
+% actual content and available space.  Unfortunately,
+% \cls{tikzposter} was not designed to support \TeX's rubber length
+% for its parameters, so we use fixed length below.
+%
+% Other than that the reason for the specific choice of parameters
+% below is unclear, especially using horizontal dimension for vertical
+% spacing and the dependence on page orientation, which is not
+% readable/maintainable.
+% For example, the background curve to occupy the left 3/4 of the
+% poster width is out of desire to not overlap with logos (which is
+% not guaranteed).
+%    \begin{macrocode}
+\definetitlestyle{upposter}{%
+  width=\ifdim\textwidth>\textheight.955\else.94\fi\textwidth,
+  roundedcorners=0,
+  linewidth=0pt, innersep=0cm,
+  titletotopverticalspace=\ifdim\textwidth>\textheight
+  .025\else.035\fi\textwidth,
+  titletoblockverticalspace=\ifdim\textwidth>\textheight
+  .02\else.033\fi\textwidth}{\@ifundefined{backgroundgraphic}{%
+  \node[above right, inner sep=0pt] at (upposter@textbottomleft)
+  {% Draw background curve here, as the size of title area is
+   % known here but not in the background style.
+   % maximum size curve can reach right, ideally to not overlap with
+   % logos.
+    \setlength{\upposter@tmpwidth}{.75\paperwidth}%
+    % Height of area curve should fill
+    \setlength{\upposter@tmpheight}{\paperheight
+      -.5\upposter@doublemargin}%
+    \ifdim\upposter@tmpheight<\upposter@tmpwidth
+      % Enough space for whole curve
+      \resizebox{!}{\upposter@tmpheight}{\upposter@curve{upbgfg}}
+    \else
+      % Not enough space, place curve below title area and cut it.
+      \setlength{\upposter@tmpheight}{\titleposbottom
+        + \TP@visibletextheight/2 % diff of positions
+        - \TP@titletoblockverticalspace}% distance between title
+                                        % bottom and first box top
+      \resizebox{!}{\upposter@tmpheight}{%
+        \upposter@curveclipped{upbgfg}%
+        {\upposter@tmpwidth}{\upposter@tmpheight}}
+    \fi
+  };}{}}
+%    \end{macrocode}
+% \begin{macro}{\upposter@curve}
+% The curve in the up logo is drawn via
+% \cs{upposter@curve}\oarg{extra code}\marg{color}.
+% The extra code can be used for additional command like clipping.
+% The curve is roughly of the intended size (poster size of A0 or
+% B1) to reduce computational errors in future scaling.
+%    \begin{macrocode}
+\newcommand{\upposter@curve}[2][]{%
+  \begin{tikzpicture}[x=10pt, y=10pt]
+  #1
+  \path[fill={#2}]
+    (107.624, 118.23211)
+    -- (121.002, 118.23211)
+    .. controls (119.314, 52.86991) and (65.716, 0.19805)
+    .. (0, 0)
+    -- (0, 13.36911)
+    .. controls (58.344, 13.56721) and (105.94, 60.24301)
+    .. cycle;
+  \end{tikzpicture}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\upposter@curveclipped}
+% The macro
+% \cs{upposter@curveclipped}\marg{width}\marg{height}\marg{color}
+% draws the up to fill the full height of a rectangular area clipped
+% on the left if necessary.
+%    \begin{macrocode}
+\newcommand{\upposter@curveclipped}[3]{\upposter@curve[{%
+  \begin{pgfinterruptboundingbox}
+%    \end{macrocode}
+% The lower part of the curve relevant for deciding where to clip.
+% Duplicating the path here is not too desirable, but hopefully the
+% curve is stable.
+%    \begin{macrocode}
+    \path[name path=lower curve] (121.002, 118.23211) .. controls
+    (119.314, 52.86991) and (65.716, 0.19805) .. (0, 0);
+%    \end{macrocode}
+% The diagonal of the area curve should fill, long enough to intersect
+% the curve.  The intersection point is the place to clip if exists.
+%    \begin{macrocode}
+    \path[name path=diagonal] (121.002, 118.23211) --
+    ++(xyz cs:x=-{#2/#3}*200, y=-200);
+%    \end{macrocode}
+% Now compute the intersection and clip if needed.
+%    \begin{macrocode}
+    \tikzset{name intersections={of=lower curve and diagonal,
+        sort by=diagonal,
+        total=\upposter@tmp}}
+    \global\let\upposter@tmp\upposter@tmp
+  \end{pgfinterruptboundingbox}
+  \ifnum\upposter@tmp>1
+    \clip (intersection-2) rectangle (121.002, 118.23211);
+    \fi}]{#1}}
+%    \end{macrocode}
+% The last line ends the call to \cs{upposter@curve}.
+% \end{macro}
+%
+%\subsection{Title layout}
+%\label{sec:title-layout}
+%
+%
+%    \begin{macrocode}
+\newsavebox{\upposter@tmpbox}
+\newlength{\upposter@titlewidth}
+%    \end{macrocode}
+% Minimum distance between title and up logo:
+%    \begin{macrocode}
+\providecommand{\upposterlogosep}{1cm}
+%    \end{macrocode}
+% Now comes the main code for typesetting the title, including
+% measurements for an adaptive style.
+%    \begin{macrocode}
+\settitle{
+  \begin{minipage}{\linewidth}
+    \Large
+    \color{titlefgcolor}
+    \savebox{\upposter@tmpbox}{%
+      \includegraphics[width=12cm]{\uplogo}}
+    \setlength{\upposter@titlewidth}{\linewidth
+      - \wd\upposter@tmpbox
+      - \upposterlogosep}
+    \hbox{%
+      \parbox[b]{\upposter@titlewidth}{
+        \sffamily
+        \raggedright \bfseries
+%    \end{macrocode}
+% The up style requires an 88pt font size with a 105pt baselineskip.
+% We interpret as a scale factor relative to the main text size
+% to care for non-default font sizes.
+% |\Huge| is too small.
+% The |\penalty1| is to ensure that the top of the content will be
+% aligned, when inserted by |\unvbox| into a |\parbox[t]|.
+%    \begin{macrocode}
+        \normalsize
+        \fontsize{\dimexpr \f@size\p@ * 1100/311\relax}{\dimexpr
+          \f@baselineskip * 7/2\relax}
+        \selectfont
+        \penalty1 %
+        \@title
+      }%
+%    \end{macrocode}
+% FIXME: There should be a cleaner way to put a |\parbox| into a box
+% register.
+%    \begin{macrocode}
+      \setbox0\lastbox
+%    \end{macrocode}
+% With enough available vertical space besides the logo, we insert
+% author information there (second branch), otherwise below the logo
+% (first branch), using \cs{aftergroup} for delaying.
+% The test on available space is somewhat arbitrary.
+%    \begin{macrocode}
+      \ifdim \dimexpr \ht0 + 2\baselineskip \relax
+             > \ht\upposter@tmpbox\relax
+        \parbox[t]{\upposter@titlewidth}{\unvbox0}
+        \aftergroup\upposter@authorship
+      \else
+        \parbox[t]{\upposter@titlewidth}{%
+          \prevdepth\dp0 \unvbox0 %
+          \upposter@authorship
+        }
+      \fi
+      \parbox[t]{\wd\upposter@tmpbox}{\penalty1 %
+      \usebox{\upposter@tmpbox}% no distant background as of now
+     }
+   }%
+ \end{minipage}}
+%    \end{macrocode}
+% \begin{macro}{\upposter@authorship}
+% Typeset author information, mostly following pre-2021 style but
+% allowing (not too many) custom logos.
+%    \begin{macrocode}
+\newcommand{\upposter@authorship}{%
+      \@author
+      \vspace*{.4em}
+      {\color{framecolor}
+      \hrule height.720mm}
+      \vspace*{.3em}
+    \sbox{\upposter@tmpbox}{\upposter@logos}
+    \mbox{\parbox{\linewidth - \wd\upposter@tmpbox}{%
+        \@institute}%
+      \parbox{\wd\upposter@tmpbox}{%
+      \ifupposter@logodistantbackground
+        \usebox{\upposter@tmpbox}%
+      \else
+        \colorbox{white}{\usebox{\upposter@tmpbox}}%
+      \fi
+      }%
+    }}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsection{Rest of style}
+% \label{sec:rest-style}
+%
+% Rest of up style, mostly from old template.
+%    \begin{macrocode}
+\definebackgroundstyle{upposter}{%
+  \path[fill=backgroundcolor] (bottomleft) rectangle (topright);
+  \@ifundefined{backgroundgraphic}{}{%
+    \node[above right, inner sep=0pt] at (bottomleft) {\includegraphics[height=\paperheight,
+      width=\paperwidth]{\backgroundgraphic}};
+}}
+
+\defineblockstyle{upposter}{
+    titlewidthscale=1, bodywidthscale=1, titlecenter, titleoffsetx=0pt, titleoffsety=0pt, bodyoffsetx=0pt, bodyoffsety=0pt,
+    bodyverticalshift=0pt, roundedcorners=0, linewidth=1pt, titleinnersep=4.7mm, bodyinnersep=9mm
+  }{
+  \begin{scope}[line width=\blocklinewidth, rounded corners=\blockroundedcorners]
+    \ifBlockHasTitle %
+       \draw[color=framecolor,
+        fill=blocktitlebgcolor]
+       (blocktitle.south west) rectangle (blocktitle.north east);
+    \fi
+    \draw[color=framecolor, fill=blockbodybgcolor] (blockbody.south west) rectangle (blockbody.north east);
+  \end{scope}
+}
+%    \end{macrocode}
+% Finally, set up the styles for \cls{tikzposter}.
+%    \begin{macrocode}
+\usetheme{Default}
+\usetitlestyle{upposter}
+\useblockstyle{upposter}
+\usebackgroundstyle{upposter}
+\useinnerblockstyle{TornOut}
+\usecolorstyle{upstyle}
+%    \end{macrocode}
+% \Finale
+\endinput
