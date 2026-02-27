@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2026.2.11)  11 FEB 2026 22:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2026.2.27)  27 FEB 2026 17:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/sten/Downloads/poster-main/poster.tex
-(/home/sten/Downloads/poster-main/poster.tex
+**/root/XenoFlow/poster/poster.tex
+(/root/XenoFlow/poster/poster.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (./upposter.cls
@@ -409,10 +409,13 @@ File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \notelinewidth=\dimen332
 
 
+Package tikzposter Warning: Unknown Option 50pt. on input line 204.
+
+
 Package tikzposter Warning: Unknown Option b1paper. on input line 204.
 
 
-Package tikzposter Warning: Unknown Option 35pt. on input line 204.
+Package tikzposter Warning: Unknown Option 50pt. on input line 204.
 
 (/usr/share/texmf-dist/tex/latex/extsizes/extarticle.cls
 Document Class: extarticle 1996/10/08 v1.0 Non Standard LaTeX document class
@@ -472,7 +475,12 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 \pgf@layerboxsaved@notelayer=\box95
  (/usr/share/texmf-dist/tex/latex/tikzposter/tikzposterColorpalettes.tex) (/usr/share/texmf-dist/tex/latex/tikzposter/tikzposterColorstyles.tex) (/usr/share/texmf-dist/tex/latex/tikzposter/tikzposterBackgroundstyles.tex) (/usr/share/texmf-dist/tex/latex/tikzposter/tikzposterTitlestyles.tex) (/usr/share/texmf-dist/tex/latex/tikzposter/tikzposterBlockstyles.tex) (/usr/share/texmf-dist/tex/latex/tikzposter/tikzposterInnerblockstyles.tex) (/usr/share/texmf-dist/tex/latex/tikzposter/tikzposterNotestyles.tex) (/usr/share/texmf-dist/tex/latex/tikzposter/tikzposterLayoutthemes.tex)
 \c@figurecounter=\count302
-) (/usr/share/texmf-dist/tex/latex/fontawesome/fontawesome.sty
+)
+
+LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <33> not available
+(Font)              size <35.83> substituted on input line 140.
+
+(/usr/share/texmf-dist/tex/latex/fontawesome/fontawesome.sty
 Package: fontawesome 2016/05/15 v4.6.3.1 font awesome icons
  (/usr/share/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
@@ -595,7 +603,7 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks34
 \inpenc@posthook=\toks35
 )
-LaTeX Font Info:    Trying to load font information for T1+Crlt-OsF on input line 34.
+LaTeX Font Info:    Trying to load font information for T1+Crlt-OsF on input line 36.
  (/usr/share/texmf-dist/tex/latex/carlito/T1Crlt-OsF.fd
 File: T1Crlt-OsF.fd 2022/10/05 (autoinst) Font definitions for T1/Crlt-OsF.
 ) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -610,20 +618,20 @@ LaTeX Warning: Unused global option(s):
 (./poster.aux)
 \openout1 = `poster.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count310
@@ -701,6 +709,18 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 \c@mv@tabular=\count316
 \c@mv@boldtabular=\count317
 \big@size=\dimen348
+
+/root/XenoFlow/poster/poster.tex:36: LaTeX Error: Command \TP@caption undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \begin{document}
+                     
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 Missing character: There is no ) in font nullfont!
 Missing character: There is no 1 in font nullfont!
 Missing character: There is no = in font nullfont!
@@ -708,93 +728,104 @@ Missing character: There is no 1 in font nullfont!
 <graphics/logos/up_logo.pdf, id=29, 597.23125pt x 625.33624pt>
 File: graphics/logos/up_logo.pdf Graphic file (type pdf)
 <use graphics/logos/up_logo.pdf>
-Package pdftex.def Info: graphics/logos/up_logo.pdf  used on input line 40.
+Package pdftex.def Info: graphics/logos/up_logo.pdf  used on input line 42.
 (pdftex.def)             Requested size: 341.43306pt x 357.5045pt.
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 40.
+LaTeX Font Info:    Calculating math sizes for size <48> on input line 42.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 42.
 (/usr/share/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 40.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 42.
  (/usr/share/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 40.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 42.
  (/usr/share/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 40.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 42.
  (/usr/share/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 40.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 42.
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <35.83> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <48> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 42.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <35.52026> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 42.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <28.8003> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 42.
+LaTeX Font Info:    Calculating math sizes for size <33> on input line 42.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <33> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 42.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.42018> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 42.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <19.8002> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 42.
 File: graphics/logos/up_logo.pdf Graphic file (type pdf)
 <use graphics/logos/up_logo.pdf>
-Package pdftex.def Info: graphics/logos/up_logo.pdf  used on input line 40.
+Package pdftex.def Info: graphics/logos/up_logo.pdf  used on input line 42.
 (pdftex.def)             Requested size: 341.43306pt x 357.5045pt.
-<graphics/demo/Datacenter_3.png, id=30, 2999.205pt x 1059.96pt>
-File: graphics/demo/Datacenter_3.png Graphic file (type png)
-<use graphics/demo/Datacenter_3.png>
-Package pdftex.def Info: graphics/demo/Datacenter_3.png  used on input line 91.
-(pdftex.def)             Requested size: 1526.92183pt x 539.63438pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--124
+Underfull \hbox (badness 10000) in paragraph at lines 115--115
 
  []
 
-LaTeX Font Info:    Trying to load font information for U+fontawesometwo on input line 124.
+LaTeX Font Info:    Trying to load font information for U+fontawesometwo on input line 129.
 (/usr/share/texmf-dist/tex/latex/fontawesome/ufontawesometwo.fd
 File: ufontawesometwo.fd 2016/05/22 Font definitions for U/fontawesometwo.
 )
-Overfull \hbox (4.49988pt too wide) in paragraph at lines 124--124
-[][] [] 
- []
-
-<graphics/demo/ligandExcludedSurface.png, id=32, 509.905pt x 386.44376pt>
-File: graphics/demo/ligandExcludedSurface.png Graphic file (type png)
-<use graphics/demo/ligandExcludedSurface.png>
-Package pdftex.def Info: graphics/demo/ligandExcludedSurface.png  used on input line 135.
-(pdftex.def)             Requested size: 814.40163pt x 617.24356pt.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <29.86> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
-LaTeX Font Info:    Trying to load font information for U+fontawesomeone on input line 167.
-(/usr/share/texmf-dist/tex/latex/fontawesome/ufontawesomeone.fd
+<graphics/bluefield.png, id=30, 1333.98375pt x 914.41624pt>
+File: graphics/bluefield.png Graphic file (type png)
+<use graphics/bluefield.png>
+Package pdftex.def Info: graphics/bluefield.png  used on input line 137.
+(pdftex.def)             Requested size: 1163.43597pt x 797.55888pt.
+<graphics/pipe.png, id=32, 1385.175pt x 381.425pt>
+File: graphics/pipe.png Graphic file (type png)
+<use graphics/pipe.png>
+Package pdftex.def Info: graphics/pipe.png  used on input line 154.
+(pdftex.def)             Requested size: 937.22273pt x 258.07932pt.
+<graphics/thoughput.png, id=33, 1160.335pt x 772.8875pt>
+File: graphics/thoughput.png Graphic file (type png)
+<use graphics/thoughput.png>
+Package pdftex.def Info: graphics/thoughput.png  used on input line 161.
+(pdftex.def)             Requested size: 937.22273pt x 624.27824pt.
+LaTeX Font Info:    Trying to load font information for U+fontawesomeone on input line 172.
+ (/usr/share/texmf-dist/tex/latex/fontawesome/ufontawesomeone.fd
 File: ufontawesomeone.fd 2016/05/22 Font definitions for U/fontawesomeone.
 )
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/carlito/crlt_hsqwq5.enc}{/usr/share/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc} <./graphics/logos/up_logo.pdf> <./graphics/demo/Datacenter_3.png> <./graphics/demo/ligandExcludedSurface.png>] (./poster.aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/carlito/crlt_hsqwq5.enc}{/usr/share/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}{/usr/share/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc} <./graphics/logos/up_logo.pdf> <./graphics/bluefield.png> <./graphics/pipe.png> <./graphics/thoughput.png>] (./poster.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 2.83pt have occurred.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 22207 strings out of 475171
- 472158 string characters out of 5767095
- 912560 words of memory out of 5000000
- 44715 multiletter control sequences out of 15000+600000
- 662124 words of font info for 112 fonts, out of 8000000 for 9000
+ 22197 strings out of 475171
+ 471913 string characters out of 5767095
+ 913819 words of memory out of 5000000
+ 44723 multiletter control sequences out of 15000+600000
+ 654560 words of font info for 95 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 113i,16n,115p,498b,1156s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/google/carlito/Crlt-Bold.pfb></usr/share/texmf-dist/fonts/type1/google/carlito/Crlt-Italic.pfb></usr/share/texmf-dist/fonts/type1/google/carlito/Crlt-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on poster.pdf (1 page, 13609459 bytes).
+ 113i,18n,115p,487b,1198s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/google/carlito/Crlt-Bold.pfb></usr/share/texmf-dist/fonts/type1/google/carlito/Crlt-Italic.pfb></usr/share/texmf-dist/fonts/type1/google/carlito/Crlt-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb>
+Output written on poster.pdf (1 page, 10665050 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
+ 76 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 124 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 129 words of extra memory for PDF output out of 10000 (max. 10000000)
 

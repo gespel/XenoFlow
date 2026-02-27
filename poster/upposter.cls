@@ -118,13 +118,26 @@
 %% Execute default options
 \ExecuteOptions{colorscheme1}
 %\ExecuteOptions{fontsans}
-\ExecuteOptions{25pt,b1paper,portrait}
+\ExecuteOptions{50pt,b1paper,portrait}
 
 %% Process given options
 \ProcessOptions\relax
 
 %% Load base
 \LoadClass[margin=0mm, blockverticalspace=10mm, colspace=10mm, subcolspace=10mm]{tikzposter}
+
+% Override font sizes to make them moderately larger
+\renewcommand{\tiny}{\fontsize{16}{19}\selectfont}
+\renewcommand{\scriptsize}{\fontsize{19}{23}\selectfont}
+\renewcommand{\footnotesize}{\fontsize{23}{28}\selectfont}
+\renewcommand{\small}{\fontsize{28}{33}\selectfont}
+\renewcommand{\normalsize}{\fontsize{33}{40}\selectfont}
+\renewcommand{\large}{\fontsize{40}{48}\selectfont}
+\renewcommand{\Large}{\fontsize{48}{58}\selectfont}
+\renewcommand{\LARGE}{\fontsize{58}{70}\selectfont}
+\renewcommand{\huge}{\fontsize{70}{84}\selectfont}
+\renewcommand{\Huge}{\fontsize{84}{101}\selectfont}
+\normalsize
 
 \RequirePackage{fontawesome}
 
@@ -180,6 +193,14 @@
 \newcommand{\upposter@thebibliography}{\def\section##1##{\@gobble}%
   \small\upposter@orig@thebibliography}
 \let\thebibliography\upposter@thebibliography
+
+%% Reduce caption font size for tikzfigure
+\AtBeginDocument{%
+  \renewcommand{\TP@caption}[1]{%
+    \vspace{0.5em}%
+    {\footnotesize\textit{#1}}%
+  }%
+}
 
 %% Don't scale title
 % Handle (unlikely) # in argument of \title properly.
@@ -310,8 +331,8 @@
         % The factors are chosen to produce 88pt font size and 105pt
         % baselinsekip with the default document font size.
         \normalsize
-        \fontsize{\dimexpr \f@size\p@ * 1100/311\relax}{\dimexpr
-          \f@baselineskip * 7/2\relax}
+        \fontsize{\dimexpr \f@size\p@ * 700/311\relax}{\dimexpr
+          \f@baselineskip * 5/2\relax}
         \selectfont
         \penalty1 %
         \textcolor{UPprimary}{\@title}

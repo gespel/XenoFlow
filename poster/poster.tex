@@ -1,7 +1,7 @@
 %%% LaTeX template file for UP poster.
 %%% ------------------------------------------------------------------------------------------------
 
-\documentclass[pageborders=False, colorscheme1, a0paper, 35pt]{upposter}
+\documentclass[pageborders=False, colorscheme1, a0paper, 50pt]{upposter}
 % Drawing page borders is useful when the poster will be printed
 % on a larger paper size, and needs to be cut afterwards.
 % In other cases it is best to omit option pageborders.
@@ -19,7 +19,9 @@
 %%% List the cooperations and funding partners here.
 % TODO
 \institute{\begin{tabular}{ll}
-\huge Max Schrötter, Sten Heimbrodt, Bettina Schnor
+\Large Research Group Operating Systems and Distributed Systems \\
+\Large University of Potsdam \\
+\Large Max Schrötter, Sten Heimbrodt, Bettina Schnor
 \end{tabular}}
 
 % Block Style without borders
@@ -84,11 +86,9 @@
 %		\column{0.55}
 %		
 \useblockstyle{Plain}
-\block{}{
-	\begin{tikzfigure}
-		\includegraphics[width=0.7\linewidth]{graphics/demo/Datacenter_3.png}
-	\end{tikzfigure}
-}
+%\block{}{
+	
+%}
 
 	
 %		
@@ -97,30 +97,21 @@
 
 \useblockstyle{upposter}
 \block{Motivation}{
-	Some short explanation of the goals or findings\\
-	
-	\begin{minipage}[t]{.3\linewidth}
-		\begin{itemize}
-			\item Point 1
-			\item Point 2
-			\item Point 3
-			\item ...
-			\item Point 41
-			\item Point 42
-			\item Point 43
-		\end{itemize}
-	\end{minipage}
-	\begin{minipage}[t]{.7\linewidth}
-		\begin{itemize}
-			\item Goal 1
-			\item Goal 2
-			\item Goal 3
-			\item ...
-			\item Goal 41
-			\item Goal 42
-			\item Goal 43
-		\end{itemize}
-	\end{minipage}
+	The goal was to accelerate load balancing on Bluefield-3 DPUs by using hardware acceleration.
+	This would allow for more efficient resource utilization and improved performance in data center and high performance computing environments. 
+	The main challenge was to implement and evaluate the performance of XenoFlow, a software framework for hardware-accelerated load balancing for UDP traffic. 
+	XenoFlow began as a research project and is beeing extended to support more features and use cases.\\
+	%\begin{minipage}[t]{.3\linewidth}
+		%\begin{itemize}
+		%	\item Point 1
+		%	\item Point 2
+		%	\item Point 3
+		%	\item ...
+		%	\item Point 41
+		%	\item Point 42
+		%	\item Point 43
+		%\end{itemize}
+	%\end{minipage}
 }
 
 	
@@ -128,31 +119,45 @@
 		
 		\column{.55}
 		
-		\block{A picture}{
-			\begin{tikzfigure}[Ligand Excluded Surfance \cite{ref1}]
-				\includegraphics[width=0.7\linewidth]{graphics/demo/ligandExcludedSurface}
-			\end{tikzfigure}
+		\block{XenoFlow}{
+			XenoFlow is a software framework for hardware-accelerated load balancing for UDP traffic:
+			\begin{itemize}
+				\item It is designed to run on Bluefield-3 DPUs, which are specialized processors for data center and high performance computing environments.
+				\item Currently, XenoFlow supports basic L3 load balancing features for UDP traffic.
+				\item The framework is implemented in C and uses the DOCA Flow API to interact with the hardware acceleration features of the Bluefield-3 DPUs.
+			\end{itemize}
 		}
 		
-		\block{Box Title}{
-			Some text ...
+		\block{Bluefield Architecture}{
+			\begin{tikzfigure}
+				\includegraphics[width=1\linewidth]{graphics/bluefield.png}
+			\end{tikzfigure}
 
-			\vspace*{160mm}
+			\vspace*{0mm}
+		}
+
+		\block{DOCA Flow API}{
+			\begin{itemize}
+				\item NVIDIA provided header files and compiled shared libraries, which are used to interact with the hardware acceleration features.
+				\item Flows consist of \textbf{pipes}, which are sequences of actions that can be executed on the hardware.
+				\item Pipes contain \textbf{entries}, which define specific actions to be performed on packets that match certain criteria.
+				\item Flow allows for matching on various L3 and L4 header fields aswell as actions such as forwarding, dropping, and modifying packet headers.
+			\end{itemize}
 		}
 		
 		\column{.45}
 		
-		\block{Box Title}{
-			A box with some latex math. First Euler's equation
-			\[ e^{i\pi} + 1 =0 \]
-			Second the geometric series
-			\[ \sum_{k=0}^{n-1} q^k = \frac{1-q^n}{1-q} \]
+		\block{Flow Pipe}{
+			\begin{tikzfigure}
+				\includegraphics[width=1\linewidth]{graphics/pipe.png}
+			\end{tikzfigure}
 		}
 		
-		\block{}{
-			A box without a title.  A box without a title.
-
-			\vspace*{207mm}
+		\block{Performance}{
+			\begin{tikzfigure}
+				\includegraphics[width=1\linewidth]{graphics/thoughput.png}
+				%\vspace*{0mm}
+			\end{tikzfigure}
 		}
 		
 		\block{Font awesome}{
@@ -165,13 +170,6 @@
 			\end{itemize}
 			and much more, for references search the internet
 		}
-		
-	\end{columns}
-	
-	\begin{columns}
-		
-		\column{.55}
-		
 		\block{Publications}{
 			\begin{thebibliography}{9}
 				\bibitem{ref1} N. Lindow, D. Baum, H.-C. Hege. Ligand Excluded Surface: A New Type of Molecular Surface.
@@ -180,15 +178,17 @@
 
 			\vspace{20mm}
 		}
+	\end{columns}
+	
+	\begin{columns}
+		
+		\column{.55}
+		
+		
 		
 		\column{.45}
 		
-		\block{Funded by}{			
-			Our awesome partner and ...
-			\hfill
-			%\includegraphics[height=2.4cm]{graphics/logos/ZIB-logo}
-			\vspace{33mm}
-		}
+		
 		
 	\end{columns}
 	
