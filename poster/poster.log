@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2026.2.27)  27 FEB 2026 17:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2026.2.11)  27 FEB 2026 17:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/root/XenoFlow/poster/poster.tex
-(/root/XenoFlow/poster/poster.tex
+**/home/sten/XenoFlow/poster/poster.tex
+(/home/sten/XenoFlow/poster/poster.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (./upposter.cls
@@ -710,7 +710,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 \c@mv@boldtabular=\count317
 \big@size=\dimen348
 
-/root/XenoFlow/poster/poster.tex:36: LaTeX Error: Command \TP@caption undefined.
+/home/sten/XenoFlow/poster/poster.tex:36: LaTeX Error: Command \TP@caption undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -815,12 +815,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
  ) 
 Here is how much of TeX's memory you used:
  22197 strings out of 475171
- 471913 string characters out of 5767095
+ 471928 string characters out of 5767095
  913819 words of memory out of 5000000
  44723 multiletter control sequences out of 15000+600000
  654560 words of font info for 95 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 113i,18n,115p,487b,1198s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,18n,115p,492b,1198s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/google/carlito/Crlt-Bold.pfb></usr/share/texmf-dist/fonts/type1/google/carlito/Crlt-Italic.pfb></usr/share/texmf-dist/fonts/type1/google/carlito/Crlt-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb>
 Output written on poster.pdf (1 page, 10665050 bytes).
 PDF statistics:
