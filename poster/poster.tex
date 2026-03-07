@@ -19,7 +19,7 @@
 %%% List the cooperations and funding partners here.
 % TODO
 \institute{\begin{tabular}{ll}
-\Large Research Group Operating Systems and Distributed Systems \\
+\Large Operating Systems and Distributed Systems \\
 \Large Max Schrötter, Sten Heimbrodt, Bettina Schnor \\
 \Large University of Potsdam
 \end{tabular}}
@@ -100,7 +100,7 @@
 	The goal was to accelerate load balancing on Bluefield-3 DPUs by using hardware acceleration.
 	This would allow for more efficient resource utilization and improved performance in data center and high performance computing environments. 
 	The main challenge was to implement and evaluate the performance of XenoFlow, a software framework for hardware-accelerated load balancing for UDP traffic. 
-	XenoFlow began as a research project and is beeing extended to support more features and use cases.\\
+	XenoFlow began as a research project and is beeing extended to support more features and use cases.
 	%\begin{minipage}[t]{.3\linewidth}
 		%\begin{itemize}
 		%	\item Point 1
@@ -144,6 +144,16 @@
 				\item Flow allows for matching on various L3 and L4 header fields aswell as actions such as forwarding, dropping, and modifying packet headers.
 			\end{itemize}
 		}
+        \block{Publications}{
+			\begin{thebibliography}{9}
+				\bibitem{ref1} M. Schrötter, S. Heimbrodt, B. Schnor. XenoFlow: How Fast Can a SmartNIC-Based DNS Load Balancer Run?
+				\textit{GI/ITG International Conference on Architecture of Computing Systems (ARCS)} 2026.    
+                \bibitem{ref2} S. Heimbrodt, Implementierung und Evaluation eines hardwarebeschleunigten Load-Balancers auf einer Nvidia Bluefield DPU Architektur
+                \textit{Bachelorarbeit, Universität Potsdam}, 2025.
+			\end{thebibliography}
+
+			\vspace{0mm}
+		}
 		
 		\column{.45}
 		
@@ -155,29 +165,20 @@
 		
 		\block{Performance}{
 			\begin{tikzfigure}
-				\includegraphics[width=1\linewidth]{graphics/thoughput.png}
+				\includegraphics[width=1\linewidth]{graphics/Screenshot 2026-03-07 at 12-34-33 XenoFlow How Fast Can a SmartNIC-Based DNS Load Balancer Run - 2509.21656v1.pdf.png}
 				%\vspace*{0mm}
 			\end{tikzfigure}
+            \begin{tikzfigure}
+                \includegraphics[width=0.8\linewidth]{graphics/Screenshot 2026-03-07 at 12-31-47 XenoFlow How Fast Can a SmartNIC-Based DNS Load Balancer Run - 2509.21656v1.pdf.png}
+            \end{tikzfigure}
 		}
 		
-		\block{Font awesome}{
-			Note that you can use fontawesome symbols:
+		\block{Current Goals}{
 			\begin{itemize}
-				\item[\faUniversity] a university
-				\item[\faBook] a book
-				\item[\faGlobe] a globe
-				\item[\faUsers] users
+			    \item Extending configuration via 
 			\end{itemize}
-			and much more, for references search the internet
 		}
-		\block{Publications}{
-			\begin{thebibliography}{9}
-				\bibitem{ref1} N. Lindow, D. Baum, H.-C. Hege. Ligand Excluded Surface: A New Type of Molecular Surface.
-				\textit{IEEE Transactions on Visualization and Computer Graphics,} Vol. 20, No. 12, pp. 2486--2495, 2014.    
-			\end{thebibliography}
-
-			\vspace{20mm}
-		}
+		
 	\end{columns}
 	
 	\begin{columns}

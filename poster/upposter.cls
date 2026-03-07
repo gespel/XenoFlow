@@ -415,7 +415,7 @@
 \usecolorstyle{upstyle}
 
 % global space between boxes
-\setlength{\TP@blockverticalspace}{10mm}
+\setlength{\TP@blockverticalspace}{8mm}
 \setlength{\TP@colspace}{10mm}
 
 % needs to be the last command
