@@ -1,0 +1,12 @@
+{
+    "backends": [
+        {
+            "name": "fips2",
+            "mac_address": "A0:88:C2:B5:F4:5A"
+        },
+        {
+            "name": "fips3",
+            "mac_address": "E8:EB:D3:9C:71:AC"
+        }
+    ] 
+}
