@@ -91,9 +91,11 @@ static doca_error_t create_hash_pipe(struct doca_flow_port *port,
 	memset(&monitor, 0, sizeof(monitor));
 	memset(&fwd, 0, sizeof(fwd));
 
-	/* Hash on source IP address to distribute packets */
 	match_mask.outer.l3_type = DOCA_FLOW_L3_TYPE_IP4;
 	match_mask.outer.ip4.src_ip = 0xffffffff;
+	//match_mask.outer.ip4.dst_ip = 0xffffffff;
+	//match_mask.outer.udp.l4_port.dst_port = 0xffff;
+	//match_mask.outer.udp.l4_port.src_port = 0xffff;
 
 	monitor.counter_type = DOCA_FLOW_RESOURCE_TYPE_NON_SHARED;
 
@@ -268,7 +270,7 @@ doca_error_t xeno_flow_hash_pipe(int nb_queues)
 
 	DOCA_LOG_INFO("Hash Pipe Load Balancer initialized with %d backends", config->numBackends);
 	
-	int statRefreshIntervall = 500000;
+	int statRefreshIntervall = 100000;
 	uint64_t last_packets[config->numBackends];
 	memset(last_packets, 0, sizeof(last_packets));
 	
