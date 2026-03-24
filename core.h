@@ -2,6 +2,24 @@
 #define CORE_H
 
 #include <doca_flow.h>
+#include <stdint.h>
+
+/**
+ * @brief Backend structure
+ */
+typedef struct {
+	char name[64];
+	uint8_t mac_address[6];
+} XenoFlowBackend;
+
+/**
+ * @brief XenoFlow configuration structure
+ */
+typedef struct {
+	XenoFlowBackend *backends;
+	int numBackends;
+	int nextBackend;
+} XenoFlowConfig;
 
 /**
  * @brief Main XenoFlow function - initializes and runs the flow load balancer

@@ -14,17 +14,6 @@
 
 DOCA_LOG_REGISTER(FLOW_HASH_PIPE);
 
-typedef struct {
-	char name[64];
-	uint8_t mac_address[6];
-} XenoFlowBackend;
-
-typedef struct {
-	XenoFlowBackend *backends;
-	int numBackends;
-	int nextBackend;
-} XenoFlowConfig;
-
 void doca_try(doca_error_t result, char* message, int nb_ports, struct doca_flow_port** ports) {
 	if (result != DOCA_SUCCESS) {
 		DOCA_LOG_ERR("%s: %s", message, doca_error_get_descr(result));
@@ -185,14 +174,14 @@ doca_error_t xeno_flow(int nb_queues)
 	doca_error_t result;
 	uint32_t action_mem[2] = {0};
 
-	/* Start HTTP Server */
-	if (http_server_start(8080) != 0) {
+	XenoFlowConfig *config = load_config();
+	DOCA_LOG_INFO("Number of backends: %d", config->numBackends);
+
+	/* Start HTTP Server with config */
+	if (http_server_start(8080, config) != 0) {
 		DOCA_LOG_ERR("Failed to start HTTP server");
 		return DOCA_ERROR_INITIALIZATION;
 	}
-
-	XenoFlowConfig *config = load_config();
-	DOCA_LOG_INFO("Number of backends: %d", config->numBackends);
 
 	resource.mode = DOCA_FLOW_RESOURCE_MODE_PORT;
 	resource.nr_counters = config->numBackends;
