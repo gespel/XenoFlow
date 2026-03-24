@@ -57,15 +57,11 @@ XenoFlowConfig* load_config() {
 	XenoFlowConfig* c = createConfig();
 	
 	/* NOTE: Hash pipe requires power-of-2 number of entries (1, 2, 4, 8, 16, ...) */
-	XenoFlowBackend* b1 = createBackend("backend1", "aa:bb:cc:dd:ee:00");
-	XenoFlowBackend* b2 = createBackend("backend2", "aa:bb:cc:dd:ee:01");
-	XenoFlowBackend* b3 = createBackend("backend3", "aa:bb:cc:dd:ee:02");
-	XenoFlowBackend* b4 = createBackend("backend4", "aa:bb:cc:dd:ee:03");
+	XenoFlowBackend* b1 = createBackend("fips2", "a0:88:c2:b5:f4:5a");
+	XenoFlowBackend* b2 = createBackend("fips1", "a0:88:c2:b6:14:1a");
 	
 	configAddBackend(c, b1);
 	configAddBackend(c, b2);
-	configAddBackend(c, b3);
-	configAddBackend(c, b4);
 	
 	DOCA_LOG_INFO("Loaded %d backends", c->numBackends);
 	for (int i = 0; i < c->numBackends; i++) {
@@ -130,7 +126,7 @@ static doca_error_t create_hash_pipe(struct doca_flow_port *port,
 	}
 
 	fwd.type = DOCA_FLOW_FWD_PORT;
-	fwd.port_id = 0xffff;
+	fwd.port_id = 1;
 
 	result = doca_flow_pipe_create(pipe_cfg, &fwd, NULL, pipe);
 
