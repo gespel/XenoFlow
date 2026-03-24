@@ -1,11 +1,14 @@
 #include <string.h>
 #include <unistd.h>
-#include <sys/time.h> 
+#include <sys/time.h>
+#include <pthread.h>
 
 #include <rte_byteorder.h>
 
 #include <doca_log.h>
 #include <doca_flow.h>
+#include <microhttpd.h>
+#include <cjson/cJSON.h>
 
 #include "flow_common.h"
 
@@ -168,6 +171,55 @@ struct doca_dev *open_doca_dev_by_pci(const char *pci_bdf)
     return dev;
 }
 
+/* HTTP Server Handler */
+static enum MHD_Result http_request_handler(void *cls, struct MHD_Connection *connection,
+                                 const char *url, const char *method,
+                                 const char *version, const char *upload_data,
+                                 size_t *upload_data_size, void **con_cls)
+{
+	struct MHD_Response *response;
+	enum MHD_Result ret;
+
+	if (strcmp(url, "/api") == 0 && strcmp(method, "GET") == 0) {
+		/* Create JSON response */
+		cJSON *root = cJSON_CreateObject();
+		cJSON_AddStringToObject(root, "message", "Hello World! XenoFlow REST API is running.");
+		cJSON_AddStringToObject(root, "status", "ok");
+		cJSON_AddNumberToObject(root, "version", 1.0);
+		
+		char *json_str = cJSON_Print(root);
+		response = MHD_create_response_from_buffer(strlen(json_str),
+												(void *)json_str,
+												MHD_RESPMEM_MUST_FREE);
+		MHD_add_response_header(response, "Content-Type", "application/json");
+		ret = MHD_queue_response(connection, MHD_HTTP_OK, response);
+		MHD_destroy_response(response);
+		cJSON_Delete(root);
+		return ret;
+	}
+
+	/* 404 Response */
+	cJSON *error = cJSON_CreateObject();
+	cJSON_AddStringToObject(error, "error", "Endpoint not found");
+	char *error_str = cJSON_Print(error);
+	response = MHD_create_response_from_buffer(strlen(error_str),
+											(void *)error_str,
+											MHD_RESPMEM_MUST_FREE);
+	MHD_add_response_header(response, "Content-Type", "application/json");
+	ret = MHD_queue_response(connection, MHD_HTTP_NOT_FOUND, response);
+	MHD_destroy_response(response);
+	cJSON_Delete(error);
+	return ret;
+}
+
+/* HTTP Server Thread */
+struct http_server_ctx {
+	struct MHD_Daemon *daemon;
+	int port;
+};
+
+struct http_server_ctx *http_server_ctx = NULL;
+
 doca_error_t xeno_flow(int nb_queues)
 {
 	int nb_ports = 1;
@@ -179,6 +231,23 @@ doca_error_t xeno_flow(int nb_queues)
 	struct entries_status status;
 	doca_error_t result;
 	uint32_t action_mem[2] = {0};
+
+	/* Start HTTP Server */
+	http_server_ctx = malloc(sizeof(struct http_server_ctx));
+	http_server_ctx->port = 8080;
+	http_server_ctx->daemon = MHD_start_daemon(MHD_USE_SELECT_INTERNALLY, 
+											   http_server_ctx->port,
+											   NULL, NULL,
+											   &http_request_handler, NULL,
+											   MHD_OPTION_END);
+	
+	if (http_server_ctx->daemon == NULL) {
+		DOCA_LOG_ERR("Failed to start HTTP server on port %d", http_server_ctx->port);
+		free(http_server_ctx);
+		http_server_ctx = NULL;
+	} else {
+		DOCA_LOG_INFO("HTTP server started on port %d", http_server_ctx->port);
+	}
 
 	XenoFlowConfig *config = load_config();
 	DOCA_LOG_INFO("Number of backends: %d", config->numBackends);
