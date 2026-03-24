@@ -6,8 +6,8 @@
     - enp24s0f0np0: a0:88:c2:b5:f4:5a
     - enp24s0f1np1: a0:88:c2:b5:f4:5b
 - fips3
-    - enp24s0f0np0: 
-    - enp24s0f1np1: 
+    - enp24s0f0np0: e8:eb:d3:9c:71:ac
+    - enp24s0f1np1: e8:eb:d3:9c:71:ad
 - fips4
     - enp24s0f0np0: 08:c0:eb:a5:61:26
     - enp24s0f1np1: 08:c0:eb:a5:61:27
