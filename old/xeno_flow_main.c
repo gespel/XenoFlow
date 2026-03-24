@@ -28,17 +28,13 @@
 #include <doca_argp.h>
 #include <doca_flow.h>
 #include <doca_log.h>
-#include <doca_dpdk.h>
 
-
-#include <flow_common.h>
-#include <flow_switch_common.h>
 #include <dpdk_utils.h>
 
 DOCA_LOG_REGISTER(FLOW_SHARED_COUNTER::MAIN);
 
 /* Sample's Logic */
-doca_error_t xeno_flow(int nb_queues);
+doca_error_t flow_lb(int nb_queues);
 
 /*
  * Sample main function
@@ -47,11 +43,6 @@ doca_error_t xeno_flow(int nb_queues);
  * @argv [in]: array of command line arguments
  * @return: EXIT_SUCCESS on success and EXIT_FAILURE otherwise
  */
-
- struct flow_hot_upgrade_ctx {
-	struct flow_switch_ctx switch_ctx;	   /* common switch context */
-	enum doca_flow_port_operation_state state; /* operation state to use after port configuration */
-};
 
  void *xeno_flow_wrapper(void *arg) {
     int nb_queues = *(int *)arg;
@@ -70,8 +61,8 @@ int main(int argc, char **argv)
 	struct application_dpdk_config dpdk_config = {
 		.port_config.nb_ports = 2,
 		.port_config.nb_queues = 4,
+		.port_config.nb_hairpin_q = 2,
 	};
-	//struct flow_dev_ctx ctx = {};
 
 	result = doca_log_backend_create_standard();
 	if (result != DOCA_SUCCESS)
@@ -85,12 +76,11 @@ int main(int argc, char **argv)
 
 	DOCA_LOG_INFO("Starting the load balancer");
 
-	result = doca_argp_init("xeno_flow", NULL);
+	result = doca_argp_init("doca_flow_lb", NULL);
 	if (result != DOCA_SUCCESS) {
 		DOCA_LOG_ERR("Failed to init ARGP resources: %s", doca_error_get_descr(result));
 		goto sample_exit;
 	}
-	
 	doca_argp_set_dpdk_program(dpdk_init);
 	result = doca_argp_start(argc, argv);
 	if (result != DOCA_SUCCESS) {
@@ -108,7 +98,7 @@ int main(int argc, char **argv)
 	/* run sample */
 	result = xeno_flow(dpdk_config.port_config.nb_queues);
 	if (result != DOCA_SUCCESS) {
-		DOCA_LOG_ERR("xeno_flow_hash_pipe() encountered an error: %s", doca_error_get_descr(result));
+		DOCA_LOG_ERR("flow_lb() encountered an error: %s", doca_error_get_descr(result));
 		goto dpdk_ports_queues_cleanup;
 	}
 

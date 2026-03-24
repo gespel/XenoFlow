@@ -50,8 +50,8 @@ sample_dependencies += dependency('doca-dpdk-bridge')
 sample_dependencies += dependency('doca-argp')
 # Required DOCA Driver
 sample_dependencies += dependency('libdpdk')
-cjson_dep = cc.find_library('cjson', required: true)
-sample_dependencies += cjson_dep
+#cjson_dep = cc.find_library('cjson', required: true)
+#sample_dependencies += cjson_dep
 
 sample_srcs = [
 	# The sample itself
