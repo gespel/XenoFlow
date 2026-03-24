@@ -1,6 +1,6 @@
 # XenoFlow
 
-A DOCA Flow application for load balancing and flow management on NVIDIA BlueField DPUs.
+A DOCA Flow application for load balancing and flow management on NVIDIA BlueField DPUs. It also includes a web-based dashboard for monitoring and managing flows.
 
 ## Building
 
@@ -9,25 +9,13 @@ A DOCA Flow application for load balancing and flow management on NVIDIA BlueFie
 This project uses the Meson build system. To build locally:
 
 ```bash
-meson setup builddir
-meson compile -C builddir
+meson setup build
+ninja -C build
 ```
 
-### GitLab CI/CD Build
+XenoFlow will be built in the `build` directory.
+It can be run as follows:
 
-This project includes a GitLab CI/CD pipeline that automatically builds the executable on Ubuntu with DOCA Flow support.
-
-For detailed setup instructions, see [GITLAB_CI_SETUP.md](GITLAB_CI_SETUP.md).
-
-**Quick Start:**
-- The pipeline runs automatically on pushes, merge requests, and tags
-- Requires a GitLab runner with DOCA SDK installed
-- Built executables are stored as artifacts for 1 week
-
-## Requirements
-
-- DOCA SDK (doca-common, doca-flow, doca-dpdk-bridge, doca-argp)
-- DPDK (libdpdk)
-- cJSON library
-- Meson build system
-- NVIDIA BlueField DPU hardware (for runtime)
+```bash
+sudo build/xeno_flow
+```
