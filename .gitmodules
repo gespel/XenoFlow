@@ -1,0 +1,3 @@
+[submodule "experiments/ebpf-mac-rewrite"]
+	path = experiments/ebpf-mac-rewrite
+	url = ../ebpf-mac-rewrite
