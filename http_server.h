@@ -1,6 +1,7 @@
 #ifndef HTTP_SERVER_H
 #define HTTP_SERVER_H
 
+#include "core.h"
 #include <microhttpd.h>
 
 /**
@@ -9,7 +10,7 @@
 struct http_server_ctx {
 	struct MHD_Daemon *daemon;
 	int port;
-	void *config;  /* pointer to XenoFlowConfig */
+	XenoFlowConfig *config;  /* pointer to XenoFlowConfig */
 };
 
 /**
@@ -23,11 +24,13 @@ extern struct http_server_ctx *http_server_ctx;
  * @param config Pointer to XenoFlowConfig
  * @return 0 on success, -1 on failure
  */
-int http_server_start(int port, void *config);
+int http_server_start(int port, XenoFlowConfig *config);
 
 /**
  * @brief Stop the HTTP server
  */
 void http_server_stop(void);
+
+char* handle_base_path_request();
 
 #endif /* HTTP_SERVER_H */
