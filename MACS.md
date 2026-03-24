@@ -11,3 +11,9 @@
 - fips4
     - enp24s0f0np0: 08:c0:eb:a5:61:26
     - enp24s0f1np1: 08:c0:eb:a5:61:27
+- fips5
+    - enp13s0f0np0: c4:70:bd:a0:56:ac
+    - enp13s0f1np1: c4:70:bd:a0:56:ad
+- bluefield
+    - p0: c4:70:bd:a0:56:bc
+    - p1: c4:70:bd:a0:56:bd
