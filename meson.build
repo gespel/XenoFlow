@@ -57,9 +57,11 @@ sample_dependencies += dependency('libcjson')
 
 sample_srcs = [
 	# The sample itself
-	'xeno_flow_core.c',
+	'core.c',
+	# HTTP Server
+	'http_server.c',
 	# Main function for the sample's executable
-	'xeno_flow_main.c',
+	'main.c',
 	# Common code for the DOCA library samples
 	'/opt/mellanox/doca/samples/doca_flow/flow_common.c',
 	# Flow switch common code for the DOCA library samples

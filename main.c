@@ -30,10 +30,12 @@
 #include <doca_log.h>
 #include <doca_dpdk.h>
 
-
 #include <flow_common.h>
 #include <flow_switch_common.h>
 #include <dpdk_utils.h>
+
+#include "core.h"
+#include "main.h"
 
 DOCA_LOG_REGISTER(FLOW_SHARED_COUNTER::MAIN);
 
