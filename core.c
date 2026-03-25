@@ -41,7 +41,7 @@ XenoFlowConfig* createConfig() {
 }
 
 void configAddBackend(XenoFlowConfig* config, XenoFlowBackend* backend) {
-	config->backends[config->numBackends] = *backend;
+	config->backends[config->numBackends] = backend;
 	config->numBackends += 1;
 }
 
@@ -58,10 +58,10 @@ XenoFlowConfig* load_config() {
 	DOCA_LOG_INFO("Loaded %d backends", c->numBackends);
 	for (int i = 0; i < c->numBackends; i++) {
 		DOCA_LOG_INFO("  %s -> %02x:%02x:%02x:%02x:%02x:%02x", 
-			c->backends[i].name,
-			c->backends[i].mac_address[0], c->backends[i].mac_address[1],
-			c->backends[i].mac_address[2], c->backends[i].mac_address[3],
-			c->backends[i].mac_address[4], c->backends[i].mac_address[5]);
+			c->backends[i]->name,
+			c->backends[i]->mac_address[0], c->backends[i]->mac_address[1],
+			c->backends[i]->mac_address[2], c->backends[i]->mac_address[3],
+			c->backends[i]->mac_address[4], c->backends[i]->mac_address[5]);
 	}
 	
 	return c;
@@ -176,6 +176,8 @@ doca_error_t xeno_flow(int nb_queues)
 
 	XenoFlowConfig *config = load_config();
 	DOCA_LOG_INFO("Number of backends: %d", config->numBackends);
+	struct doca_flow_pipe_entry *hash_entries[config->numBackends];
+
 
 	/* Start HTTP Server with config */
 	if (http_server_start(8080, config) != 0) {
@@ -209,7 +211,6 @@ doca_error_t xeno_flow(int nb_queues)
 
 	DOCA_LOG_INFO("Starting the load balancer with hash pipe");
 
-	struct doca_flow_pipe_entry *hash_entries[config->numBackends];
 	for (int i = 0; i < config->numBackends; i++) {
 		struct doca_flow_fwd fwd;
 		struct doca_flow_actions actions;
@@ -218,12 +219,12 @@ doca_error_t xeno_flow(int nb_queues)
 		memset(&fwd, 0, sizeof(fwd));
 		memset(&actions, 0, sizeof(actions));
 
-		actions.outer.eth.dst_mac[0] = config->backends[i].mac_address[0];
-		actions.outer.eth.dst_mac[1] = config->backends[i].mac_address[1];
-		actions.outer.eth.dst_mac[2] = config->backends[i].mac_address[2];
-		actions.outer.eth.dst_mac[3] = config->backends[i].mac_address[3];
-		actions.outer.eth.dst_mac[4] = config->backends[i].mac_address[4];
-		actions.outer.eth.dst_mac[5] = config->backends[i].mac_address[5];
+		actions.outer.eth.dst_mac[0] = config->backends[i]->mac_address[0];
+		actions.outer.eth.dst_mac[1] = config->backends[i]->mac_address[1];
+		actions.outer.eth.dst_mac[2] = config->backends[i]->mac_address[2];
+		actions.outer.eth.dst_mac[3] = config->backends[i]->mac_address[3];
+		actions.outer.eth.dst_mac[4] = config->backends[i]->mac_address[4];
+		actions.outer.eth.dst_mac[5] = config->backends[i]->mac_address[5];
 
 		fwd.type = DOCA_FLOW_FWD_PORT;
 		fwd.port_id = 1;
@@ -245,6 +246,7 @@ doca_error_t xeno_flow(int nb_queues)
 			DOCA_LOG_ERR("Failed to add hash entry %d: %s", i, doca_error_get_descr(result));
 			doca_try(result, "Failed to add hash entry", nb_ports, ports);
 		}
+		config->backends[i]->entry = hash_entries[i];
 	}
 
 	result = doca_flow_entries_process(ports[0], 0, DEFAULT_TIMEOUT_US, config->numBackends);
@@ -285,7 +287,7 @@ doca_error_t xeno_flow(int nb_queues)
 			}
 			
 			DOCA_LOG_INFO("  Entry %d - %s: %lu packets (%lu new)",
-				i, config->backends[i].name, packets, 
+				i, config->backends[i]->name, packets, 
 				(packets > last_packets[i]) ? (packets - last_packets[i]) : 0);
 			
 			last_packets[i] = packets;

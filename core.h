@@ -10,13 +10,15 @@
 typedef struct {
 	char name[64];
 	uint8_t mac_address[6];
+	struct doca_flow_pipe_entry *entry;
+
 } XenoFlowBackend;
 
 /**
  * @brief XenoFlow configuration structure
  */
 typedef struct {
-	XenoFlowBackend *backends;
+	XenoFlowBackend **backends;
 	int numBackends;
 	int nextBackend;
 } XenoFlowConfig;

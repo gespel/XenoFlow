@@ -66,17 +66,21 @@ char* handle_base_path_request() {
 	XenoFlowConfig* config = http_server_ctx->config;
 	
 	for (int i = 0; i < config->numBackends; i++) {
-		XenoFlowBackend backend = config->backends[i];
+		XenoFlowBackend *backend = config->backends[i];
 		cJSON *backend_info = cJSON_CreateObject();
-		cJSON_AddStringToObject(backend_info, "name", backend.name);
+		cJSON_AddStringToObject(backend_info, "name", backend->name);
 		
 		/* Format MAC address as string */
 		char mac_str[18];
 		snprintf(mac_str, sizeof(mac_str), "%02x:%02x:%02x:%02x:%02x:%02x",
-				backend.mac_address[0], backend.mac_address[1], 
-				backend.mac_address[2], backend.mac_address[3],
-				backend.mac_address[4], backend.mac_address[5]);
+				backend->mac_address[0], backend->mac_address[1], 
+				backend->mac_address[2], backend->mac_address[3],
+				backend->mac_address[4], backend->mac_address[5]);
 		cJSON_AddStringToObject(backend_info, "mac_address", mac_str);
+
+		char entry_pps[128];
+		snprintf(entry_pps, 128, "%d", entry_processed_packages(i, config));
+		cJSON_AddStringToObject(backend_info, "packetsProcessed", entry_pps);
 		
 		cJSON_AddItemToArray(backends, backend_info);
 	}
@@ -135,4 +139,18 @@ void http_server_stop(void)
 		free(http_server_ctx);
 		http_server_ctx = NULL;
 	}
+}
+
+int entry_processed_packages(int entryId, XenoFlowConfig *config) {
+	struct doca_flow_resource_query query_stats;
+	doca_error_t query_result;
+	
+	query_result = doca_flow_resource_query_entry(config->backends[entryId]->entry, &query_stats);
+	
+	uint64_t packets = 0;
+	if (query_result == DOCA_SUCCESS) {
+		packets = query_stats.counter.total_pkts;
+	}
+	
+	return packets;
 }

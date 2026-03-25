@@ -33,4 +33,6 @@ void http_server_stop(void);
 
 char* handle_base_path_request();
 
+int entry_processed_packages(int entryId, XenoFlowConfig *config);
+
 #endif /* HTTP_SERVER_H */
