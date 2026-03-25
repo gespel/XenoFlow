@@ -26,12 +26,19 @@ static enum MHD_Result http_request_handler(void *cls, struct MHD_Connection *co
 		
 		char *json_str = handle_base_path_request();
 		
-		response = MHD_create_response_from_buffer(strlen(json_str),
-												(void *)json_str,
-												MHD_RESPMEM_MUST_FREE);
+		response = MHD_create_response_from_buffer(strlen(json_str), (void *)json_str, MHD_RESPMEM_MUST_FREE);
 		MHD_add_response_header(response, "Content-Type", "application/json");
 		ret = MHD_queue_response(connection, MHD_HTTP_OK, response);
 		MHD_destroy_response(response);
+		return ret;
+	}
+	if (strcmp(url, "/api") == 0 && strcmp(method, "POST") == 0) {
+		DOCA_LOG_INFO("Received POST %s", upload_data);
+		char *str = "{\"status\": \"Ok\"}";
+		response = MHD_create_response_from_buffer(strlen(str), (void*)str, MHD_RESPMEM_MUST_FREE);
+		MHD_add_response_header(response, "Content-Type", "application/json");
+		ret = MHD_queue_response(connection, MHD_HTTP_OK, response);
+		//MHD_destroy_response(response);
 		return ret;
 	}
 
