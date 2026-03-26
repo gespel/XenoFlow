@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <sys/time.h>
@@ -13,6 +15,7 @@
 #include "core.h"
 
 DOCA_LOG_REGISTER(FLOW_HASH_PIPE);
+#define NB_ACTION_DESC (1)
 
 void doca_try(doca_error_t result, char* message, int nb_ports, struct doca_flow_port** ports) {
 	if (result != DOCA_SUCCESS) {
@@ -50,7 +53,7 @@ XenoFlowConfig* load_config() {
 	
 	/* NOTE: Hash pipe requires power-of-2 number of entries (1, 2, 4, 8, 16, ...) */
 	XenoFlowBackend* b1 = createBackend("fips2", "a0:88:c2:b5:f4:5a");
-	XenoFlowBackend* b2 = createBackend("fips1", "a0:88:c2:b6:14:1a");
+	XenoFlowBackend* b2 = createBackend("fips1", "e8:eb:d3:9c:71:ac");
 	
 	configAddBackend(c, b1);
 	configAddBackend(c, b2);
@@ -74,16 +77,30 @@ static doca_error_t create_hash_pipe(struct doca_flow_port *port,
 {
 	struct doca_flow_match match_mask;
 	struct doca_flow_monitor monitor;
+	struct doca_flow_actions actions, *actions_arr[1];
+	struct doca_flow_action_descs descs;
+	struct doca_flow_action_descs *descs_arr[NB_ACTIONS_ARR];
+	struct doca_flow_action_desc desc_array[NB_ACTION_DESC] = {0};
 	struct doca_flow_fwd fwd;
 	struct doca_flow_pipe_cfg *pipe_cfg;
 	doca_error_t result;
 
 	memset(&match_mask, 0, sizeof(match_mask));
 	memset(&monitor, 0, sizeof(monitor));
+	memset(&actions, 0, sizeof(actions));
+	memset(&descs, 0, sizeof(descs));
 	memset(&fwd, 0, sizeof(fwd));
+
+	actions_arr[0] = &actions;
+	descs_arr[0] = &descs;
+	descs.nb_action_desc = NB_ACTION_DESC;
+	descs.desc_array = desc_array;
 
 	match_mask.outer.l3_type = DOCA_FLOW_L3_TYPE_IP4;
 	match_mask.outer.ip4.src_ip = 0xffffffff;
+
+	SET_MAC_ADDR(actions.outer.eth.dst_mac, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff);
+
 
 	monitor.counter_type = DOCA_FLOW_RESOURCE_TYPE_NON_SHARED;
 
@@ -114,6 +131,12 @@ static doca_error_t create_hash_pipe(struct doca_flow_port *port,
 	result = doca_flow_pipe_cfg_set_monitor(pipe_cfg, &monitor);
 	if (result != DOCA_SUCCESS) {
 		DOCA_LOG_ERR("Failed to set doca_flow_pipe_cfg monitor: %s", doca_error_get_descr(result));
+		goto destroy_pipe_cfg;
+	}
+
+	result = doca_flow_pipe_cfg_set_actions(pipe_cfg, actions_arr, NULL, desc_array, 1);
+	if (result != DOCA_SUCCESS) {
+		DOCA_LOG_ERR("Failed to set doca_flow_pipe_cfg actions: %s", doca_error_get_descr(result));
 		goto destroy_pipe_cfg;
 	}
 
@@ -203,6 +226,9 @@ doca_error_t xeno_flow(int nb_queues)
 	dev_arr[0] = dev1;
 	dev_arr[1] = dev2;
 
+	ARRAY_INIT(action_mem, ACTIONS_MEM_SIZE(2));
+	printf("");
+
 	doca_try(init_doca_flow_ports(2, ports, true, dev_arr, action_mem, &resource), "Failed to init DOCA ports", nb_ports, ports);
 
 	memset(&status, 0, sizeof(status));
@@ -236,8 +262,8 @@ doca_error_t xeno_flow(int nb_queues)
 						       hash_pipe,
 						       i,
 						       0,
-						       NULL,
 						       &actions,
+						       NULL,
 						       &fwd,
 						       flags,
 						       &status,
