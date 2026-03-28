@@ -9,10 +9,14 @@
 
 DOCA_LOG_REGISTER(HTTP_SERVER);
 
-/* Global HTTP server context */
 struct http_server_ctx *http_server_ctx = NULL;
 
-/* HTTP Server Request Handler */
+struct post_data {
+	char *data;
+	size_t size;
+	int received_data;
+};
+
 static enum MHD_Result http_request_handler(void *cls, struct MHD_Connection *connection,
 					     const char *url, const char *method,
 					     const char *version, const char *upload_data,
@@ -21,9 +25,7 @@ static enum MHD_Result http_request_handler(void *cls, struct MHD_Connection *co
 	struct MHD_Response *response;
 	enum MHD_Result ret;
 
-	if (strcmp(url, "/api") == 0 && strcmp(method, "GET") == 0) {
-		/* Create JSON response */
-		
+	if (strcmp(url, "/api") == 0 && strcmp(method, "GET") == 0) {		
 		char *json_str = handle_base_path_request();
 		
 		response = MHD_create_response_from_buffer(strlen(json_str), (void *)json_str, MHD_RESPMEM_MUST_FREE);
@@ -33,12 +35,39 @@ static enum MHD_Result http_request_handler(void *cls, struct MHD_Connection *co
 		return ret;
 	}
 	if (strcmp(url, "/api") == 0 && strcmp(method, "POST") == 0) {
-		DOCA_LOG_INFO("Received POST %s", upload_data);
-		char *str = "{\"status\": \"Ok\"}";
+		struct post_data *post = (struct post_data *)*con_cls;
+		
+		if (post == NULL) {
+			post = malloc(sizeof(struct post_data));
+			post->data = NULL;
+			post->size = 0;
+			post->received_data = 0;
+			*con_cls = post;
+			return MHD_YES;
+		}
+		
+		if (*upload_data_size > 0) {
+			post->data = realloc(post->data, post->size + *upload_data_size + 1);
+			memcpy(post->data + post->size, upload_data, *upload_data_size);
+			post->size += *upload_data_size;
+			post->data[post->size] = '\0';
+			post->received_data = 1;
+			*upload_data_size = 0;
+			return MHD_YES;
+		}
+		
+		DOCA_LOG_INFO("Received POST: %s", post->data ? post->data : "(empty)");
+		char *str = malloc(64);
+		snprintf(str, 64, "{\"status\": \"Ok\"}");
 		response = MHD_create_response_from_buffer(strlen(str), (void*)str, MHD_RESPMEM_MUST_FREE);
 		MHD_add_response_header(response, "Content-Type", "application/json");
 		ret = MHD_queue_response(connection, MHD_HTTP_OK, response);
-		//MHD_destroy_response(response);
+		MHD_destroy_response(response);
+		
+		if (post->data) free(post->data);
+		free(post);
+		*con_cls = NULL;
+		
 		return ret;
 	}
 

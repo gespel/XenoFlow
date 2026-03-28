@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include <unistd.h>
 #include <sys/time.h>
 #include <pthread.h>
@@ -240,7 +241,6 @@ doca_error_t xeno_flow(int nb_queues)
 	for (int i = 0; i < config->numBackends; i++) {
 		struct doca_flow_fwd fwd;
 		struct doca_flow_actions actions;
-		enum doca_flow_flags_type flags = DOCA_FLOW_WAIT_FOR_BATCH;
 
 		memset(&fwd, 0, sizeof(fwd));
 		memset(&actions, 0, sizeof(actions));
@@ -255,9 +255,6 @@ doca_error_t xeno_flow(int nb_queues)
 		fwd.type = DOCA_FLOW_FWD_PORT;
 		fwd.port_id = 1;
 
-		if (i == config->numBackends - 1)
-			flags = DOCA_FLOW_NO_WAIT;
-
 		result = doca_flow_pipe_hash_add_entry(0,
 						       hash_pipe,
 						       i,
@@ -265,7 +262,7 @@ doca_error_t xeno_flow(int nb_queues)
 						       &actions,
 						       NULL,
 						       &fwd,
-						       flags,
+						       NULL,
 						       &status,
 						       &hash_entries[i]);
 		if (result != DOCA_SUCCESS) {
