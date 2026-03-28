@@ -1,3 +1,4 @@
+#pragma once
 #ifndef CORE_H
 #define CORE_H
 
@@ -23,11 +24,19 @@ typedef struct {
 	int nextBackend;
 } XenoFlowConfig;
 
+typedef struct {
+	XenoFlowConfig *config;
+	struct doca_flow_pipe *hash_pipe;
+	struct doca_flow_pipe_entry *hash_entries[1024];
+} XenoFlow;
+
 /**
  * @brief Main XenoFlow function - initializes and runs the flow load balancer
  * @param nb_queues Number of queues to use
  * @return DOCA_SUCCESS on success, error code otherwise
  */
 doca_error_t xeno_flow(int nb_queues);
+
+void xenoflow_add_backend(XenoFlow *xeno, char *name, char *mac);
 
 #endif /* CORE_H */

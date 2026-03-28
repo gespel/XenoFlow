@@ -56,7 +56,19 @@ static enum MHD_Result http_request_handler(void *cls, struct MHD_Connection *co
 			return MHD_YES;
 		}
 		
-		DOCA_LOG_INFO("Received POST: %s", post->data ? post->data : "(empty)");
+		//DOCA_LOG_INFO("Received POST: %s", post->data ? post->data : "(empty)");
+		
+		cJSON *root = cJSON_Parse(post->data);
+		cJSON *backends = cJSON_GetObjectItem(root, "backends");
+		int numberOfBackends = cJSON_GetArraySize(backends);
+		for (int i = 0; i < numberOfBackends; i++) {
+			cJSON *backend = cJSON_GetArrayItem(backends, i);
+			cJSON *name = cJSON_GetObjectItem(backend, "name");
+			cJSON *mac = cJSON_GetObjectItem(backend, "mac_address");
+			DOCA_LOG_INFO("backend name: %s", name->valuestring);
+			DOCA_LOG_INFO("backend mac: %s", mac->valuestring);
+		}
+
 		char *str = malloc(64);
 		snprintf(str, 64, "{\"status\": \"Ok\"}");
 		response = MHD_create_response_from_buffer(strlen(str), (void*)str, MHD_RESPMEM_MUST_FREE);
