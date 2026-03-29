@@ -5,8 +5,6 @@
     "dockerfile": "Dockerfile"
   },
 
-  "workspaceFolder": "/workspace",
-
   "customizations": {
     "vscode": {
       "extensions": [
