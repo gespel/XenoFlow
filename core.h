@@ -28,6 +28,7 @@ typedef struct {
 	XenoFlowConfig *config;
 	struct doca_flow_pipe *hash_pipe;
 	struct doca_flow_pipe_entry *hash_entries[1024];
+	struct doca_flow_port *ports[2];
 } XenoFlow;
 
 /**
