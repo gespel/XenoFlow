@@ -5,6 +5,8 @@
     "dockerfile": "Dockerfile"
   },
 
+  "forwardPorts": [5000],
+
   "customizations": {
     "vscode": {
       "extensions": [
