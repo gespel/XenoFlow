@@ -31,6 +31,8 @@ typedef struct {
 	struct doca_flow_port *ports[2];
 } XenoFlow;
 
+#define MAX_BACKENDS 1024
+
 /**
  * @brief Main XenoFlow function - initializes and runs the flow load balancer
  * @param nb_queues Number of queues to use
