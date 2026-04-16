@@ -191,7 +191,7 @@ doca_error_t xeno_flow(int nb_queues)
 {
 	struct doca_flow_pipe *hash_pipe;
 	struct doca_flow_pipe_entry *hash_entries[1024];
-	int nb_ports = 1;
+	int nb_ports = 2;
 	struct flow_resources resource = {0};
 	uint32_t nr_shared_resources[SHARED_RESOURCE_NUM_VALUES] = {0};
 	struct doca_flow_port *ports[2];
@@ -222,10 +222,10 @@ doca_error_t xeno_flow(int nb_queues)
 	if (!dev1 || !dev2) {
 		DOCA_LOG_INFO("Device not found");
 		return DOCA_ERROR_NOT_FOUND;
-	}
-	else {
+	} else {
 		DOCA_LOG_INFO("Devices found!");
 	}
+
 	dev_arr[0] = dev1;
 	dev_arr[1] = dev2;
 
@@ -237,7 +237,6 @@ doca_error_t xeno_flow(int nb_queues)
 	memset(&status, 0, sizeof(status));
 
 	doca_try(create_hash_pipe(ports[0], 0, config->numBackends, &hash_pipe), "Failed to create hash pipe", nb_ports, ports);
-
 	DOCA_LOG_INFO("Starting the load balancer with hash pipe");
 
 	xeno->config = config;
@@ -360,7 +359,6 @@ void xenoflow_add_backend(XenoFlow *xeno, char *name, char *mac) {
 
 	memset(&fwd, 0, sizeof(fwd));
 	memset(&actions, 0, sizeof(actions));
-
 	actions.outer.eth.dst_mac[0] = xeno->config->backends[xeno->config->numBackends]->mac_address[0];
 	actions.outer.eth.dst_mac[1] = xeno->config->backends[xeno->config->numBackends]->mac_address[1];
 	actions.outer.eth.dst_mac[2] = xeno->config->backends[xeno->config->numBackends]->mac_address[2];
