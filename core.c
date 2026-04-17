@@ -280,17 +280,17 @@ doca_error_t xeno_flow(int nb_queues)
 		free(config->backends[i]);
 		config->backends[i] = NULL;
 
-		/*if (i == 0) {
+		if (i == 0) {
 			DOCA_LOG_INFO("Replacing %s with a host-target entry", backend_name);
 			doca_try(xenoflow_add_host_entry(xeno, 0, "to-host", backend_mac),
 				 "Failed to add host entry", nb_ports, ports);
 		} else {
 			doca_try(xenoflow_add_backend(xeno, backend_name, backend_mac),
 				 "Failed to add backend", nb_ports, ports);
-		}*/
+		}
 
-		doca_try(xenoflow_add_backend(xeno, backend_name, backend_mac),
-				 "Failed to add backend", nb_ports, ports);
+		/*doca_try(xenoflow_add_backend(xeno, backend_name, backend_mac),
+				 "Failed to add backend", nb_ports, ports);*/
 	}
 
 	for (int i = 0; i < config->numBackends; i++) {
