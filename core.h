@@ -27,6 +27,7 @@ typedef struct {
 typedef struct {
 	XenoFlowConfig *config;
 	struct doca_flow_pipe *hash_pipe;
+	uint32_t hash_pipe_entries;
 	struct doca_flow_pipe_entry *hash_entries[1024];
 	struct doca_flow_port *ports[2];
 } XenoFlow;
@@ -40,6 +41,7 @@ typedef struct {
  */
 doca_error_t xeno_flow(int nb_queues);
 
-void xenoflow_add_backend(XenoFlow *xeno, char *name, char *mac);
+doca_error_t xenoflow_add_backend(XenoFlow *xeno, char *name, char *mac);
+doca_error_t xenoflow_add_host_entry(XenoFlow *xeno, uint32_t entry_index, char *name, char *mac, char *src_ip);
 
 #endif /* CORE_H */

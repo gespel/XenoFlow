@@ -19,6 +19,20 @@
 DOCA_LOG_REGISTER(FLOW_HASH_PIPE);
 #define NB_ACTION_DESC (1)
 
+static uint32_t next_power_of_two(uint32_t value) {
+	if (value <= 1) {
+		return 1;
+	}
+
+	value--;
+	value |= value >> 1;
+	value |= value >> 2;
+	value |= value >> 4;
+	value |= value >> 8;
+	value |= value >> 16;
+	return value + 1;
+}
+
 
 void doca_try(doca_error_t result, char* message, int nb_ports, struct doca_flow_port** ports) {
 	if (result != DOCA_SUCCESS) {
@@ -42,11 +56,15 @@ XenoFlowConfig* createConfig() {
 	XenoFlowConfig* config = malloc(sizeof(XenoFlowConfig));
 	config->numBackends = 0;
 	config->nextBackend = 0;
-	config->backends = malloc(sizeof(XenoFlowBackend) * 128);
+	config->backends = calloc(MAX_BACKENDS, sizeof(XenoFlowBackend *));
 	return config;
 }
 
 void configAddBackend(XenoFlowConfig* config, XenoFlowBackend* backend) {
+	if (config->numBackends >= MAX_BACKENDS) {
+		DOCA_LOG_ERR("Cannot add backend: maximum backends (%d) reached", MAX_BACKENDS);
+		return;
+	}
 	config->backends[config->numBackends] = backend;
 	config->numBackends += 1;
 }
@@ -82,7 +100,7 @@ static doca_error_t create_hash_pipe(struct doca_flow_port *port,
 	struct doca_flow_monitor monitor;
 	struct doca_flow_actions actions, *actions_arr[1];
 	struct doca_flow_action_descs descs;
-	//struct doca_flow_action_descs *descs_arr[NB_ACTIONS_ARR];
+	struct doca_flow_action_descs *descs_arr[1];
 	struct doca_flow_action_desc desc_array[NB_ACTION_DESC] = {0};
 	struct doca_flow_fwd fwd;
 	struct doca_flow_pipe_cfg *pipe_cfg;
@@ -97,6 +115,7 @@ static doca_error_t create_hash_pipe(struct doca_flow_port *port,
 	actions_arr[0] = &actions;
 	descs.nb_action_desc = NB_ACTION_DESC;
 	descs.desc_array = desc_array;
+	descs_arr[0] = &descs;
 
 	match_mask.outer.l3_type = DOCA_FLOW_L3_TYPE_IP4;
 	match_mask.outer.ip4.src_ip = 0xffffffff;
@@ -136,7 +155,7 @@ static doca_error_t create_hash_pipe(struct doca_flow_port *port,
 		goto destroy_pipe_cfg;
 	}
 
-	result = doca_flow_pipe_cfg_set_actions(pipe_cfg, actions_arr, NULL, desc_array, 1);
+	result = doca_flow_pipe_cfg_set_actions(pipe_cfg, actions_arr, NULL, descs_arr, 1);
 	if (result != DOCA_SUCCESS) {
 		DOCA_LOG_ERR("Failed to set doca_flow_pipe_cfg actions: %s", doca_error_get_descr(result));
 		goto destroy_pipe_cfg;
@@ -196,12 +215,12 @@ doca_error_t xeno_flow(int nb_queues)
 	uint32_t nr_shared_resources[SHARED_RESOURCE_NUM_VALUES] = {0};
 	struct doca_flow_port *ports[2];
 	struct doca_dev *dev_arr[nb_ports];
-	struct entries_status status;
 	doca_error_t result;
 	uint32_t action_mem[2] = {0};
 
-	XenoFlow *xeno = malloc(sizeof(XenoFlow));
+	XenoFlow *xeno = calloc(1, sizeof(XenoFlow));
 	XenoFlowConfig *config = load_config();
+	uint32_t hash_pipe_entries = next_power_of_two(config->numBackends);
 	DOCA_LOG_INFO("Number of backends: %d", config->numBackends);
 
 
@@ -212,7 +231,7 @@ doca_error_t xeno_flow(int nb_queues)
 	}
 
 	resource.mode = DOCA_FLOW_RESOURCE_MODE_PORT;
-	resource.nr_counters = config->numBackends;
+	resource.nr_counters = hash_pipe_entries;
 
 	doca_try(init_doca_flow(nb_queues, "vnf,hws", &resource, nr_shared_resources), "Failed to init DOCA Flow", nb_ports, ports);
 
@@ -230,82 +249,49 @@ doca_error_t xeno_flow(int nb_queues)
 	dev_arr[1] = dev2;
 
 	ARRAY_INIT(action_mem, ACTIONS_MEM_SIZE(2));
-	printf("");
 
 	doca_try(init_doca_flow_ports(2, ports, true, dev_arr, action_mem, &resource), "Failed to init DOCA ports", nb_ports, ports);
 
-	memset(&status, 0, sizeof(status));
-
-	doca_try(create_hash_pipe(ports[0], 0, config->numBackends, &hash_pipe), "Failed to create hash pipe", nb_ports, ports);
+	doca_try(create_hash_pipe(ports[0], 0, hash_pipe_entries, &hash_pipe), "Failed to create hash pipe", nb_ports, ports);
 	DOCA_LOG_INFO("Starting the load balancer with hash pipe");
 
 	xeno->config = config;
 	xeno->ports[0] = ports[0];
 	xeno->ports[1] = ports[1];
 	xeno->hash_pipe = hash_pipe;
+	xeno->hash_pipe_entries = hash_pipe_entries;
 	for (int i = 0; i < config->numBackends; i++) {
 		xeno->hash_entries[i] = hash_entries[i];
 	}
 
-	DOCA_LOG_INFO("Number of entries to add %d", config->numBackends);
-	int l = config->numBackends;
-	for (int i = 0; i < l; i++) {
-		//DOCA_LOG_INFO("BLALBAL %d", i);
-		struct doca_flow_fwd fwd;
-		struct doca_flow_actions actions;
+	int initial_backends = config->numBackends;
+	DOCA_LOG_INFO("Adding %d backends via helper", initial_backends);
+	config->numBackends = 0;
+	for (int i = 0; i < initial_backends; i++) {
+		char backend_name[64];
+		char backend_mac[18];
 
-		memset(&fwd, 0, sizeof(fwd));
-		memset(&actions, 0, sizeof(actions));
-
-		actions.outer.eth.dst_mac[0] = config->backends[i]->mac_address[0];
-		actions.outer.eth.dst_mac[1] = config->backends[i]->mac_address[1];
-		actions.outer.eth.dst_mac[2] = config->backends[i]->mac_address[2];
-		actions.outer.eth.dst_mac[3] = config->backends[i]->mac_address[3];
-		actions.outer.eth.dst_mac[4] = config->backends[i]->mac_address[4];
-		actions.outer.eth.dst_mac[5] = config->backends[i]->mac_address[5];
-
-		fwd.type = DOCA_FLOW_FWD_PORT;
-		fwd.port_id = 1;
-
-		result = doca_flow_pipe_hash_add_entry(0,
-						       hash_pipe,
-						       i,
-						       0,
-						       &actions,
-						       NULL,
-						       &fwd,
-						       (uint32_t)0,
-						       &status,
-						       &hash_entries[i]);
-		if (result != DOCA_SUCCESS) {
-			DOCA_LOG_ERR("Failed to add hash entry %d: %s", i, doca_error_get_descr(result));
-			doca_try(result, "Failed to add hash entry", nb_ports, ports);
-		}
-		config->backends[i]->entry = hash_entries[i];
-		char *m = malloc(18);
-		snprintf(m, 18, "%02x:%02x:%02x:%02x:%02x:%02x",
-				config->backends[i]->mac_address[0], config->backends[i]->mac_address[1], 
+		snprintf(backend_name, sizeof(backend_name), "%s", config->backends[i]->name);
+		snprintf(backend_mac, sizeof(backend_mac), "%02x:%02x:%02x:%02x:%02x:%02x",
+				config->backends[i]->mac_address[0], config->backends[i]->mac_address[1],
 				config->backends[i]->mac_address[2], config->backends[i]->mac_address[3],
 				config->backends[i]->mac_address[4], config->backends[i]->mac_address[5]);
-		//xenoflow_add_backend(xeno, config->backends[i]->name, m);
+
+		free(config->backends[i]);
+		config->backends[i] = NULL;
+
+		if (i == 0) {
+			DOCA_LOG_INFO("Replacing %s with a host-target entry", backend_name);
+			doca_try(xenoflow_add_host_entry(xeno, 0, "to-host", backend_mac, "1.2.3.4"),
+				 "Failed to add host entry", nb_ports, ports);
+		} else {
+			doca_try(xenoflow_add_backend(xeno, backend_name, backend_mac),
+				 "Failed to add backend", nb_ports, ports);
+		}
 	}
 
-
-	result = doca_flow_entries_process(ports[0], 0, DEFAULT_TIMEOUT_US, config->numBackends);
-	if (result != DOCA_SUCCESS) {
-		DOCA_LOG_ERR("Failed to process hash entries: %s", doca_error_get_descr(result));
-		doca_try(result, "Failed to process entries", nb_ports, ports);
-	}
-
-	if (status.nb_processed != config->numBackends) {
-		DOCA_LOG_ERR("Failed to process all hash entries, nb_processed=%d, expected=%d", 
-			status.nb_processed, config->numBackends);
-		doca_try(DOCA_ERROR_BAD_STATE, "Failed to process all entries", nb_ports, ports);
-	}
-
-	if (status.failure) {
-		DOCA_LOG_ERR("Hash entry processing failed");
-		doca_try(DOCA_ERROR_BAD_STATE, "Hash entry processing failed", nb_ports, ports);
+	for (int i = 0; i < config->numBackends; i++) {
+		hash_entries[i] = xeno->hash_entries[i];
 	}
 
 	DOCA_LOG_INFO("XenoFlow Load Balancer initialized with %d backends", config->numBackends);
@@ -321,7 +307,7 @@ doca_error_t xeno_flow(int nb_queues)
 			struct doca_flow_resource_query query_stats;
 			doca_error_t query_result;
 			
-			query_result = doca_flow_resource_query_entry(hash_entries[i], &query_stats);
+			query_result = doca_flow_resource_query_entry(config->backends[i]->entry, &query_stats);
 			
 			uint64_t packets = 0;
 			if (query_result == DOCA_SUCCESS) {
@@ -343,46 +329,171 @@ doca_error_t xeno_flow(int nb_queues)
 	return result;
 }
 
-void xenoflow_add_backend(XenoFlow *xeno, char *name, char *mac) {
-	// Check bounds before adding
-	if (xeno->config->numBackends >= MAX_BACKENDS) {
-		DOCA_LOG_ERR("Cannot add backend: maximum backends (%d) reached", MAX_BACKENDS);
-		return;
+doca_error_t xenoflow_add_backend(XenoFlow *xeno, char *name, char *mac) {
+	if (xeno == NULL || xeno->config == NULL || xeno->hash_pipe == NULL || xeno->ports[0] == NULL) {
+		DOCA_LOG_ERR("Cannot add backend: XenoFlow is not initialized");
+		return DOCA_ERROR_INVALID_VALUE;
 	}
 
-	XenoFlowBackend* new = createBackend(name, mac);
-	doca_error_t result;
-	struct entries_status status;
+	if (xeno->hash_pipe_entries == 0) {
+		DOCA_LOG_ERR("Cannot add backend: hash pipe entries not initialized");
+		return DOCA_ERROR_INVALID_VALUE;
+	}
 
+	if (xeno->config->numBackends >= MAX_BACKENDS) {
+		DOCA_LOG_ERR("Cannot add backend: maximum backends (%d) reached", MAX_BACKENDS);
+		return DOCA_ERROR_NO_MEMORY;
+	}
+
+	int entry_index = xeno->config->numBackends;
+	if ((uint32_t)entry_index >= xeno->hash_pipe_entries) {
+		DOCA_LOG_ERR("Cannot add backend: entry index %d exceeds hash pipe size %u", entry_index, xeno->hash_pipe_entries);
+		return DOCA_ERROR_BAD_STATE;
+	}
+	XenoFlowBackend *new_backend = createBackend(name, mac);
+	doca_error_t result;
+	struct entries_status status = {0};
 	struct doca_flow_fwd fwd;
 	struct doca_flow_actions actions;
+	struct doca_flow_pipe_entry *entry = NULL;
 
 	memset(&fwd, 0, sizeof(fwd));
 	memset(&actions, 0, sizeof(actions));
-	actions.outer.eth.dst_mac[0] = xeno->config->backends[xeno->config->numBackends]->mac_address[0];
-	actions.outer.eth.dst_mac[1] = xeno->config->backends[xeno->config->numBackends]->mac_address[1];
-	actions.outer.eth.dst_mac[2] = xeno->config->backends[xeno->config->numBackends]->mac_address[2];
-	actions.outer.eth.dst_mac[3] = xeno->config->backends[xeno->config->numBackends]->mac_address[3];
-	actions.outer.eth.dst_mac[4] = xeno->config->backends[xeno->config->numBackends]->mac_address[4];
-	actions.outer.eth.dst_mac[5] = xeno->config->backends[xeno->config->numBackends]->mac_address[5];
+
+	SET_MAC_ADDR(actions.outer.eth.dst_mac,
+		     new_backend->mac_address[0], new_backend->mac_address[1], new_backend->mac_address[2],
+		     new_backend->mac_address[3], new_backend->mac_address[4], new_backend->mac_address[5]);
 
 	fwd.type = DOCA_FLOW_FWD_PORT;
 	fwd.port_id = 1;
 
 	result = doca_flow_pipe_hash_add_entry(0,
-						xeno->hash_pipe,
-						xeno->config->numBackends - 1,
-						0,
-						&actions,
-						NULL,
-						&fwd,
-						NULL,
-						&status,
-						&xeno->hash_entries[xeno->config->numBackends - 1]);
+							xeno->hash_pipe,
+							entry_index,
+							0,
+							&actions,
+							NULL,
+							&fwd,
+							0,
+							&status,
+							&entry);
 	if (result != DOCA_SUCCESS) {
-		DOCA_LOG_ERR("Failed to add hash entry %d: %s", xeno->config->numBackends, doca_error_get_descr(result));
+		DOCA_LOG_ERR("Failed to add hash entry %d: %s", entry_index, doca_error_get_descr(result));
+		free(new_backend);
+		return result;
 	}
-	xeno->config->backends[xeno->config->numBackends]->entry = xeno->hash_entries[xeno->config->numBackends];
-	configAddBackend(xeno->config, new);
 
+	result = doca_flow_entries_process(xeno->ports[0], 0, DEFAULT_TIMEOUT_US, 1);
+	if (result != DOCA_SUCCESS) {
+		DOCA_LOG_ERR("Failed to process hash entry %d: %s", entry_index, doca_error_get_descr(result));
+		free(new_backend);
+		return result;
+	}
+
+	if (status.failure || status.nb_processed != 1) {
+		DOCA_LOG_ERR("Hash entry %d was not fully processed (processed=%d failure=%d)",
+			     entry_index, status.nb_processed, status.failure);
+		free(new_backend);
+		return DOCA_ERROR_BAD_STATE;
+	}
+
+	new_backend->entry = entry;
+	xeno->hash_entries[entry_index] = entry;
+	configAddBackend(xeno->config, new_backend);
+	DOCA_LOG_INFO("Added backend %s at hash entry %d", new_backend->name, entry_index);
+	return DOCA_SUCCESS;
+}
+
+doca_error_t xenoflow_add_host_entry(XenoFlow *xeno, uint32_t entry_index, char *name, char *mac, char *src_ip) {
+	if (xeno == NULL || xeno->config == NULL || xeno->hash_pipe == NULL || xeno->ports[0] == NULL) {
+		DOCA_LOG_ERR("Cannot add host entry: XenoFlow is not initialized");
+		return DOCA_ERROR_INVALID_VALUE;
+	}
+
+	if (xeno->hash_pipe_entries == 0) {
+		DOCA_LOG_ERR("Cannot add host entry: hash pipe entries not initialized");
+		return DOCA_ERROR_INVALID_VALUE;
+	}
+
+	if (src_ip == NULL || mac == NULL || name == NULL) {
+		DOCA_LOG_ERR("Cannot add host entry: missing name, mac or src_ip");
+		return DOCA_ERROR_INVALID_VALUE;
+	}
+
+	if (entry_index >= xeno->hash_pipe_entries) {
+		DOCA_LOG_ERR("Cannot add host entry: entry index %u exceeds hash pipe size %u", entry_index, xeno->hash_pipe_entries);
+		return DOCA_ERROR_BAD_STATE;
+	}
+
+	if (xeno->config->numBackends >= MAX_BACKENDS) {
+		DOCA_LOG_ERR("Cannot add host entry: maximum backends (%d) reached", MAX_BACKENDS);
+		return DOCA_ERROR_NO_MEMORY;
+	}
+
+	struct doca_flow_fwd fwd;
+	struct doca_flow_actions actions;
+	struct doca_flow_pipe_entry *entry = NULL;
+	struct entries_status status = {0};
+	struct doca_flow_target *kernel_target = NULL;
+	doca_error_t result;
+	XenoFlowBackend *new_backend = createBackend(name, mac);
+
+	memset(&fwd, 0, sizeof(fwd));
+	memset(&actions, 0, sizeof(actions));
+
+	result = doca_flow_get_target(DOCA_FLOW_TARGET_KERNEL, &kernel_target);
+	if (result != DOCA_SUCCESS) {
+		DOCA_LOG_ERR("Failed to get kernel target for host forwarding: %s", doca_error_get_descr(result));
+		free(new_backend);
+		return result;
+	}
+
+	if (xeno->hash_entries[entry_index] != NULL) {
+		DOCA_LOG_ERR("Hash entry %u already exists", entry_index);
+		free(new_backend);
+		return DOCA_ERROR_INVALID_VALUE;
+	}
+
+	SET_MAC_ADDR(actions.outer.eth.dst_mac,
+		     new_backend->mac_address[0], new_backend->mac_address[1], new_backend->mac_address[2],
+		     new_backend->mac_address[3], new_backend->mac_address[4], new_backend->mac_address[5]);
+
+	fwd.type = DOCA_FLOW_FWD_TARGET;
+	fwd.target = kernel_target;
+
+	result = doca_flow_pipe_hash_add_entry(0,
+							xeno->hash_pipe,
+							entry_index,
+							0,
+							&actions,
+							NULL,
+							&fwd,
+							0,
+							&status,
+							&entry);
+	if (result != DOCA_SUCCESS) {
+		DOCA_LOG_ERR("Failed to add host entry %u for %s: %s", entry_index, src_ip, doca_error_get_descr(result));
+		free(new_backend);
+		return result;
+	}
+
+	result = doca_flow_entries_process(xeno->ports[0], 0, DEFAULT_TIMEOUT_US, 1);
+	if (result != DOCA_SUCCESS) {
+		DOCA_LOG_ERR("Failed to process host entry %u: %s", entry_index, doca_error_get_descr(result));
+		free(new_backend);
+		return result;
+	}
+
+	if (status.failure || status.nb_processed != 1) {
+		DOCA_LOG_ERR("Host entry %u was not fully processed (processed=%d failure=%d)",
+			     entry_index, status.nb_processed, status.failure);
+		free(new_backend);
+		return DOCA_ERROR_BAD_STATE;
+	}
+
+	new_backend->entry = entry;
+	xeno->hash_entries[entry_index] = entry;
+	configAddBackend(xeno->config, new_backend);
+	DOCA_LOG_INFO("Added host entry %u for %s -> kernel target", entry_index, src_ip);
+	return DOCA_SUCCESS;
 }
