@@ -42,6 +42,6 @@ typedef struct {
 doca_error_t xeno_flow(int nb_queues);
 
 doca_error_t xenoflow_add_backend(XenoFlow *xeno, char *name, char *mac);
-doca_error_t xenoflow_add_host_entry(XenoFlow *xeno, uint32_t entry_index, char *name, char *mac, char *src_ip);
+doca_error_t xenoflow_add_host_entry(XenoFlow *xeno, uint32_t entry_index, char *name, char *mac);
 
 #endif /* CORE_H */

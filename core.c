@@ -280,14 +280,17 @@ doca_error_t xeno_flow(int nb_queues)
 		free(config->backends[i]);
 		config->backends[i] = NULL;
 
-		if (i == 0) {
+		/*if (i == 0) {
 			DOCA_LOG_INFO("Replacing %s with a host-target entry", backend_name);
-			doca_try(xenoflow_add_host_entry(xeno, 0, "to-host", backend_mac, "1.2.3.4"),
+			doca_try(xenoflow_add_host_entry(xeno, 0, "to-host", backend_mac),
 				 "Failed to add host entry", nb_ports, ports);
 		} else {
 			doca_try(xenoflow_add_backend(xeno, backend_name, backend_mac),
 				 "Failed to add backend", nb_ports, ports);
-		}
+		}*/
+
+		doca_try(xenoflow_add_backend(xeno, backend_name, backend_mac),
+				 "Failed to add backend", nb_ports, ports);
 	}
 
 	for (int i = 0; i < config->numBackends; i++) {
@@ -404,7 +407,7 @@ doca_error_t xenoflow_add_backend(XenoFlow *xeno, char *name, char *mac) {
 	return DOCA_SUCCESS;
 }
 
-doca_error_t xenoflow_add_host_entry(XenoFlow *xeno, uint32_t entry_index, char *name, char *mac, char *src_ip) {
+doca_error_t xenoflow_add_host_entry(XenoFlow *xeno, uint32_t entry_index, char *name, char *mac) {
 	if (xeno == NULL || xeno->config == NULL || xeno->hash_pipe == NULL || xeno->ports[0] == NULL) {
 		DOCA_LOG_ERR("Cannot add host entry: XenoFlow is not initialized");
 		return DOCA_ERROR_INVALID_VALUE;
@@ -415,8 +418,8 @@ doca_error_t xenoflow_add_host_entry(XenoFlow *xeno, uint32_t entry_index, char 
 		return DOCA_ERROR_INVALID_VALUE;
 	}
 
-	if (src_ip == NULL || mac == NULL || name == NULL) {
-		DOCA_LOG_ERR("Cannot add host entry: missing name, mac or src_ip");
+	if (mac == NULL || name == NULL) {
+		DOCA_LOG_ERR("Cannot add host entry: missing name or mac");
 		return DOCA_ERROR_INVALID_VALUE;
 	}
 
@@ -472,7 +475,7 @@ doca_error_t xenoflow_add_host_entry(XenoFlow *xeno, uint32_t entry_index, char 
 							&status,
 							&entry);
 	if (result != DOCA_SUCCESS) {
-		DOCA_LOG_ERR("Failed to add host entry %u for %s: %s", entry_index, src_ip, doca_error_get_descr(result));
+		DOCA_LOG_ERR("Failed to add host entry %u: %s", entry_index, doca_error_get_descr(result));
 		free(new_backend);
 		return result;
 	}
@@ -494,6 +497,6 @@ doca_error_t xenoflow_add_host_entry(XenoFlow *xeno, uint32_t entry_index, char 
 	new_backend->entry = entry;
 	xeno->hash_entries[entry_index] = entry;
 	configAddBackend(xeno->config, new_backend);
-	DOCA_LOG_INFO("Added host entry %u for %s -> kernel target", entry_index, src_ip);
+	DOCA_LOG_INFO("Added host entry %u -> kernel target", entry_index);
 	return DOCA_SUCCESS;
 }
