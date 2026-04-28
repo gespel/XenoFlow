@@ -209,11 +209,10 @@ struct doca_dev *open_doca_dev_by_pci(const char *pci_bdf)
 doca_error_t xeno_flow(int nb_queues)
 {
 	struct doca_flow_pipe *hash_pipe;
-	struct doca_flow_pipe_entry *hash_entries[1024];
-	int nb_ports = 2;
+	int nb_ports = 1;
 	struct flow_resources resource = {0};
 	uint32_t nr_shared_resources[SHARED_RESOURCE_NUM_VALUES] = {0};
-	struct doca_flow_port *ports[2];
+	struct doca_flow_port *ports[1];
 	struct doca_dev *dev_arr[nb_ports];
 	doca_error_t result;
 	uint32_t action_mem[2] = {0};
@@ -233,36 +232,31 @@ doca_error_t xeno_flow(int nb_queues)
 	resource.mode = DOCA_FLOW_RESOURCE_MODE_PORT;
 	resource.nr_counters = hash_pipe_entries;
 
-	doca_try(init_doca_flow(nb_queues, "vnf,hws", &resource, nr_shared_resources), "Failed to init DOCA Flow", nb_ports, ports);
+	doca_try(init_doca_flow(nb_queues, "switch", &resource, nr_shared_resources), "Failed to init DOCA Flow", nb_ports, ports);
 
-	struct doca_dev *dev1 = open_doca_dev_by_pci("0000:03:00.0");
-	struct doca_dev *dev2 = open_doca_dev_by_pci("0000:03:00.1");
+	struct doca_dev *dev = open_doca_dev_by_pci("0000:03:00.0");
 
-	if (!dev1 || !dev2) {
+	if (!dev) {
 		DOCA_LOG_INFO("Device not found");
 		return DOCA_ERROR_NOT_FOUND;
 	} else {
-		DOCA_LOG_INFO("Devices found!");
+		DOCA_LOG_INFO("Device found!");
 	}
 
-	dev_arr[0] = dev1;
-	dev_arr[1] = dev2;
+	dev_arr[0] = dev;
 
-	ARRAY_INIT(action_mem, ACTIONS_MEM_SIZE(2));
+	ARRAY_INIT(action_mem, ACTIONS_MEM_SIZE(1));
 
-	doca_try(init_doca_flow_ports(2, ports, true, dev_arr, action_mem, &resource), "Failed to init DOCA ports", nb_ports, ports);
+	doca_try(init_doca_flow_ports(1, ports, true, dev_arr, action_mem, &resource), "Failed to init DOCA ports", nb_ports, ports);
 
 	doca_try(create_hash_pipe(ports[0], 0, hash_pipe_entries, &hash_pipe), "Failed to create hash pipe", nb_ports, ports);
 	DOCA_LOG_INFO("Starting the load balancer with hash pipe");
 
 	xeno->config = config;
 	xeno->ports[0] = ports[0];
-	xeno->ports[1] = ports[1];
 	xeno->hash_pipe = hash_pipe;
 	xeno->hash_pipe_entries = hash_pipe_entries;
-	for (int i = 0; i < config->numBackends; i++) {
-		xeno->hash_entries[i] = hash_entries[i];
-	}
+	memset(xeno->hash_entries, 0, sizeof(xeno->hash_entries));
 
 	int initial_backends = config->numBackends;
 	DOCA_LOG_INFO("Adding %d backends via helper", initial_backends);
@@ -280,21 +274,17 @@ doca_error_t xeno_flow(int nb_queues)
 		free(config->backends[i]);
 		config->backends[i] = NULL;
 
-		if (i == 0) {
+		/*if (i == 0) {
 			DOCA_LOG_INFO("Replacing %s with a host-target entry", backend_name);
 			doca_try(xenoflow_add_host_entry(xeno, 0, "to-host", backend_mac),
 				 "Failed to add host entry", nb_ports, ports);
 		} else {
 			doca_try(xenoflow_add_backend(xeno, backend_name, backend_mac),
 				 "Failed to add backend", nb_ports, ports);
-		}
+		}*/
 
-		/*doca_try(xenoflow_add_backend(xeno, backend_name, backend_mac),
-				 "Failed to add backend", nb_ports, ports);*/
-	}
-
-	for (int i = 0; i < config->numBackends; i++) {
-		hash_entries[i] = xeno->hash_entries[i];
+		doca_try(xenoflow_add_backend(xeno, backend_name, backend_mac),
+				 "Failed to add backend", nb_ports, ports);
 	}
 
 	DOCA_LOG_INFO("XenoFlow Load Balancer initialized with %d backends", config->numBackends);
@@ -368,7 +358,7 @@ doca_error_t xenoflow_add_backend(XenoFlow *xeno, char *name, char *mac) {
 		     new_backend->mac_address[3], new_backend->mac_address[4], new_backend->mac_address[5]);
 
 	fwd.type = DOCA_FLOW_FWD_PORT;
-	fwd.port_id = 1;
+	fwd.port_id = 0;
 
 	result = doca_flow_pipe_hash_add_entry(0,
 							xeno->hash_pipe,
