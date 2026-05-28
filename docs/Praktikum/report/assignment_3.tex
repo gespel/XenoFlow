@@ -1,0 +1,150 @@
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[german]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\includegraphics[width=0.6\linewidth]{img/Mathnatlogo.png}\\[1cm]
+\normalfont \normalsize 
+\textsc{Master Praktikumsarbeit} \\ [25pt]
+\horrule{0.5pt} \\[0.4cm] 
+\huge Grenzen der Leistungsfähigkeit und architektonische Beschränkungen der BlueField-3 \\ % The assignment title
+\horrule{0.5pt} \\[0.4cm]
+}
+
+\author{Sten Heimbrodt} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+\newpage
+\begin{document}
+
+\maketitle % Print the title
+
+\tableofcontents
+\newpage
+\section{Einleitung}
+Das Problem der Lastverteilung stellt eines der fundamentalsten in der Informatik dar. Viele Strategien und Ansätze prägen dabei die Landschaft der Implementierungen und variieren teils stark im jeweiligen Energieverbrauch. Seit geraumer Zeit begegnen Hersteller solchen Problemen mit technischen und architektonischen Lösungen. So entwickelt sich der Trend hin zu einer heterogenen Compute Landschaft. Die hier vorliegende Arbeit beschäftigt sich mit der Klasse der SmartNICs, im speziellen der BlueField-3 von Nvidia. Es werden technische Limitierungen anhand von Experimenten untersucht sowie ein gewisser Anteil an reverse Engineering betrieben, um Licht auf die Architektur zu werfen. Diese wird leider seitens Nvidia als proprietär betrachtet und dementsprechend nicht veröffentlicht. Außerdem wird die Flow API aus dem DOCA Framework verwendet, um die speziellen Hardwarebeschleuniger zu programmieren, die den eigentlichen energetisch Effizienten Vorteil bringen. Diese arbeit versucht also ebenfalls, ein Verständnis für die API zu schaffen, um auch andere Probleme mittels DOCA Flow zu implementieren.
+\section{BlueField Architektur}
+\subsection{DOCA Flow}
+\subsubsection{Pipes und Entries}
+\subsubsection{Hash-Pipes}
+\subsection{Hardware Beschleuniger}
+\section{XenoFlow 0.1}
+\subsection{Was bisher geschah...}
+\subsection{Ergebnisse}
+\section{Experimente}
+\subsection{ebpf\_mac\_rewrite}
+\begin{minted}{c}
+SEC("xdp")
+int xdp_mac_rewrite(struct xdp_md *ctx)
+{
+    void *data     = (void *)(long)ctx->data;
+    void *data_end = (void *)(long)ctx->data_end;
+
+    if (!bounds_ok(data, data_end, sizeof(struct ethhdr_min)))
+        return XDP_ABORTED;
+
+    struct ethhdr_min *eth = data;
+
+    if (!bounds_ok(data, data_end, sizeof(struct ethhdr_min)))
+        return XDP_ABORTED;
+
+    struct iphdr *ip = data + sizeof(*eth);
+
+    if ((void *)(ip + 1) > data_end)
+        return XDP_DROP;
+
+    __be32 fips1 =0x04030201;
+
+    if ( __builtin_memcmp(&ip->saddr, &fips1, 4)) 
+        return XDP_PASS;
+
+    struct mac_addr key = {};
+    __builtin_memcpy(key.addr, eth->h_source, ETH_ALEN);
+
+    const struct mac_addr *new_dst = bpf_map_lookup_elem(&mac_redirect_map, &key);
+    if (!new_dst)
+        return XDP_PASS;
+
+    __builtin_memcpy(eth->h_dest, new_dst->addr, ETH_ALEN);
+    //
+    // New source MAC: 63:09:DE:AD:BE:EF
+    //a6:03:ff:17:2b:3a
+    eth->h_source[0] = 0xA6;
+    eth->h_source[1] = 0x03;
+    eth->h_source[2] = 0xFF;
+    eth->h_source[3] = 0x17;
+    eth->h_source[4] = 0x2B;
+    eth->h_source[5] = 0x3A;
+
+    return XDP_TX;
+}
+\end{minted}
+\subsection{max\_pipes}
+\subsection{max\_entries}
+\subsection{hash\_pipe}
+\subsection{pcc}
+\subsection{entry\_latency}
+\section{Sonstiges}
+\section{Fazit}
+\section{Ausblick}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
