@@ -176,7 +176,7 @@ int xdp_mac_rewrite(struct xdp_md *ctx)
 \end{figure}
 Wie in Abbildung 4.1 zu sehen ist, ist die RTT eines vergleichbaren eBPF-Programms \textbf{wesentlich größer} als die von XenoFlow. Außerdem ist zu beachten, dass das verwenden eines Matches ebenfalls mit signifikanten Leistungseinbußen einhergeht, da die Flow Baseline noch einmal besser performt als der XenoFlow Loadbalancer. 
 \subsection{max\_pipes}
-Im max\_pipes Experiment wird untersucht, wie viele Pipes in DOCA Flow von einer Anwendung aus angelegt werden können. Da eine Pipe ein Template darstellt, kann man davon ausgehen, dass die gemessene Anzahl maximaler Pipes pro Anwendung aussagt, wie viele unterscheidbare Templates der zugrunde liegenden Templating-Engine angelegt werden können. Im folgenden Code wird versucht, unbegrenzt viele Pipes anzulegen. Ziel ist es herauszufinden, wann die Laufzeit abstürzt und ob das Ergebnis reproduzierbar ist. 
+Im max\_pipes Experiment wird untersucht, wie viele Pipes in DOCA Flow von einer Anwendung aus angelegt werden können. Da eine Pipe ein Template darstellt, kann man davon ausgehen, dass die gemessene Anzahl von maximalen Pipes pro Anwendung aussagt, wie viele unterscheidbare Templates der zugrunde liegenden Templating-Engine angelegt werden können. Im folgenden Code wird versucht, unbegrenzt viele Pipes anzulegen. Ziel ist es herauszufinden, wann die Laufzeit abstürzt und ob das Ergebnis reproduzierbar ist. 
 \newpage
 \begin{minted}{c}
 while(1) {
@@ -210,6 +210,7 @@ while(1) {
 \subsubsection{Ergebnisse}
 Nach einer Anzahl von \textbf{8192} Einträgen in einer Pipe beendet die DOCA Flow runtime mit einem Fehler. Dazu sei erwähnt, dass die Runtime bereits nach dem hinzufügen abstürzt, also insbesondere vor dem eigentlichen Prozessaufruf.
 \subsection{hash\_pipe}
+<<<<<<< HEAD
 Die Hash Pipe ist eine der größten Neuerungen und somit auch ein Kernarbeitsziel dieses Projekts gewesen. Wie in Abschnitt 2.1.2 beschrieben, ermöglicht sie es, einen implizit ausgeführten Hashing Algorithmus auf die Netzwerkpakete anzuwenden. Somit werden die Pakete gleichmäßig auf die entsprechenden Entries verteilt. Außerdem wurde in diesem Zuge auch die Möglichkeit implementiert, dynamisch zur Laufzeit Backends hinzuzufügen und zu löschen. Dadurch ist eine genauere Anpassung des Loadbalancers in einer realen Einsatzsituation möglich, da bisher eine Änderung der Backends einen Neustart des Programms erfordern würde. Da dies mit entsprechendem Paketverlust einhergehen würde, war dieses Feature zu beginn des Praktikums im Fokus. Die Backends werden mittels einer REST-API auf dem Port 8080 hinzugefügt. Es kann mit jedem API-Call jeweils eine gerade Anzahl von Backends hinzugefügt werden, sodass die neue Anzahl an Backends wieder einer 2er Potenz ergibt. Im folgenden Code ist die entsprechende Funktion zum dynamischen hinzufügen eines Backends gegeben. Es sei dazu erwähnt, dass es sich um eine stark gekürzte Variante handelt. Die vollständige Version ist im Projekt Github-Repository einzusehen.
 \begin{minted}{c}
 doca_error_t xenoflow_add_backend(XenoFlow *xeno, char *name, char *mac) {
@@ -245,6 +246,11 @@ Die vorliegende Implementierung ermöglicht nun das vollständige und verlustfre
 Eine der komplexesten Anforderungen für einen Loadbalancer wie XenoFlow, der auf L3 agiert, ist es, die Konsistenz des Kontexts der Backends für TCP-Verbindungen zu wahren. TCP Verbindungen sind stateful und ermöglichen so, zwischen Client und Server einen Kontext zu etablieren, der komplexere Anwendungen ermöglicht. Dies ist für einen Loadbalancer dringend zu beachten, da sonst zwei Pakete des gleichen Kontextes an unterschiedliche Backends weitergeleitet werden. Somit wäre die Konsistenz gebrochen und die Kontextsicherheit zerstört. Daher ist es notwendig, sicherzustellen, ob Hash Pipes wirklich nur auf den angegebenen Feldern den Hashing Algorithmus anwenden oder auch implizit andere Felder wie timestamps oder ähnliches mit einbeziehen, die die Hash Funktion negativ beeinflussen würden. Um dies zu testen, wurde ein Python Skript entwickelt, welches bestimmte Felder variiert und mittels einer eindeutigen Paketzuordnung zeigt, wie sich das Hashing verhält.
 \subsubsection{Ergebnisse}
 Es konnte gezeigt werden, dass in der Tat lediglich die per Match Definition bestimmten Bitfelder in die Hash Berechnung einfließen. Das bedeutet, dass zwei Pakete mit entsprechend gleicher Signatur garantiert beim gleichen Backend landen werden. Diese Tatsache legt eine wichtige Grundlage für die spätere Implementierung fest da dieser Fakt benötigt wird um die Bucket Semantik abzubilden.
+=======
+\subsubsection{Ergebnisse}
+\subsection{PCC}
+\subsubsection{Ergebnisse}
+>>>>>>> 7e5cb86f4968c8e829ba05c28326cea892ff433b
 \subsection{entry\_latency}
 \subsubsection{Ergebnisse}
 \section{Sonstiges}
