@@ -11,6 +11,7 @@
 \usepackage{sectsty} % Allows customizing section commands
 \allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
 \usepackage{minted}
+\usepackage{caption}
 \usepackage{graphicx}
 \usepackage{fancyhdr} % Custom headers and footers
 \pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
@@ -107,7 +108,18 @@ XenoFlow war in seiner ursprünglichen 0.1 Fassung ein L3-Loadbalancer, der anha
 Wie in Abbildung 3.2 zu erkennen ist, war es möglich, eine Last von ca. 100 Gbit/s zu verarbeiten. Allerdings war dies nur bei einer Paketgröße von 128 Bytes möglich. Bei kleineren Paketen stellte sich als absolute Grenze der Verarbeitungsgeschwindigkeit in Paketen pro Sekunde 98 Millionen Pakete pro Sekunde bei einer Größe von weniger als 64 Byte und analog 95 Millionen Pakete pro Sekunde bei einer Größe von mehr als 64 Byte heraus. Diese abrupte Änderung ist in Abbildung 3.2 als \textit{Sudden Drop} betitelt. Wird der Schwellwert überschritten, so werden alle weiteren Pakete, wie in Abbildung 3.3 zu erkennen ist, gedroppt. Die Pakete kommen also noch auf dem Hardwareport der SmartNIC an, werden aber nicht mehr von der Verarbeitungspipeline erfasst und gehen an unbekannter Stelle verloren. Der Anstieg des entstehenden Paketloss ist fast linear, und es lässt sich somit davon ausgehen, dass das begrenzende Bottleneck die Taktung einer der verarbeitenden ASICs oder FPGAs ist. Zudem wurden Experimente zum Einfluss der Verarbeitung auf die Round-Trip-Time-Latenz durchgeführt, die gezeigt haben, dass es keinen messbaren Einfluss auf die Verarbeitungsgeschwindigkeit und Bandbreite gab. Dies war insbesondere auch unabhängig von der auf die Netzwerkkarten einwirkenden Last, da zusätzlich zu den Messpaketen auch eine künstliche Basislast erzeugt wurde, die ebenfalls auf den Loadbalancer gerichtet war.
 \newpage
 \section{Experimente}
+Im folgenden werden nun die Konkreten Experimente beschrieben, anhand derer die Kennzahlen der BlueField ermittelt werden sollen. Ziel ist es, implizite und unbekannte Grenzwerte der Hardware zu ermitteln. Hintergrund ist es, eine Basis zu schaffen, auf der Entscheidungen hinsichtlich einer möglichen Implementierung von Anwendungen getroffen werden können. So kann beispielsweise die maximal mögliche Durchsatzrate zwischen zwei Hardwareports extrem relevant dafür sein, wo genau in der Topologie die BlueField eingesetzt wird. Alle folgenden Experimente wurden auf dem FIPS-Cluster des Lehrstuhls \textit{Betriebssysteme und Rechnernetze} von Prof. Dr. Bettina Schnor ausgeführt. Dabei war im Großen und Ganzen folgende Rechnerumgebung eingerichtet:
+\begin{itemize}
+    \item fips1 - Startknoten für besondere Pakete \textit{Intel Xeon Silver 4314, 128 GB RAM}
+    \item fips2 - Endknoten (Sink) mit Paket-Timestamperfassung \textit{Intel Xeon Silver 4314, 128 GB RAM}
+    \item fips3 - Endknoten (Sink) \textit{Intel Xeon Silver 4314, 128 GB RAM}
+    \item fips4 - Lastgenerator mittels T-Rex \textit{Intel Xeon Silver 4314, 128 GB RAM}
+    \item fips5 - Messknoten mit BlueField-3 NIC \textit{Intel Xeon Silver 4514Y, 128 GB RAM, ARM Cortex A78, 32 GB RAM}
+\end{itemize}
+
 \subsection{ebpf\_mac\_rewrite}
+Die Motivation dieses Experiments ist es, einen sinnvollen Vergleichswert zu den gemessenen Bandbreiten der BlueField-3 zu bestimmen. Dazu wurde das aktuelle Framework der eBPF Implementierung des Linuxkerns gewählt. eBPF erlaubt es, eigenständig implementierte Funktionen an Events aus dem Kernelspace zu hooken und somit asynchron auf Signale aus dem Kernel reagieren zu können. Dieses Vorgehen erlaubt es, extrem effizient und Latenzarm auf ein Ereignis zu reagieren, da die Anwendungen tatsächlich im Kernelspace ausgeführt werden können. Dabei wird das Express Data Path (XDP) aus eBPF verwendet. XDP erlaubt es, große Teile des Linux Netzwerkstacks zu umgehen und direkt in der Anwendung zu verarbeiten. Dies dient abermals der Effizienzsteigerung und Latenzverringerung. In Listing 1 wird ein eBPF Programm beschrieben, welches die Ziel-MAC-Adresse eines eingehenden Pakets ändert. Damit soll die Action des XenoFlow Loadbalancers simuliert werden, die die tatsächliche Änderung der Ziel-MAC vornimmt. Dazu sei erwähnt, dass das entsprechende Matching, also die Auswahl des Pakets aus dem Datenstrom, hier nicht implementiert wird. Der Vergleich ist somit ein best-case im Vergleich zu XenoFlow, da wesentlich weniger Overhead aufkommt. Zusätzlich wurde im gleichen Stil ein weiteres Programm für die ConnectX-7 implementiert, um den genannten Matching Overhead auszuschließen. Bei besagtem Programm wird ebenfalls lediglich die Ziel-MAC-Adresse, ohne Matching, geändert. Grundsätzlich wird in diesem Experiment die Laufzeit zwischen dem Senden eines Pakets von fips1 über den entsprechenden Action Host (also entweder BlueField oder eBPF Host) weitergeleitet zu einem Backend. Wird der Sende-Zeitstempel von dem Empfangs-Zeitstempel abgezogen, so bildet dies die Round-Trip-Time. \newpage
+\label{code:ebpf-code}
 \begin{minted}{c}
 SEC("xdp")
 int xdp_mac_rewrite(struct xdp_md *ctx)
@@ -154,14 +166,99 @@ int xdp_mac_rewrite(struct xdp_md *ctx)
     return XDP_TX;
 }
 \end{minted}
+\subsubsection{Ergebnisse}
+\label{experiment:rtt}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/rtt.pdf}
+    \caption{Round-Trip-Time Vergleich}
+    \label{fig:placeholder}
+\end{figure}
+Wie in Abbildung 4.1 zu sehen ist, ist die RTT eines vergleichbaren eBPF-Programms \textbf{wesentlich größer} als die von XenoFlow. Außerdem ist zu beachten, dass das verwenden eines Matches ebenfalls mit signifikanten Leistungseinbußen einhergeht, da die Flow Baseline noch einmal besser performt als der XenoFlow Loadbalancer. 
 \subsection{max\_pipes}
+Im max\_pipes Experiment wird untersucht, wie viele Pipes in DOCA Flow von einer Anwendung aus angelegt werden können. Da eine Pipe ein Template darstellt, kann man davon ausgehen, dass die gemessene Anzahl maximaler Pipes pro Anwendung aussagt, wie viele unterscheidbare Templates der zugrunde liegenden Templating-Engine angelegt werden können. Im folgenden Code wird versucht, unbegrenzt viele Pipes anzulegen. Ziel ist es herauszufinden, wann die Laufzeit abstürzt und ob das Ergebnis reproduzierbar ist. 
+\newpage
+\begin{minted}{c}
+while(1) {
+    doca_try(
+        create_root_pipe(ports[0], 0, DOCA_FLOW_L4_TYPE_EXT_UDP, &udp_pipe), 
+        "Failed to create pipe", nb_ports, ports
+    );
+
+    DOCA_LOG_INFO("Added nr %i", nr_pipe);
+    nr_pipe++;
+}
+\end{minted}
+\subsubsection{Ergebnisse}
+Ab einer Anzahl von \textbf{505} Pipes beendet die DOCA Flow runtime mit einem Error Code. Das Experiment wurde dreimal durchgeführt, und das Ergebnis konnte jedes mal reproduziert werden.
 \subsection{max\_entries}
+Im max\_entries Experiment wurde sehr ähnlich zum max\_pipes Experiment einfach so lange das entsprechende Entry erzeugt, bis es zu einem Laufzeitfehler kam. Es wurden die Entries zu einer einzigen Pipe hinzugefügt, sodass der ermittelte Wert als maximale Anzahl an Entries pro Pipe angesehen werden kann. Zusätzlich müssen die hinzugefügten Entries noch verarbeitet werden. Dies geschieht ebenfalls mit einer intrinsischen Funktion, wie im folgenden Code zu sehen ist:
+\begin{minted}{c}
+while(1) {
+    result = doca_flow_pipe_add_entry(
+        0, udp_pipe, &match, &actions, &monitor, 
+        DOCA_FLOW_NO_WAIT, 0, &status, &entry
+    );
+    result = doca_flow_entries_process(
+        ports[0], 0, DEFAULT_TIMEOUT_US, 
+        num_of_entries
+    );
+    nr_entry += 1;
+    DOCA_LOG_INFO("Added nr %i", nr_entry);
+}
+\end{minted}
+\subsubsection{Ergebnisse}
+Nach einer Anzahl von \textbf{8192} Einträgen in einer Pipe beendet die DOCA Flow runtime mit einem Fehler. Dazu sei erwähnt, dass die Runtime bereits nach dem hinzufügen abstürzt, also insbesondere vor dem eigentlichen Prozessaufruf.
 \subsection{hash\_pipe}
-\subsection{pcc}
+Die Hash Pipe ist eine der größten Neuerungen und somit auch ein Kernarbeitsziel dieses Projekts gewesen. Wie in Abschnitt 2.1.2 beschrieben, ermöglicht sie es, einen implizit ausgeführten Hashing Algorithmus auf die Netzwerkpakete anzuwenden. Somit werden die Pakete gleichmäßig auf die entsprechenden Entries verteilt. Außerdem wurde in diesem Zuge auch die Möglichkeit implementiert, dynamisch zur Laufzeit Backends hinzuzufügen und zu löschen. Dadurch ist eine genauere Anpassung des Loadbalancers in einer realen Einsatzsituation möglich, da bisher eine Änderung der Backends einen Neustart des Programms erfordern würde. Da dies mit entsprechendem Paketverlust einhergehen würde, war dieses Feature zu beginn des Praktikums im Fokus. Die Backends werden mittels einer REST-API auf dem Port 8080 hinzugefügt. Es kann mit jedem API-Call jeweils eine gerade Anzahl von Backends hinzugefügt werden, sodass die neue Anzahl an Backends wieder einer 2er Potenz ergibt. Im folgenden Code ist die entsprechende Funktion zum dynamischen hinzufügen eines Backends gegeben. Es sei dazu erwähnt, dass es sich um eine stark gekürzte Variante handelt. Die vollständige Version ist im Projekt Github-Repository einzusehen.
+\begin{minted}{c}
+doca_error_t xenoflow_add_backend(XenoFlow *xeno, char *name, char *mac) {
+	int entry_index = xeno->config->numBackends;
+
+	XenoFlowBackend *new_backend = createBackend(name, mac);
+	doca_error_t result;
+
+	SET_MAC_ADDR(actions.outer.eth.dst_mac,
+            new_backend->mac_address[0], 
+            new_backend->mac_address[1], 
+            new_backend->mac_address[2],
+            new_backend->mac_address[3], 
+            new_backend->mac_address[4], 
+            new_backend->mac_address[5]
+        );
+
+	fwd.type = DOCA_FLOW_FWD_PORT;
+	fwd.port_id = 0;
+
+	result = doca_flow_pipe_hash_add_entry(/* Entry Argumente */);
+
+	result = doca_flow_entries_process(
+            xeno->ports[0], 0, DEFAULT_TIMEOUT_US, 1
+        );
+    
+	configAddBackend(xeno->config, new_backend);
+}
+\end{minted}
+\subsubsection{Ergebnisse}
+Die vorliegende Implementierung ermöglicht nun das vollständige und verlustfreie Hinzufügen von Backends, ohne Auftreten von Paketverlusten. Damit rückt XenoFlow einem produktionsreifen Systementwurf in signifikanter Weise näher. Die Funktionsweise wurde mittels einer eigenen Testumgebung überprüft. Das entsprechende Python Skript liegt ebenfalls im Projekt Repository vor.
+\subsection{PCC}
+Eine der komplexesten Anforderungen für einen Loadbalancer wie XenoFlow, der auf L3 agiert, ist es, die Konsistenz des Kontexts der Backends für TCP-Verbindungen zu wahren. TCP Verbindungen sind stateful und ermöglichen so, zwischen Client und Server einen Kontext zu etablieren, der komplexere Anwendungen ermöglicht. Dies ist für einen Loadbalancer dringend zu beachten, da sonst zwei Pakete des gleichen Kontextes an unterschiedliche Backends weitergeleitet werden. Somit wäre die Konsistenz gebrochen und die Kontextsicherheit zerstört. Daher ist es notwendig, sicherzustellen, ob Hash Pipes wirklich nur auf den angegebenen Feldern den Hashing Algorithmus anwenden oder auch implizit andere Felder wie timestamps oder ähnliches mit einbeziehen, die die Hash Funktion negativ beeinflussen würden. Um dies zu testen, wurde ein Python Skript entwickelt, welches bestimmte Felder variiert und mittels einer eindeutigen Paketzuordnung zeigt, wie sich das Hashing verhält.
+\subsubsection{Ergebnisse}
+Es konnte gezeigt werden, dass in der Tat lediglich die per Match Definition bestimmten Bitfelder in die Hash Berechnung einfließen. Das bedeutet, dass zwei Pakete mit entsprechend gleicher Signatur garantiert beim gleichen Backend landen werden. Diese Tatsache legt eine wichtige Grundlage für die spätere Implementierung fest da dieser Fakt benötigt wird um die Bucket Semantik abzubilden.
 \subsection{entry\_latency}
+\subsubsection{Ergebnisse}
 \section{Sonstiges}
+\subsection{PyDFlow}
+\subsection{Dashboard}
 \section{Fazit}
 \section{Ausblick}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/Untitled.png}
+    \caption{Bucket Semantik des Katran Loadbalancers}
+    \label{fig:placeholder}
+\end{figure}
+Hierzu sei erwähnt, dass zum jetzigen Zeitpunkt noch keine Bucket Semantik wie aus dem Katran Load Balancer von Facebook implementiert wurde. Die Idee ist es, zu ermöglichen, dass eine Anzahl von Backends, die nicht einer Zweierpotenz entspricht, abgebildet werden kann. Dabei wird, statt dass jedes Entry direkt auf ein Backend zeigt, eine feste Anzahl von Entries erstellt (Buckets). Die eigentliche Zuordnung, welches Bucket auf welches Backend zeigt, bleibt dann dem Programm überlassen. DIes ermöglicht es beispielsweise, einen 8 Bucket Zustand auch mit 3 Backends zu unterstützen.
 
 
 
