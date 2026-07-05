@@ -3,7 +3,8 @@ from requests import get
 from threading import Thread, Event
 
 previous_data = None
-data = {"packets_per_second": 0, "traffic_series": [], "num_backends": 0}
+system_online = False
+data = {"packets_per_second": 0, "traffic_series": [], "num_backends": 0, "system_online": False}
 
 class DataGatherer(Thread):
 	def __init__(self, event):
@@ -11,10 +12,10 @@ class DataGatherer(Thread):
 		self.stopped = event
 
 	def run(self):
-		global previous_data, data
+		global previous_data, data, system_online
 		while not self.stopped.wait(5):
 			try:
-				response = get("http://localhost:8080/api")
+				response = get("http://localhost:8081/api")
 				response.raise_for_status()
 				#print(f"Fetched data: {response.json()}")
 
@@ -31,10 +32,14 @@ class DataGatherer(Thread):
 						data["traffic_series"].pop(0)
 					data["num_backends"] = len(response.json().get("backends", []))
 					previous_data = response.json()
-
+				
+				system_online = True
+				data["system_online"] = True
 				
 			except Exception as e:
 				print(f"Error fetching data: {e}")
+				system_online = False
+				data["system_online"] = False
 
 
 

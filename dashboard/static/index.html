@@ -116,7 +116,7 @@
 
 			canvas {
 				width: 100%;
-				height: 300px;
+				height: 340px;
 				display: block;
 			}
 
@@ -175,7 +175,7 @@
 
 				<article class="card chart">
 					<h2>Traffic Trend</h2>
-					<canvas id="traffic-chart" width="800" height="260"></canvas>
+					<canvas id="traffic-chart" width="1100" height="340"></canvas>
 				</article>
 			</section>
 		</main>
@@ -200,8 +200,9 @@
 			}
 
 			function drawChart(points) {
-				const { width, height } = chartCanvas;
-				chartCtx.clearRect(0, 0, width, height);
+				const width = chartCanvas.width;
+				const height = chartCanvas.height - 40; // Reserve space for labels
+				chartCtx.clearRect(0, 0, chartCanvas.width, chartCanvas.height);
 
 				chartCtx.strokeStyle = "rgba(167, 201, 226, 0.22)";
 				chartCtx.lineWidth = 1;
@@ -240,16 +241,15 @@
 				chartCtx.fill();
 
 				// Draw time axis labels
-				chartCtx.fillStyle = "var(--text-muted)";
+				chartCtx.fillStyle = "rgba(107, 114, 128, 0.8)";
 				chartCtx.font = "12px Inter, sans-serif";
 				chartCtx.textAlign = "center";
-				chartCtx.fillStyle = "rgba(107, 114, 128, 0.8)";
 				const timeLabels = 6;
 				for (let i = 0; i < timeLabels; i++) {
 					const x = (width / (timeLabels - 1)) * i;
 					const hoursAgo = points.length - 1 - Math.round((i / (timeLabels - 1)) * (points.length - 1));
 					const label = hoursAgo === 0 ? "now" : `-${hoursAgo}h`;
-					chartCtx.fillText(label, x, height + 15);
+					chartCtx.fillText(label, x, height + 25);
 				}
 			}
 
@@ -263,6 +263,8 @@
 
 					const metrics = await metricsResp.json();
 
+				// Check if the actual XenoFlow system is online
+				if (metrics.system_online === true) {
 					stateEl.textContent = "System: Online";
 					backendsEl.textContent = formatInt(metrics.num_backends);
 					ppsEl.textContent = `${formatInt(metrics.packets_per_second)} pps`;
@@ -273,6 +275,10 @@
 						? metrics.traffic_series.slice(-24)
 						: chartPoints;
 					drawChart(chartPoints);
+				} else {
+					// System offline, switch to demo mode
+					throw new Error("System offline");
+				}
 				} catch (_) {
 					// Frontend-only fallback so the UI still works without a backend.
 					stateEl.textContent = "System: Demo Mode";
