@@ -295,11 +295,7 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
 	int nr_entry = 0;
 
   	while(1) {
-		if (nr_entry == 8200) {
-			break;
-		}
 		struct timespec ts;
-		int random_delay = (rand() % 1000) + 1;
 		clock_gettime(CLOCK_REALTIME, &ts);
 
 		struct tm tm;
@@ -319,11 +315,9 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
 		}
 		nr_entry += 1;
 		DOCA_LOG_INFO("Added nr %i", nr_entry);
-		//usleep(statRefreshIntervall + random_delay);
 		clock_gettime(CLOCK_REALTIME, &ts);
 		localtime_r(&ts.tv_sec, &tm);
 
-		//usleep(statRefreshIntervall);
 		#ifdef CLEAR
 		system("clear");
 		#endif

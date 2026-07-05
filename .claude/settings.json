@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"DOCA_FLOW_PIPE_BASIC\\\\|DOCA_FLOW_PIPE_CONTROL\\\\|DOCA_FLOW_PIPE_LPM\\\\|DOCA_FLOW_PIPE_CT\\\\|DOCA_FLOW_PIPE_ACL\\\\|DOCA_FLOW_PIPE_ORDERED_LIST\\\\|DOCA_FLOW_PIPE_HASH\" /opt/mellanox/doca/include/doca_flow.h | head -100)",
+      "Read(//opt/mellanox/doca/include/**)",
+      "Bash(grep -n \"pipe_type\\\\|PIPE_BASIC\\\\|PIPE_CONTROL\\\\|PIPE_LPM\\\\|PIPE_CT\\\\|PIPE_ACL\\\\|PIPE_ORDERED_LIST\\\\|PIPE_HASH\\\\b\" /opt/mellanox/doca/include/doca_flow.h | grep -v HASH_MAP)"
+    ]
+  }
+}

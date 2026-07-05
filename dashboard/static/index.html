@@ -116,7 +116,7 @@
 
 			canvas {
 				width: 100%;
-				height: 260px;
+				height: 300px;
 				display: block;
 			}
 
@@ -238,6 +238,19 @@
 				gradient.addColorStop(1, "rgba(56, 197, 243, 0)");
 				chartCtx.fillStyle = gradient;
 				chartCtx.fill();
+
+				// Draw time axis labels
+				chartCtx.fillStyle = "var(--text-muted)";
+				chartCtx.font = "12px Inter, sans-serif";
+				chartCtx.textAlign = "center";
+				chartCtx.fillStyle = "rgba(107, 114, 128, 0.8)";
+				const timeLabels = 6;
+				for (let i = 0; i < timeLabels; i++) {
+					const x = (width / (timeLabels - 1)) * i;
+					const hoursAgo = points.length - 1 - Math.round((i / (timeLabels - 1)) * (points.length - 1));
+					const label = hoursAgo === 0 ? "now" : `-${hoursAgo}h`;
+					chartCtx.fillText(label, x, height + 15);
+				}
 			}
 
 			async function loadData() {

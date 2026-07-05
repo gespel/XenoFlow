@@ -294,9 +294,6 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
   	while(1) {
 		doca_try(create_root_pipe(ports[0], 0, DOCA_FLOW_L4_TYPE_EXT_UDP, &udp_pipe), "Failed to create pipe", nb_ports, ports);
 
-		/*if (nr_entry == 8200) {
-			break;
-		}*/
 		struct timespec ts;
 		clock_gettime(CLOCK_REALTIME, &ts);
 
@@ -306,11 +303,11 @@ doca_error_t xeno_flow_entry_latency(int nb_queues)
 		DOCA_LOG_INFO("Adding pipe at: %02d:%02d:%02d.%09ld", tm.tm_hour, tm.tm_min, tm.tm_sec, ts.tv_nsec);
 
 		DOCA_LOG_INFO("Added nr %i", nr_pipe);
-		//usleep(statRefreshIntervall + random_delay);
+
 		clock_gettime(CLOCK_REALTIME, &ts);
 		localtime_r(&ts.tv_sec, &tm);
 
-		//usleep(statRefreshIntervall);
+
 		#ifdef CLEAR
 		system("clear");
 		#endif
